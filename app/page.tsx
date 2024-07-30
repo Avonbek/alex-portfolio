@@ -1,5 +1,5 @@
-import NavBar from "@/components/nav-bar";
-import ParallaxContent from "@/components/parallax-content";
+import NavBar from "@/components/custom/nav-bar";
+import ParallaxContent from "@/components/custom/parallax-content";
 
 export default function Home() {
   return (

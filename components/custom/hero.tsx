@@ -55,14 +55,14 @@ export default function Hero() {
         </h2>
       </div>
 
-      <motion.div
+      {/* <motion.div
         initial={{ y: 40, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, delay: 1.6 }}
         className="down-arrow-footer"
-      >
-        <HiArrowLongDown size={50} />
-      </motion.div>
+      > */}
+      <HiArrowLongDown size={50} />
+      {/* </motion.div> */}
     </ParallaxLayer>
   );
 }

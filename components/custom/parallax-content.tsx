@@ -1,7 +1,7 @@
 "use client";
 
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
-import Hero from "@/components/hero";
+import Hero from "@/components/custom/hero";
 import Skills from "./skills";
 
 export default function ParallaxContent() {
