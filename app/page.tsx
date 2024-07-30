@@ -1,11 +1,13 @@
-import Hero from "@/components/hero";
 import NavBar from "@/components/nav-bar";
+import ParallaxContent from "@/components/parallax-content";
 
 export default function Home() {
   return (
-    <main className="main relative">
+    <main>
       <NavBar />
-      <Hero />
+      <div className="flex flex-col h-[100dvh] w-[100dvw]">
+        <ParallaxContent />
+      </div>
     </main>
   );
 }

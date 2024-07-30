@@ -13,8 +13,9 @@ const NavBar: React.FC<NavBarProps> = () => {
       transition={{ duration: 0.8, delay: 0.8 }}
       className="nav"
     >
-      <button className="nav__button">Home</button>
-      <button className="nav__button">Skills</button>
+      <button className="nav-button">Home</button>
+      <button className="nav-button">Skills</button>
+      <button className="nav-button">Projects</button>
     </motion.nav>
   );
 };
