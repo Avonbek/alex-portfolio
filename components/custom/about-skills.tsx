@@ -1,4 +1,4 @@
-export default function Skills() {
+export default function AboutSkills() {
   return (
     <div className="section-content">
       <h2>Skill 1</h2>

@@ -1,22 +1,25 @@
+"use client";
+
 import NavBar from "@/components/custom/nav-bar";
 import ParallaxContent from "@/components/custom/parallax-content";
 import { CustomBackgroundGradient } from "@/components/custom/custom-background-gradient";
-import { BackgroundGradientAnimation } from "@/components/ui/background-gradient-animation";
+import { useRef } from "react";
+import { IParallax } from "@react-spring/parallax";
 
 export default function Home() {
+  const parallaxRef = useRef<IParallax>(null);
   return (
     <main>
-      {/* <BackgroundGradientAnimation
-        interactive={false}
-        className="fixed inset-0 z-0"
-      /> */}
       <CustomBackgroundGradient
         interactive={false}
+        gradientBackgroundStart=""
+        gradientBackgroundEnd=""
         className="fixed inset-0 z-0"
+        containerClassName="opacity-80"
       />
-      <NavBar />
+      <NavBar pRef={parallaxRef} />
       <div className="absolute flex flex-col h-[100dvh] w-[100dvw]">
-        <ParallaxContent />
+        <ParallaxContent pRef={parallaxRef} />
       </div>
     </main>
   );
