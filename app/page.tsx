@@ -12,8 +12,10 @@ export default function Home() {
     <main>
       <CustomBackgroundGradient
         interactive={false}
-        gradientBackgroundStart=""
-        gradientBackgroundEnd=""
+        // gradientBackgroundStart=""
+        // gradientBackgroundEnd=""
+        gradientBackgroundStart="rgb(108, 0, 162)"
+        gradientBackgroundEnd="rgb(0, 17, 82)"
         className="fixed inset-0 z-0"
         containerClassName="opacity-80"
       />

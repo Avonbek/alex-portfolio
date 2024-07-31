@@ -63,6 +63,12 @@
 
 /* --- TAGS --- */
 
+/* html {
+  scroll-snap-type: mandatory;
+
+
+} */
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(to bottom, var(--black), var(--background));
@@ -108,6 +114,9 @@ section {
   width: 100%;
   height: 100dvh;
   z-index: 10;
+
+  /* snap to this */
+  /* scroll-snap-align: start; */
 }
 
 /* --- NAV --- */
@@ -156,7 +165,7 @@ section {
   text-align: center;
   border-radius: 10px;
 
-  /* border: 1px solid var(--muted-text); */
+  border: 1px solid var(--muted-text);
 }
 
 .section-content {
@@ -171,7 +180,7 @@ section {
   text-align: center;
   border-radius: 10px;
 
-  /* border: 1px solid var(--muted-text); */
+  border: 1px solid var(--muted-text);
 }
 
 .parallax {
