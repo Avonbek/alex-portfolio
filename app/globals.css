@@ -165,7 +165,7 @@ section {
   text-align: center;
   border-radius: 10px;
 
-  border: 1px solid var(--muted-text);
+  /* border: 1px solid var(--muted-text); */
 }
 
 .section-content {
@@ -180,7 +180,7 @@ section {
   text-align: center;
   border-radius: 10px;
 
-  border: 1px solid var(--muted-text);
+  /* border: 1px solid var(--muted-text); */
 }
 
 .parallax {
