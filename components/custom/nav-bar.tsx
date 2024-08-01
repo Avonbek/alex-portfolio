@@ -18,16 +18,10 @@ const NavBar: React.FC<NavBarProps> = ({ pRef }) => {
       <button onClick={() => pRef.current.scrollTo(0)} className="nav-button">
         Home
       </button>
-      <button
-        onClick={() => pRef.current.scrollTo(1.405)}
-        className="nav-button"
-      >
+      <button onClick={() => pRef.current.scrollTo(1)} className="nav-button">
         About
       </button>
-      <button
-        onClick={() => pRef.current.scrollTo(4.333)}
-        className="nav-button"
-      >
+      <button onClick={() => pRef.current.scrollTo(4)} className="nav-button">
         Projects
       </button>
     </motion.nav>

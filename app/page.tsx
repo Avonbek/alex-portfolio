@@ -19,10 +19,10 @@ export default function Home() {
         className="fixed inset-0 z-0"
         containerClassName="opacity-80"
       />
+
       <NavBar pRef={parallaxRef} />
-      <div className="absolute flex flex-col h-[100dvh] w-[100dvw]">
-        <ParallaxContent pRef={parallaxRef} />
-      </div>
+
+      <ParallaxContent pRef={parallaxRef} />
     </main>
   );
 }

@@ -1,16 +1,12 @@
 "use client";
 
-import { ParallaxLayer } from "@react-spring/parallax";
 import { motion } from "framer-motion";
+import { Fragment } from "react";
 import { HiArrowLongDown } from "react-icons/hi2";
 
 export default function Hero() {
   return (
-    <ParallaxLayer
-      offset={0}
-      speed={0.5}
-      className="flex flex-col justify-center items-center"
-    >
+    <Fragment>
       {/* First Last Name */}
       <div className="hero">
         <h1>
@@ -63,6 +59,6 @@ export default function Hero() {
       >
         <HiArrowLongDown size={50} />
       </motion.div>
-    </ParallaxLayer>
+    </Fragment>
   );
 }
