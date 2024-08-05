@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function About() {
   return (
-    <div className="section-title">
+    <>
       <Image
         src="/me-and-mabel-edited.png"
         alt="Picture of the author and his cat Mable"
@@ -15,9 +15,9 @@ export default function About() {
         <h3>
           I'm a software engineer and full stack developer. <br /> I specialize
           in web-development, and have a passion for creating applications that
-          leverage generative AI.
+          incorporate AI.
         </h3>
       </div>
-    </div>
+    </>
   );
 }
