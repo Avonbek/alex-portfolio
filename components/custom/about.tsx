@@ -1,8 +1,9 @@
 import Image from "next/image";
+import { Fragment } from "react";
 
 export default function About() {
   return (
-    <>
+    <Fragment>
       <Image
         src="/me-and-mabel-edited.png"
         alt="Picture of the author and his cat Mable"
@@ -11,13 +12,13 @@ export default function About() {
         className="rounded-full"
       />
       About Me
-      <div className="flex justify-center w-[50%] min-w-[30rem] max-w-[30rem] text-center p-4 rounded-lg">
+      <div className="about-description">
         <h3>
           I'm a software engineer and full stack developer. <br /> I specialize
           in web-development, and have a passion for creating applications that
           incorporate AI.
         </h3>
       </div>
-    </>
+    </Fragment>
   );
 }

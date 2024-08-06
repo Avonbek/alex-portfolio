@@ -75,10 +75,6 @@
 
 /* --- TAGS --- */
 
-/* html {
-  scroll-snap-type: mandatory;
-} */
-
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(to bottom, var(--black), var(--background));
@@ -125,38 +121,22 @@ main {
   align-items: center;
   justify-content: between;
   z-index: 10;
-
-  /* border: 1px solid var(--muted-text); */
-}
-
-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100dvh;
-  z-index: 10;
-
-  /* snap to this */
-  /* scroll-snap-align: start; */
 }
 
 /* --- SCROLLBAR --- */
 
-/* width */
 ::-webkit-scrollbar {
   width: 15px;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: var(--purple);
-  border: 1px solid var(--slate-700);
+  /* border: 1px solid var(--slate-700); */
   border-radius: 10px;
 }
 
-/* ---BACKGROUND GRADIENT */
+/* --- BACKGROUND GRADIENT --- */
+
 .background-gradient {
   position: fixed;
   top: 0;
@@ -189,19 +169,7 @@ section {
   color: var(--muted-text);
 }
 
-/* --- HERO --- */
-
-.hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  height: 90%;
-  width: 100%;
-}
-
-/* --- SECTIONS --- */
+/* --- SECTION --- */
 
 .section-title {
   display: flex;
@@ -213,8 +181,6 @@ section {
   height: 100%;
   text-align: center;
   border-radius: 10px;
-
-  /* border: 1px solid var(--muted-text); */
 }
 
 .section-content {
@@ -227,8 +193,6 @@ section {
   height: 100%;
   text-align: center;
   border-radius: 10px;
-
-  /* border: 1px solid var(--muted-text); */
 }
 
 .desktop-mode {
@@ -257,9 +221,6 @@ section {
 /* PARALLAX */
 
 .parallax-component {
-}
-
-.parallax-content {
   display: flex;
   position: absolute;
   flex-direction: column;
@@ -267,13 +228,86 @@ section {
   width: 100dvw;
 }
 
-.parallax {
-  margin-right: 15%;
+.parallax-scroll {
+  /* scroll logic helper */
 }
 
-.sticky {
-  margin-left: 15%;
-  background-color: #ff6d6d;
+.parallax-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.parallax-title {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+}
+
+.parallax-content {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+/* --- HERO --- */
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  height: 90%;
+  width: 100%;
+}
+
+/* ABOUT */
+
+.about-description {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 29rem;
+  padding: 4px;
+  margin-top: 0.5rem;
+  border-radius: 100px;
+}
+
+.about-skills {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 50%;
+  gap: 1rem;
+
+  /* border: 1px solid var(--muted-text); */
+}
+
+.skill-bar {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  width: 80%;
+  border-radius: 5px;
+  background: var(--slate-700);
+
+  /* border: 1px solid var(--slate-400); */
+}
+
+.skill-bar-fill {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  height: 100%;
+  padding: 0.5rem 1rem;
+
+  border-radius: 5px;
+  background: var(--purple);
 }
 
 /* --- DOWN ARROW FOOTER --- */
@@ -288,11 +322,13 @@ section {
   margin-top: auto;
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-}
+/* html {
+  scroll-snap-type: mandatory;
+} */
+
+/* TOOK FROM SECTION */
+/* snap to this */
+/* scroll-snap-align: start; */
 
 /* shadcn */
 /* .dark {
