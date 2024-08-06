@@ -8,7 +8,11 @@
   /* my colors */
   --white: #fafafa;
   --black: #000000;
+
+  --purple-800: #6b21a8;
+  --purple-900: #581c87;
   --purple: #3b0764;
+
   --slate-100: #f1f5f9;
   --slate-200: #e2e8f0;
   --slate-300: #cbd5e1;
@@ -160,9 +164,10 @@ main {
   height: 60px;
   padding: 2.5rem;
   padding-left: 2rem;
-  margin-right: 38px;
   font-size: 1.2rem;
   z-index: 100;
+
+  /* border: 1px solid var(--muted-text); */
 }
 
 .nav-button {
@@ -218,6 +223,132 @@ main {
   }
 }
 
+/* --- HERO --- */
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  height: 90%;
+  width: 100%;
+}
+
+/* ABOUT */
+
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* gap: 1rem; */
+  height: 66%;
+  width: 100%;
+
+  /* border: 1px solid var(--muted-text); */
+}
+
+.about-description {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 29rem;
+  padding: 4px;
+  margin-top: 0.5rem;
+  border-radius: 100px;
+}
+
+.about-skills {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  width: 100%;
+  height: 66%;
+  gap: 0.5rem;
+
+  /* border: 1px solid var(--muted-text); */
+}
+
+.about-ai-experience {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 66%;
+  width: 100%;
+  gap: 1rem;
+  padding: 0rem 1rem;
+
+  /* border: 1px solid var(--muted-text); */
+}
+
+.about-ai-experience-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: 700;
+  gap: 0.3rem;
+  color: var(--muted-text);
+}
+
+.about-experience-underline {
+  display: flex;
+  justify-content: center;
+  /* width: 50%; */
+  height: 1px;
+  background: var(--muted-text);
+}
+
+.skill-bar {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  width: 80%;
+  border-radius: 5px;
+  background: var(--slate-700);
+
+  /* border: 1px solid var(--slate-400); */
+}
+
+.skill-bar-fill {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  height: 100%;
+  /* padding: 0.5rem 1rem; */
+
+  border-radius: 5px;
+  background: var(--purple);
+}
+
+.skill-bar-name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 130px;
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  border-radius: 5px;
+  background: var(--purple-900);
+}
+
+/* --- DOWN ARROW FOOTER --- */
+
+.down-arrow-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 10%;
+  gap: 1rem;
+  margin-top: auto;
+}
+
 /* PARALLAX */
 
 .parallax-component {
@@ -250,76 +381,6 @@ main {
   display: flex;
   align-items: center;
   justify-content: end;
-}
-
-/* --- HERO --- */
-
-.hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  height: 90%;
-  width: 100%;
-}
-
-/* ABOUT */
-
-.about-description {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  width: 29rem;
-  padding: 4px;
-  margin-top: 0.5rem;
-  border-radius: 100px;
-}
-
-.about-skills {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 50%;
-  gap: 0.5rem;
-
-  /* border: 1px solid var(--muted-text); */
-}
-
-.skill-bar {
-  display: flex;
-  align-items: center;
-  justify-content: start;
-  width: 80%;
-  border-radius: 5px;
-  background: var(--slate-700);
-
-  /* border: 1px solid var(--slate-400); */
-}
-
-.skill-bar-fill {
-  display: flex;
-  align-items: center;
-  justify-content: start;
-  height: 100%;
-  padding: 0.5rem 1rem;
-
-  border-radius: 5px;
-  background: var(--purple);
-}
-
-/* --- DOWN ARROW FOOTER --- */
-
-.down-arrow-footer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 10%;
-  gap: 1rem;
-  margin-top: auto;
 }
 
 /* html {

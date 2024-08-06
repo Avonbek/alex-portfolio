@@ -2,9 +2,9 @@
 
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import Hero from "@/components/custom/hero";
-import AboutSkills from "./about-skills";
-import About from "./about";
-import AboutExperience from "./about-experience";
+import AboutSkills from "./about/about-skills";
+import About from "./about/about";
+import AboutExperience from "./about/about-experience";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
@@ -13,6 +13,7 @@ export default function ParallaxContent({ pRef }: { pRef: any }) {
   const slowSpeed = 0.5;
   const [visibility, setVisibility] = useState({
     aboutMe: false,
+    aboutExperience: false,
     projects: false,
   });
   const variants = {
@@ -40,6 +41,9 @@ export default function ParallaxContent({ pRef }: { pRef: any }) {
     if (pRef.current.current >= 700) {
       setVisibility((prev) => ({ ...prev, aboutMe: true }));
     }
+    if (pRef.current.current >= 2200) {
+      setVisibility((prev) => ({ ...prev, aboutExperience: true }));
+    }
     if (pRef.current.current >= 3700) {
       setVisibility((prev) => ({ ...prev, projects: true }));
     }
@@ -55,7 +59,7 @@ export default function ParallaxContent({ pRef }: { pRef: any }) {
         config={{
           tension: 210,
           friction: 20,
-          clamp: true,
+          clamp: false,
         }}
         className="parallax-scroll"
       >

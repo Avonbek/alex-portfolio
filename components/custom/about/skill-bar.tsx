@@ -19,13 +19,15 @@ export default function SkillBar({
         animate={visibility.aboutMe ? "visible" : "hiddenRight"}
         variants={{
           visible: { width: width },
-          hiddenRight: { width: 0 },
+          hiddenRight: { width: "130px" },
         }}
         initial="hiddenRight"
         transition={{ duration: 1, delay: delay }}
         className="skill-bar-fill"
       >
-        <h2 className="">{text}</h2>
+        <div className="skill-bar-name">
+          <h3 className="whitespace-nowrap">{text}</h3>
+        </div>
       </motion.div>
     </div>
   );

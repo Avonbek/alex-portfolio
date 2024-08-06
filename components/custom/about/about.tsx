@@ -1,9 +1,8 @@
 import Image from "next/image";
-import { Fragment } from "react";
 
 export default function About() {
   return (
-    <Fragment>
+    <div className="about">
       <Image
         src="/me-and-mabel-edited.png"
         alt="Picture of the author and his cat Mable"
@@ -19,6 +18,6 @@ export default function About() {
           incorporate AI.
         </h3>
       </div>
-    </Fragment>
+    </div>
   );
 }
