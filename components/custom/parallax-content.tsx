@@ -79,7 +79,7 @@ export default function ParallaxContent({ pRef }: { pRef: any }) {
           </motion.section>
         </ParallaxLayer>
         {/* mobile */}
-        <ParallaxLayer offset={1} speed={fastSpeed} className="parallax-title">
+        <ParallaxLayer offset={1} speed={slowSpeed} className="parallax-title">
           <motion.section
             animate={visibility.aboutMe ? "visible" : "hiddenMobile"}
             variants={variants}
@@ -107,7 +107,7 @@ export default function ParallaxContent({ pRef }: { pRef: any }) {
         {/* mobile */}
         <ParallaxLayer
           offset={2}
-          speed={fastSpeed}
+          speed={slowSpeed}
           className="parallax-content"
         >
           <motion.div
@@ -133,7 +133,7 @@ export default function ParallaxContent({ pRef }: { pRef: any }) {
         {/* AboutSkills mobile */}
         <ParallaxLayer
           offset={3}
-          speed={fastSpeed}
+          speed={slowSpeed}
           className="parallax-content"
         >
           <div className="section-content mobile-mode">
@@ -157,7 +157,7 @@ export default function ParallaxContent({ pRef }: { pRef: any }) {
           </motion.section>
         </ParallaxLayer>
         {/* Projects mobile */}
-        <ParallaxLayer offset={4} speed={fastSpeed} className="parallax-title">
+        <ParallaxLayer offset={4} speed={slowSpeed} className="parallax-title">
           <div className="section-title mobile-mode">Projects</div>
         </ParallaxLayer>
         {/* ------------------------------------------------- */}
@@ -181,7 +181,7 @@ export default function ParallaxContent({ pRef }: { pRef: any }) {
         {/* Projects -> 1 mobile */}
         <ParallaxLayer
           offset={5}
-          speed={fastSpeed}
+          speed={slowSpeed}
           className="parallax-content"
         >
           <div className="section-content mobile-mode">
