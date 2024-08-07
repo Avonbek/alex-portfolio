@@ -59,7 +59,7 @@ export default function ParallaxContent({ pRef }: { pRef: any }) {
         config={{
           tension: 210,
           friction: 20,
-          clamp: false,
+          clamp: true,
         }}
         className="parallax-scroll"
       >
@@ -70,7 +70,7 @@ export default function ParallaxContent({ pRef }: { pRef: any }) {
 
         {/* --- About --- */}
         <ParallaxLayer
-          sticky={{ start: 1, end: 3 }}
+          sticky={{ start: 1, end: 2.7 }}
           speed={slowSpeed}
           className="parallax-title"
         >
@@ -96,7 +96,7 @@ export default function ParallaxContent({ pRef }: { pRef: any }) {
 
         {/* --- About -> Skills --- */}
         <ParallaxLayer
-          sticky={{ start: 1, end: 1.5 }}
+          sticky={{ start: 1, end: 1.2 }}
           speed={fastSpeed}
           className="parallax-content"
         >
@@ -126,7 +126,7 @@ export default function ParallaxContent({ pRef }: { pRef: any }) {
 
         {/* About -> Experience */}
         <ParallaxLayer
-          sticky={{ start: 2.5, end: 3 }}
+          sticky={{ start: 2.5, end: 2.7 }}
           speed={fastSpeed}
           className="parallax-content"
         >

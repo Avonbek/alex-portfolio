@@ -12,7 +12,7 @@ const NavBar: React.FC<NavBarProps> = ({ pRef }) => {
     <motion.nav
       initial={{ y: -60 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.8, delay: 0.8 }}
+      transition={{ duration: 0.5, delay: 0.5 }}
       className="nav"
     >
       <button onClick={() => pRef.current.scrollTo(0)} className="nav-button">
