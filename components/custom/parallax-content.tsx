@@ -70,7 +70,7 @@ export default function ParallaxContent({ pRef }: { pRef: any }) {
 
         {/* --- About --- */}
         <ParallaxLayer
-          sticky={{ start: 1, end: 2.7 }}
+          sticky={{ start: 1, end: 2.8 }}
           speed={slowSpeed}
           className="parallax-title"
         >
@@ -96,7 +96,7 @@ export default function ParallaxContent({ pRef }: { pRef: any }) {
 
         {/* --- About -> Skills --- */}
         <ParallaxLayer
-          sticky={{ start: 1, end: 1.2 }}
+          sticky={{ start: 1, end: 1.3 }}
           speed={fastSpeed}
           className="parallax-content"
         >
@@ -126,7 +126,7 @@ export default function ParallaxContent({ pRef }: { pRef: any }) {
 
         {/* About -> Experience */}
         <ParallaxLayer
-          sticky={{ start: 2.5, end: 2.7 }}
+          sticky={{ start: 2.5, end: 2.8 }}
           speed={fastSpeed}
           className="parallax-content"
         >
