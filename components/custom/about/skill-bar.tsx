@@ -25,9 +25,7 @@ export default function SkillBar({
         transition={{ duration: 1, delay: delay }}
         className="skill-bar-fill"
       >
-        <div className="skill-bar-name">
-          <h3 className="whitespace-nowrap">{text}</h3>
-        </div>
+        <h3 className="skill-bar-name">{text}</h3>
       </motion.div>
     </div>
   );

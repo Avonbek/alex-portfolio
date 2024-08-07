@@ -9,14 +9,10 @@ import AiExperienceIcon from "./ai-experience-icon";
 export default function AboutExperience({ visibility }: any) {
   const [ref, { width }] = useMeasure();
   const titleProps = useSpring({
-    // opacity: visibility.aboutExperience ? 1 : 0,
     config: { tension: 200, friction: 50, duration: 500 },
   });
   const underlineProps = useSpring({
     opacity: visibility.aboutExperience ? 1 : 0,
-    // transform: visibility.aboutExperience
-    //   ? "translateX(0px)"
-    //   : "translateX(50px)",
     width: width,
     config: { duration: 500 },
   });
@@ -39,24 +35,21 @@ export default function AboutExperience({ visibility }: any) {
       </h2>
 
       {/* parent div */}
-      <animated.div
-        className="flex gap-8 w-full p-6 justify-center items-center"
-        style={iconProps}
-      >
+      <animated.div className="ai-experience-icon-parent" style={iconProps}>
         {/* icon section */}
         <AiExperienceIcon
-          icon={<TbListSearch size={80} />}
+          icon={<TbListSearch />}
           title="RAG"
           text="Whether you need a semantic search engine or an AI chat bot, I've got you covered."
         />
         <AiExperienceIcon
-          icon={<FiLink size={80} />}
-          title="Chain of Thought"
-          text="Familiar with multi-agent architectures and tools such as LangChain, AutoGen, etc."
+          icon={<FiLink />}
+          title="CoT"
+          text="Familiar with chain of thought architectures and tools such as LangChain, AutoGen, etc."
         />
         <AiExperienceIcon
-          icon={<LuBrainCircuit size={80} />}
-          title="Prompt Engineering"
+          icon={<LuBrainCircuit />}
+          title="Prompts"
           text="Extensive experience designing AI prompts across a variety of different models."
         />
       </animated.div>

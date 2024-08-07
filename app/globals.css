@@ -185,7 +185,7 @@ main {
 
 /* on hover button */
 .nav-button:hover {
-  color: var(--purple-700);
+  color: var(--slate-400);
   /* color: var(--slate-500); */
 }
 
@@ -215,8 +215,13 @@ main {
   border-radius: 10px;
 }
 
+.section-centered {
+  width: 100%;
+}
+
 .desktop-mode {
   display: flex;
+  margin: 0rem 4rem;
 }
 
 .mobile-mode {
@@ -281,6 +286,7 @@ main {
   justify-content: center;
   font-size: 2rem;
   width: 100%;
+  max-width: 800px;
   height: 66%;
   gap: 0.5rem;
 
@@ -309,6 +315,7 @@ main {
   font-weight: 700;
   gap: 0.3rem;
   color: var(--muted-text);
+  margin-bottom: 2rem;
 }
 
 .about-experience-underline {
@@ -317,6 +324,72 @@ main {
   width: full;
   height: 2px;
   background: var(--muted-text);
+}
+
+/* horizontal */
+.ai-experience-icon-parent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1400px;
+  /* padding: 6rem; */
+  gap: 4rem;
+
+  /* border: 1px solid var(--slate-400); */
+}
+
+/* vertical */
+.ai-experience-icon-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 25%;
+  gap: 0.7rem;
+
+  /* border: 1px solid var(--slate-400); */
+}
+
+.ai-experience-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 80px;
+
+  /* border: 1px solid var(--slate-400); */
+}
+
+.ai-experience-icon-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.ai-experience-icon-text {
+  width: 280px;
+  line-height: 1.4rem;
+}
+
+@media (max-width: 1000px) {
+  .ai-experience-icon-parent {
+    flex-wrap: wrap;
+    width: 90%;
+    gap: 3rem;
+  }
+  .ai-experience-icon-container {
+    font-size: 0.8rem;
+    width: 40%;
+  }
+  .ai-experience-icon-title {
+    font-size: 1.3rem;
+  }
+  .ai-experience-icon {
+    font-size: 60px;
+  }
+  .ai-experience-icon-text {
+    width: 170px;
+    line-height: 1.2rem;
+  }
 }
 
 .skill-bar {
@@ -347,7 +420,8 @@ main {
   justify-content: center;
   width: 130px;
   padding: 0.5rem 1rem;
-  font-size: 0.8rem;
+  font-size: 1.1rem;
+  font-weight: 700;
   border-radius: 5px;
   background: var(--purple-900);
 }

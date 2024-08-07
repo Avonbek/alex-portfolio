@@ -10,10 +10,10 @@ export default function AiExperienceIcon({
   text,
 }: AiExperienceIconProps) {
   return (
-    <div className="flex flex-col gap-2 items-center justify-center w-[26%]">
-      {icon}
-      <h3 className="text-2xl font-semibold">{title}</h3>
-      <p>{text}</p>
+    <div className="ai-experience-icon-container">
+      <div className="ai-experience-icon">{icon}</div>
+      <h3 className="ai-experience-icon-title">{title}</h3>
+      <p className="ai-experience-icon-text">{text}</p>
     </div>
   );
 }

@@ -22,6 +22,28 @@ export default function ParallaxContent({ pRef }: { pRef: any }) {
     hiddenLeft: { opacity: 0, x: -70 },
     hiddenRight: { opacity: 0, x: 70 },
   };
+  const pages = {
+    about: {
+      start: 1,
+      end: 1.3,
+      mobile: 1,
+    },
+    aboutSkills: {
+      start: 1,
+      end: 1.3,
+      mobile: 1.8,
+    },
+    aboutExperience: {
+      start: 2.5,
+      end: 2.8,
+      mobile: 2.6,
+    },
+    projects: {
+      start: 4,
+      end: 6,
+      mobile: 3.4,
+    },
+  };
 
   // --- EFFECTS ---
 
@@ -35,6 +57,8 @@ export default function ParallaxContent({ pRef }: { pRef: any }) {
   }, []);
 
   // --- HANDLERS ---
+
+  // THOUGHT: we can change when the trigger happens by using container width?
 
   function handleScroll() {
     if (!pRef?.current) return;
@@ -70,7 +94,7 @@ export default function ParallaxContent({ pRef }: { pRef: any }) {
 
         {/* --- About --- */}
         <ParallaxLayer
-          sticky={{ start: 1, end: 2.8 }}
+          sticky={{ start: pages.about.start, end: pages.about.end }}
           speed={slowSpeed}
           className="parallax-title"
         >
@@ -83,7 +107,11 @@ export default function ParallaxContent({ pRef }: { pRef: any }) {
           </motion.section>
         </ParallaxLayer>
         {/* mobile */}
-        <ParallaxLayer offset={1} speed={slowSpeed} className="parallax-title">
+        <ParallaxLayer
+          offset={pages.about.mobile}
+          speed={slowSpeed}
+          className="parallax-title"
+        >
           <motion.section
             animate={visibility.aboutMe ? "visible" : "hiddenMobile"}
             variants={variants}
@@ -96,7 +124,10 @@ export default function ParallaxContent({ pRef }: { pRef: any }) {
 
         {/* --- About -> Skills --- */}
         <ParallaxLayer
-          sticky={{ start: 1, end: 1.3 }}
+          sticky={{
+            start: pages.aboutSkills.start,
+            end: pages.aboutSkills.end,
+          }}
           speed={fastSpeed}
           className="parallax-content"
         >
@@ -110,7 +141,7 @@ export default function ParallaxContent({ pRef }: { pRef: any }) {
         </ParallaxLayer>
         {/* mobile */}
         <ParallaxLayer
-          offset={2}
+          offset={pages.aboutSkills.mobile}
           speed={slowSpeed}
           className="parallax-content"
         >
@@ -126,17 +157,20 @@ export default function ParallaxContent({ pRef }: { pRef: any }) {
 
         {/* About -> Experience */}
         <ParallaxLayer
-          sticky={{ start: 2.5, end: 2.8 }}
+          sticky={{
+            start: pages.aboutExperience.start,
+            end: pages.aboutExperience.end,
+          }}
           speed={fastSpeed}
           className="parallax-content"
         >
-          <motion.div className="section-content desktop-mode">
+          <motion.div className="section-content section-centered desktop-mode">
             <AboutExperience visibility={visibility} />
           </motion.div>
         </ParallaxLayer>
         {/* AboutSkills mobile */}
         <ParallaxLayer
-          offset={3}
+          offset={pages.aboutExperience.mobile}
           speed={slowSpeed}
           className="parallax-content"
         >
@@ -148,7 +182,7 @@ export default function ParallaxContent({ pRef }: { pRef: any }) {
 
         {/* Projects (Title) */}
         <ParallaxLayer
-          sticky={{ start: 4, end: 6 }}
+          sticky={{ start: pages.projects.start, end: pages.projects.end }}
           speed={slowSpeed}
           className="parallax-title"
         >
@@ -161,13 +195,17 @@ export default function ParallaxContent({ pRef }: { pRef: any }) {
           </motion.section>
         </ParallaxLayer>
         {/* Projects mobile */}
-        <ParallaxLayer offset={4} speed={slowSpeed} className="parallax-title">
+        <ParallaxLayer
+          offset={pages.projects.mobile}
+          speed={slowSpeed}
+          className="parallax-title"
+        >
           <div className="section-title mobile-mode">Projects</div>
         </ParallaxLayer>
         {/* ------------------------------------------------- */}
 
         {/* Projects -> 1 */}
-        <ParallaxLayer
+        {/* <ParallaxLayer
           sticky={{ start: 4, end: 6 }}
           speed={fastSpeed}
           className="parallax-content"
@@ -182,7 +220,6 @@ export default function ParallaxContent({ pRef }: { pRef: any }) {
             </div>
           </motion.section>
         </ParallaxLayer>
-        {/* Projects -> 1 mobile */}
         <ParallaxLayer
           offset={5}
           speed={slowSpeed}
@@ -191,7 +228,7 @@ export default function ParallaxContent({ pRef }: { pRef: any }) {
           <div className="section-content mobile-mode">
             Placeholder Project Content
           </div>
-        </ParallaxLayer>
+        </ParallaxLayer> */}
         {/* ------------------------------------------------- */}
       </Parallax>
     </div>

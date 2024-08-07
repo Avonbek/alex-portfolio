@@ -9,12 +9,12 @@ export default function AboutSkills({ visibility }: SectionProps) {
     { text: "React", width: "90%" },
     { text: "Next.js", width: "90%" },
     { text: "Typescript", width: "90%" },
-    { text: "CSS", width: "65%" },
-    { text: "HTML", width: "65%" },
-    { text: "Python", width: "65%" },
-    { text: "C#", width: "40%" },
-    { text: "SQL", width: "40%" },
-    { text: "No-SQL", width: "40%" },
+    { text: "CSS", width: "70%" },
+    { text: "HTML", width: "70%" },
+    { text: "Python", width: "70%" },
+    { text: "C#", width: "50%" },
+    { text: "SQL", width: "50%" },
+    { text: "No-SQL", width: "50%" },
   ];
 
   return (
