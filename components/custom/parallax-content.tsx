@@ -4,7 +4,6 @@ import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import Hero from "@/components/custom/hero";
 import About from "./about/about";
 import AiExperience from "./ai-experience/ai-experience";
-import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import ProjectsHeader from "./projects/projects-header";
 

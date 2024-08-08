@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
-import { ProjectsHeaderGrid } from "./projects-header-grid";
+import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
+import { bentoGridItems } from "./projects-header-data";
+import { cn } from "@/lib/utils";
 
 type ProjectsHeaderProps = {
   visibility: any;
@@ -21,10 +23,23 @@ export default function ProjectsHeader({
         <div className="underline"></div>
       </motion.h2>
 
-      {/* Bento grid? */}
-      <div className="projects-header-grid">
-        <ProjectsHeaderGrid />
-      </div>
+      {/* <div className="projects-header-grid"> */}
+      <BentoGrid
+        className="projects-header-grid"
+        // className="auto-rows-[20rem]"
+      >
+        {bentoGridItems.map((item, i) => (
+          <BentoGridItem
+            key={i}
+            title={item.title}
+            description={item.description}
+            header={item.header}
+            className={cn("projects-header-grid-item", item.className)}
+            icon={item.icon}
+          />
+        ))}
+      </BentoGrid>
+      {/* </div> */}
     </section>
   );
 }
