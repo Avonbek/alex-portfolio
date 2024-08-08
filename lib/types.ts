@@ -1,6 +1,7 @@
 export type SectionProps = {
   visibility: {
-    aboutMe: boolean;
+    aboutSkills: boolean;
+    aboutExperience: boolean;
     projects: boolean;
   };
 };

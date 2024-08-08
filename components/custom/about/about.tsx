@@ -10,11 +10,11 @@ export default function About() {
         height={300}
         className="rounded-full"
       />
-      About Me
+      <h2 className="about-me-title">About Me</h2>
       <div className="about-description">
         <h3>
           I'm a software engineer and full stack developer. <br /> I specialize
-          in web-development, and have a passion for creating applications that
+          in web-development and have a passion for creating applications that
           incorporate AI.
         </h3>
       </div>

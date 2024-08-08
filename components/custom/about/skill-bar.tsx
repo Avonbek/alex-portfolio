@@ -16,7 +16,7 @@ export default function SkillBar({
   return (
     <div className="skill-bar">
       <motion.div
-        animate={visibility.aboutMe ? "visible" : "hiddenRight"}
+        animate={visibility.aboutSkills ? "visible" : "hiddenRight"}
         variants={{
           visible: { width: width },
           hiddenRight: { width: "130px" },

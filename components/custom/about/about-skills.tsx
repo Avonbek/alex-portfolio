@@ -1,7 +1,7 @@
-import { SectionProps } from "@/lib/types";
+import { motion } from "framer-motion";
 import SkillBar from "./skill-bar";
 
-export default function AboutSkills({ visibility }: SectionProps) {
+export default function AboutSkills({ visibility, variants }: any) {
   const initialDelay = 0.5;
   const delayIncrement = 0.05;
 
@@ -19,6 +19,21 @@ export default function AboutSkills({ visibility }: SectionProps) {
 
   return (
     <div className="about-skills">
+      <h2 className="title">
+        <motion.div
+          animate={visibility.aboutSkills ? "visible" : "hiddenRight"}
+          initial="hiddenRight"
+          variants={variants}
+        >
+          My Skills
+        </motion.div>
+        <motion.div
+          animate={visibility.aboutSkills ? "visible" : "hiddenRight"}
+          initial="hiddenRight"
+          variants={variants}
+          className="underline"
+        ></motion.div>
+      </h2>
       {skills.map((skill, index) => (
         <SkillBar
           key={skill.text}

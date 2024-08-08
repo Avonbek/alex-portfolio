@@ -28,7 +28,7 @@ export default function Hero() {
           </motion.div>
         </h1>
         {/* Title */}
-        <h2>
+        <h2 className="hero-title">
           <motion.div
             initial={{ y: 40, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}

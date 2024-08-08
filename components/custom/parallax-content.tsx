@@ -7,20 +7,25 @@ import About from "./about/about";
 import AboutExperience from "./about/about-experience";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import ProjectsHeader from "./projects-header";
 
 export default function ParallaxContent({ pRef }: { pRef: any }) {
   const fastSpeed = 1;
   const slowSpeed = 0.5;
   const [visibility, setVisibility] = useState({
-    aboutMe: false,
+    aboutSkills: false,
     aboutExperience: false,
     projects: false,
   });
   const variants = {
     visible: { opacity: 1, x: 0, transition: { duration: 0.7 } },
-    hiddenMobile: { opacity: 0 },
+    visibleSlow: { opacity: 1, x: 0, transition: { duration: 1.3 } },
+    hidden: { opacity: 0 },
     hiddenLeft: { opacity: 0, x: -70 },
     hiddenRight: { opacity: 0, x: 70 },
+    hiddenBottom: { opacity: 0, y: 70 },
+    collapsed: { width: 0 },
+    expanded: { width: "100%", duration: 1 },
   };
   const pages = {
     about: {
@@ -39,8 +44,8 @@ export default function ParallaxContent({ pRef }: { pRef: any }) {
       mobile: 2.6,
     },
     projects: {
-      start: 4,
-      end: 6,
+      start: 3.7,
+      end: 4,
       mobile: 3.4,
     },
   };
@@ -63,7 +68,7 @@ export default function ParallaxContent({ pRef }: { pRef: any }) {
   function handleScroll() {
     if (!pRef?.current) return;
     if (pRef.current.current >= 700) {
-      setVisibility((prev) => ({ ...prev, aboutMe: true }));
+      setVisibility((prev) => ({ ...prev, aboutSkills: true }));
     }
     if (pRef.current.current >= 2200) {
       setVisibility((prev) => ({ ...prev, aboutExperience: true }));
@@ -79,7 +84,7 @@ export default function ParallaxContent({ pRef }: { pRef: any }) {
     <div className="parallax-component">
       <Parallax
         ref={pRef}
-        pages={6}
+        pages={5}
         config={{
           tension: 210,
           friction: 20,
@@ -99,7 +104,7 @@ export default function ParallaxContent({ pRef }: { pRef: any }) {
           className="parallax-title"
         >
           <motion.section
-            animate={visibility.aboutMe ? "visible" : "hiddenLeft"}
+            animate={visibility.aboutSkills ? "visible" : "hiddenLeft"}
             variants={variants}
             className="section-title desktop-mode"
           >
@@ -113,7 +118,7 @@ export default function ParallaxContent({ pRef }: { pRef: any }) {
           className="parallax-title"
         >
           <motion.section
-            animate={visibility.aboutMe ? "visible" : "hiddenMobile"}
+            animate={visibility.aboutSkills ? "visible" : "hidden"}
             variants={variants}
             className="section-title mobile-mode"
           >
@@ -131,22 +136,22 @@ export default function ParallaxContent({ pRef }: { pRef: any }) {
           speed={fastSpeed}
           className="parallax-content"
         >
-          <motion.div
-            animate={visibility.aboutMe ? "visible" : "hiddenRight"}
+          {/* <motion.div
+            animate={visibility.aboutSkills ? "visible" : "hiddenRight"}
             variants={variants}
             className="section-content desktop-mode"
-          >
-            <AboutSkills visibility={visibility} />
-          </motion.div>
+          > */}
+          <AboutSkills visibility={visibility} variants={variants} />
+          {/* </motion.div> */}
         </ParallaxLayer>
         {/* mobile */}
         <ParallaxLayer
           offset={pages.aboutSkills.mobile}
-          speed={slowSpeed}
+          speed={fastSpeed}
           className="parallax-content"
         >
           <motion.div
-            animate={visibility.aboutMe ? "visible" : "hiddenMobile"}
+            animate={visibility.aboutSkills ? "visible" : "hidden"}
             variants={variants}
             className="section-content mobile-mode"
           >
@@ -171,7 +176,7 @@ export default function ParallaxContent({ pRef }: { pRef: any }) {
         {/* AboutSkills mobile */}
         <ParallaxLayer
           offset={pages.aboutExperience.mobile}
-          speed={slowSpeed}
+          speed={fastSpeed}
           className="parallax-content"
         >
           <div className="section-content mobile-mode">
@@ -183,24 +188,30 @@ export default function ParallaxContent({ pRef }: { pRef: any }) {
         {/* Projects (Title) */}
         <ParallaxLayer
           sticky={{ start: pages.projects.start, end: pages.projects.end }}
-          speed={slowSpeed}
+          speed={fastSpeed}
           className="parallax-title"
         >
           <motion.section
-            animate={visibility.projects ? "visible" : "hiddenLeft"}
+            animate={visibility.projects ? "visible" : "hiddenBottom"}
             variants={variants}
-            className="section-title desktop-mode"
+            className="section-title section-centered desktop-mode"
           >
-            Projects
+            <ProjectsHeader visibility={visibility} variants={variants} />
           </motion.section>
         </ParallaxLayer>
         {/* Projects mobile */}
         <ParallaxLayer
           offset={pages.projects.mobile}
-          speed={slowSpeed}
+          speed={fastSpeed}
           className="parallax-title"
         >
-          <div className="section-title mobile-mode">Projects</div>
+          <motion.section
+            animate={visibility.projects ? "visible" : "hiddenLeft"}
+            variants={variants}
+            className="section-title mobile-mode"
+          >
+            <ProjectsHeader visibility={visibility} variants={variants} />
+          </motion.section>
         </ParallaxLayer>
         {/* ------------------------------------------------- */}
 
