@@ -11,7 +11,7 @@ export default function Hero() {
     <Fragment>
       {/* First Last Name */}
       <div className="hero">
-        <h1>
+        <h1 className="hero-title">
           <motion.div
             initial={{ x: -30, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -28,7 +28,7 @@ export default function Hero() {
           </motion.div>
         </h1>
         {/* Title */}
-        <h2 className="hero-title">
+        <h2 className="hero-subtitle">
           <motion.div
             initial={{ y: 40, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}

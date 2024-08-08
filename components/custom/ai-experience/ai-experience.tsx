@@ -10,7 +10,7 @@ import AiExperienceIcon from "./ai-experience-icon";
 
 // I thought that react spring would be better for animating the underline, but it was actually more difficult to work with and did not solve the problem of Accordions not working properly
 
-export default function AboutExperience({ visibility }: any) {
+export default function AiExperience({ visibility }: any) {
   const [ref, { width }] = useMeasure();
   const titleProps = useSpring({
     opacity: visibility.aboutExperience ? 1 : 0,
@@ -19,7 +19,7 @@ export default function AboutExperience({ visibility }: any) {
   });
   const underlineProps = useSpring({
     opacity: visibility.aboutExperience ? 1 : 0,
-    width: width,
+    // width: width,
     config: { duration: 500 },
   });
   const iconProps = useSpring({

@@ -1,23 +1,21 @@
-import Image from "next/image";
+import { motion } from "framer-motion";
+import AboutSkills from "./about-skills";
+import AboutMe from "./about-me";
 
-export default function About() {
+type AboutProps = {
+  visibility: any;
+  variants: any;
+};
+
+export default function About({ visibility, variants }: AboutProps) {
   return (
-    <div className="about">
-      <Image
-        src="/me-and-mabel-edited.png"
-        alt="Picture of the author and his cat Mable"
-        width={300}
-        height={300}
-        className="rounded-full"
-      />
-      <h2 className="about-me-title">About Me</h2>
-      <div className="about-description">
-        <h3>
-          I'm a software engineer and full stack developer. <br /> I specialize
-          in web-development and have a passion for creating applications that
-          incorporate AI.
-        </h3>
-      </div>
-    </div>
+    <motion.section
+      animate={visibility.about ? "visible" : "hiddenLeft"}
+      variants={variants}
+      className="about"
+    >
+      <AboutMe visibility={visibility} variants={variants} />
+      <AboutSkills visibility={visibility} variants={variants} />
+    </motion.section>
   );
 }

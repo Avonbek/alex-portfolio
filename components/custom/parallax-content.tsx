@@ -2,12 +2,11 @@
 
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import Hero from "@/components/custom/hero";
-import AboutSkills from "./about/about-skills";
 import About from "./about/about";
-import AboutExperience from "./about/about-experience";
+import AiExperience from "./ai-experience/ai-experience";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import ProjectsHeader from "./projects-header";
+import ProjectsHeader from "./projects/projects-header";
 
 export default function ParallaxContent({ pRef }: { pRef: any }) {
   const fastSpeed = 1;
@@ -30,23 +29,16 @@ export default function ParallaxContent({ pRef }: { pRef: any }) {
   const pages = {
     about: {
       start: 1,
-      end: 1.3,
+      end: 1.4,
       mobile: 1,
-    },
-    aboutSkills: {
-      start: 1,
-      end: 1.3,
-      mobile: 1.8,
     },
     aboutExperience: {
       start: 2.5,
-      end: 2.8,
-      mobile: 2.6,
+      end: 2.9,
     },
     projects: {
-      start: 3.7,
-      end: 4,
-      mobile: 3.4,
+      start: 3.8,
+      end: 4.3,
     },
   };
 
@@ -63,17 +55,15 @@ export default function ParallaxContent({ pRef }: { pRef: any }) {
 
   // --- HANDLERS ---
 
-  // THOUGHT: we can change when the trigger happens by using container width?
-
   function handleScroll() {
     if (!pRef?.current) return;
     if (pRef.current.current >= 700) {
-      setVisibility((prev) => ({ ...prev, aboutSkills: true }));
+      setVisibility((prev) => ({ ...prev, about: true }));
     }
     if (pRef.current.current >= 2200) {
       setVisibility((prev) => ({ ...prev, aboutExperience: true }));
     }
-    if (pRef.current.current >= 3700) {
+    if (pRef.current.current >= 3300) {
       setVisibility((prev) => ({ ...prev, projects: true }));
     }
   }
@@ -84,7 +74,7 @@ export default function ParallaxContent({ pRef }: { pRef: any }) {
     <div className="parallax-component">
       <Parallax
         ref={pRef}
-        pages={5}
+        pages={6}
         config={{
           tension: 210,
           friction: 20,
@@ -92,7 +82,7 @@ export default function ParallaxContent({ pRef }: { pRef: any }) {
         }}
         className="parallax-scroll"
       >
-        {/* Hero Section */}
+        {/* --- Hero --- */}
         <ParallaxLayer offset={0} speed={slowSpeed} className="parallax-hero">
           <Hero />
         </ParallaxLayer>
@@ -103,117 +93,36 @@ export default function ParallaxContent({ pRef }: { pRef: any }) {
           speed={slowSpeed}
           className="parallax-title"
         >
-          <motion.section
-            animate={visibility.aboutSkills ? "visible" : "hiddenLeft"}
-            variants={variants}
-            className="section-title desktop-mode"
-          >
-            <About />
-          </motion.section>
+          <About visibility={visibility} variants={variants} />
         </ParallaxLayer>
-        {/* mobile */}
-        <ParallaxLayer
-          offset={pages.about.mobile}
-          speed={slowSpeed}
-          className="parallax-title"
-        >
-          <motion.section
-            animate={visibility.aboutSkills ? "visible" : "hidden"}
-            variants={variants}
-            className="section-title mobile-mode"
-          >
-            <About />
-          </motion.section>
-        </ParallaxLayer>
-        {/* ------------------------------------------------- */}
 
-        {/* --- About -> Skills --- */}
-        <ParallaxLayer
-          sticky={{
-            start: pages.aboutSkills.start,
-            end: pages.aboutSkills.end,
-          }}
-          speed={fastSpeed}
-          className="parallax-content"
-        >
-          {/* <motion.div
-            animate={visibility.aboutSkills ? "visible" : "hiddenRight"}
-            variants={variants}
-            className="section-content desktop-mode"
-          > */}
-          <AboutSkills visibility={visibility} variants={variants} />
-          {/* </motion.div> */}
-        </ParallaxLayer>
-        {/* mobile */}
-        <ParallaxLayer
-          offset={pages.aboutSkills.mobile}
-          speed={fastSpeed}
-          className="parallax-content"
-        >
-          <motion.div
-            animate={visibility.aboutSkills ? "visible" : "hidden"}
-            variants={variants}
-            className="section-content mobile-mode"
-          >
-            <AboutSkills visibility={visibility} />
-          </motion.div>
-        </ParallaxLayer>
-        {/* ------------------------------------------------- */}
-
-        {/* About -> Experience */}
+        {/* --- AI Experience --- */}
         <ParallaxLayer
           sticky={{
             start: pages.aboutExperience.start,
             end: pages.aboutExperience.end,
           }}
-          speed={fastSpeed}
+          speed={slowSpeed}
           className="parallax-content"
         >
-          <motion.div className="section-content section-centered desktop-mode">
-            <AboutExperience visibility={visibility} />
-          </motion.div>
-        </ParallaxLayer>
-        {/* AboutSkills mobile */}
-        <ParallaxLayer
-          offset={pages.aboutExperience.mobile}
-          speed={fastSpeed}
-          className="parallax-content"
-        >
-          <div className="section-content mobile-mode">
-            <AboutExperience visibility={visibility} />
-          </div>
+          <AiExperience visibility={visibility} />
         </ParallaxLayer>
         {/* ------------------------------------------------- */}
 
-        {/* Projects (Title) */}
+        {/* --- Projects Header --- */}
         <ParallaxLayer
           sticky={{ start: pages.projects.start, end: pages.projects.end }}
-          speed={fastSpeed}
+          speed={slowSpeed}
           className="parallax-title"
         >
-          <motion.section
-            animate={visibility.projects ? "visible" : "hiddenBottom"}
-            variants={variants}
-            className="section-title section-centered desktop-mode"
-          >
-            <ProjectsHeader visibility={visibility} variants={variants} />
-          </motion.section>
-        </ParallaxLayer>
-        {/* Projects mobile */}
-        <ParallaxLayer
-          offset={pages.projects.mobile}
-          speed={fastSpeed}
-          className="parallax-title"
-        >
-          <motion.section
-            animate={visibility.projects ? "visible" : "hiddenLeft"}
-            variants={variants}
-            className="section-title mobile-mode"
-          >
-            <ProjectsHeader visibility={visibility} variants={variants} />
-          </motion.section>
+          <ProjectsHeader visibility={visibility} variants={variants} />
         </ParallaxLayer>
         {/* ------------------------------------------------- */}
+
+        {/* --- Simweaver --- */}
+
+        {/* NOTE: we will change the layout of the left hand section to top for mobile? */}
+        {/* should we hide the nav bar when scrolling down? */}
 
         {/* Projects -> 1 */}
         {/* <ParallaxLayer

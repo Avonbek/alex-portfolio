@@ -9,7 +9,7 @@ export default function Home() {
 
   return (
     <main>
-      <div className={"background-gradient"}></div>
+      <div className={"background-gradient !bg-dot-black/[0.2]"}></div>
       <NavBar pRef={parallaxRef} />
       <ParallaxContent pRef={parallaxRef} />
     </main>
