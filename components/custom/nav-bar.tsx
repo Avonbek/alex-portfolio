@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 interface NavBarProps {
@@ -8,11 +8,40 @@ interface NavBarProps {
 }
 
 const NavBar: React.FC<NavBarProps> = ({ pRef }) => {
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const [isVisible, setIsVisible] = useState(true);
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentPosition = pRef.current.current;
+      if (currentPosition > scrollPosition) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
+      setScrollPosition(currentPosition);
+    };
+    const container = document.querySelector(".parallax-scroll");
+    if (!container) return;
+    container.addEventListener("scroll", handleScroll);
+    return () => {
+      container.removeEventListener("scroll", handleScroll);
+    };
+  }, [scrollPosition, pRef]);
+
+  useEffect(() => {
+    setHasAnimated(true);
+  }, []);
+
   return (
     <motion.nav
       initial={{ y: -30, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.5, delay: 0.5 }}
+      animate={{ y: isVisible ? 0 : -50, opacity: isVisible ? 1 : 0 }}
+      transition={{
+        duration: 0.5,
+        delay: hasAnimated ? 0 : 0.5,
+      }}
       className="nav"
     >
       <button onClick={() => pRef.current.scrollTo(0)} className="nav-button">
