@@ -20,7 +20,7 @@ export default function ProjectsHeader({
         className="title"
       >
         Projects
-        <div className="underline"></div>
+        {/* <div className="underline"></div> */}
       </motion.h2>
 
       {/* <div className="projects-header-grid"> */}

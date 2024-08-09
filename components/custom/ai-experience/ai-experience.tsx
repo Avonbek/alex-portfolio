@@ -34,10 +34,10 @@ export default function AiExperience({ visibility }: any) {
     <div className="about-ai-experience">
       <h2 ref={ref} className="title">
         <animated.div style={titleProps}>Experience in AI</animated.div>
-        <animated.div
+        {/* <animated.div
           className="underline"
           style={underlineProps}
-        ></animated.div>
+        ></animated.div> */}
       </h2>
 
       {/* parent div */}

@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { pages } from "@/lib/utils";
 
 interface NavBarProps {
   pRef: any;
@@ -40,7 +41,7 @@ const NavBar: React.FC<NavBarProps> = ({ pRef }) => {
       animate={{ y: isVisible ? 0 : -50, opacity: isVisible ? 1 : 0 }}
       transition={{
         duration: 0.5,
-        delay: hasAnimated ? 0 : 0.5,
+        delay: hasAnimated ? 0 : 0.6,
       }}
       className="nav"
     >
@@ -50,7 +51,10 @@ const NavBar: React.FC<NavBarProps> = ({ pRef }) => {
       <button onClick={() => pRef.current.scrollTo(1)} className="nav-button">
         About
       </button>
-      <button onClick={() => pRef.current.scrollTo(4)} className="nav-button">
+      <button
+        onClick={() => pRef.current.scrollTo(pages.projects.start)}
+        className="nav-button"
+      >
         Projects
       </button>
     </motion.nav>

@@ -6,51 +6,60 @@ import About from "./about/about";
 import AiExperience from "./ai-experience/ai-experience";
 import { useEffect, useState } from "react";
 import ProjectsHeader from "./projects/projects-header";
+import SimweaverTitle from "./projects/simweaver/simweaver-title";
+import SimweaverContentOne from "./projects/simweaver/simweaver-content-one";
+import { start } from "repl";
+import SimweaverContentTwo from "./projects/simweaver/simweaver-content-two";
+import { pages, variants } from "@/lib/utils";
 
 export default function ParallaxContent({ pRef }: { pRef: any }) {
-  const fastSpeed = 1;
-  const slowSpeed = 0.5;
+  const speed = 0;
   const [visibility, setVisibility] = useState({
     aboutSkills: false,
     aboutExperience: false,
     projects: false,
   });
-  const variants = {
-    visible: { opacity: 1, x: 0, transition: { duration: 0.7 } },
-    visibleSlow: { opacity: 1, x: 0, transition: { duration: 1.3 } },
-    hidden: { opacity: 0 },
-    hiddenLeft: { opacity: 0, x: -70 },
-    hiddenRight: { opacity: 0, x: 70 },
-    hiddenBottom: { opacity: 0, y: 70 },
-    collapsed: { width: 0 },
-    expanded: { width: "100%", duration: 1 },
-  };
-  const pages = {
-    about: {
-      start: 1,
-      end: 1.4,
-      mobile: 1,
-    },
-    aboutExperience: {
-      start: 2.5,
-      end: 2.9,
-    },
-    projects: {
-      start: 3.8,
-      end: 4.3,
-    },
-  };
 
   // --- EFFECTS ---
+
+  const [windowSize, setWindowSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
 
   useEffect(() => {
     const container = document.querySelector(".parallax-scroll");
     if (!container) return;
     container.addEventListener("scroll", handleScroll);
+
+    let previousHeight = window.innerHeight;
+
+    const handleResize = () => {
+      const currentHeight = window.innerHeight;
+      if (previousHeight !== currentHeight) {
+        setWindowSize({
+          width: window.innerWidth,
+          height: window.innerHeight,
+        });
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
     return () => {
       container.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  // useEffect(() => {
+  //   const container = document.querySelector(".parallax-scroll");
+  //   if (!container) return;
+  //   container.addEventListener("scroll", handleScroll);
+  //   return () => {
+  //     container.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
 
   // --- HANDLERS ---
 
@@ -62,7 +71,7 @@ export default function ParallaxContent({ pRef }: { pRef: any }) {
     if (pRef.current.current >= 2200) {
       setVisibility((prev) => ({ ...prev, aboutExperience: true }));
     }
-    if (pRef.current.current >= 3300) {
+    if (pRef.current.current >= 3100) {
       setVisibility((prev) => ({ ...prev, projects: true }));
     }
   }
@@ -73,7 +82,7 @@ export default function ParallaxContent({ pRef }: { pRef: any }) {
     <div className="parallax-component">
       <Parallax
         ref={pRef}
-        pages={6}
+        pages={9}
         config={{
           tension: 210,
           friction: 20,
@@ -82,14 +91,14 @@ export default function ParallaxContent({ pRef }: { pRef: any }) {
         className="parallax-scroll"
       >
         {/* --- Hero --- */}
-        <ParallaxLayer offset={0} speed={slowSpeed} className="parallax-hero">
+        <ParallaxLayer offset={0} speed={speed} className="parallax-hero">
           <Hero />
         </ParallaxLayer>
 
         {/* --- About --- */}
         <ParallaxLayer
           sticky={{ start: pages.about.start, end: pages.about.end }}
-          speed={slowSpeed}
+          speed={speed}
           className="parallax-title"
         >
           <About visibility={visibility} variants={variants} />
@@ -101,7 +110,7 @@ export default function ParallaxContent({ pRef }: { pRef: any }) {
             start: pages.aboutExperience.start,
             end: pages.aboutExperience.end,
           }}
-          speed={slowSpeed}
+          speed={speed}
           className="parallax-content"
         >
           <AiExperience visibility={visibility} />
@@ -111,44 +120,51 @@ export default function ParallaxContent({ pRef }: { pRef: any }) {
         {/* --- Projects Header --- */}
         <ParallaxLayer
           sticky={{ start: pages.projects.start, end: pages.projects.end }}
-          speed={slowSpeed}
+          speed={speed}
           className="parallax-title"
         >
           <ProjectsHeader visibility={visibility} variants={variants} />
         </ParallaxLayer>
         {/* ------------------------------------------------- */}
 
-        {/* --- Simweaver --- */}
+        {/* --- Simweaver Title --- */}
 
         {/* NOTE: we will change the layout of the left hand section to top for mobile? */}
         {/* should we hide the nav bar when scrolling down? */}
-
-        {/* Projects -> 1 */}
-        {/* <ParallaxLayer
-          sticky={{ start: 4, end: 6 }}
-          speed={fastSpeed}
-          className="parallax-content"
-        >
-          <motion.section
-            animate={visibility.projects ? "visible" : "hiddenRight"}
-            variants={variants}
-            className="section-content desktop-mode"
-          >
-            <div className="section-content desktop-mode">
-              Placeholder Project Content
-            </div>
-          </motion.section>
-        </ParallaxLayer>
         <ParallaxLayer
-          offset={5}
-          speed={slowSpeed}
+          sticky={{ start: pages.simweaver.start, end: pages.simweaver.end }}
+          speed={speed}
+          className="parallax-title"
+        >
+          <SimweaverTitle visibility={visibility} variants={variants} />
+        </ParallaxLayer>
+
+        {/* --- Simweaver Content One --- */}
+
+        <ParallaxLayer
+          sticky={{
+            start: pages.simweaverContentOne.start,
+            end: pages.simweaverContentOne.end,
+          }}
+          speed={speed}
+          className="parallax-content"
+          factor={2}
+        >
+          <SimweaverContentOne visibility={visibility} variants={variants} />
+        </ParallaxLayer>
+
+        {/* --- Simweaver Content One --- */}
+
+        <ParallaxLayer
+          sticky={{
+            start: pages.simweaverContentTwo.start,
+            end: pages.simweaverContentTwo.end,
+          }}
+          speed={speed}
           className="parallax-content"
         >
-          <div className="section-content mobile-mode">
-            Placeholder Project Content
-          </div>
-        </ParallaxLayer> */}
-        {/* ------------------------------------------------- */}
+          <SimweaverContentTwo visibility={visibility} variants={variants} />
+        </ParallaxLayer>
       </Parallax>
     </div>
   );

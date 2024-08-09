@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import SkillBar from "./skill-bar";
 
 export default function AboutSkills({ visibility, variants }: any) {
@@ -21,7 +20,7 @@ export default function AboutSkills({ visibility, variants }: any) {
     <div className="about-skills">
       <h2 className="title">
         My Skills
-        <div className="underline"></div>
+        {/* <div className="underline"></div> */}
       </h2>
       <div className="skill-bar-parent">
         {skills.map((skill, index) => (
