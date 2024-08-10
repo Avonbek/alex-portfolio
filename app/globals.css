@@ -94,8 +94,10 @@ body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(to bottom, var(--black), var(--background));
   /* overflow-y: auto; */
-  overflow-y: hidden;
+  overflow-y: auto;
   overflow-x: hidden;
+
+  /* border: 1px solid var(--muted-text); */
 }
 
 h1 {
@@ -136,6 +138,12 @@ main {
   align-items: center;
   justify-content: between;
   z-index: 10;
+
+  /* width: 100dvw;
+  height: 100dvh; */
+  /* overflow-y: auto; */
+
+  /* border: 1px solid var(--muted-text); */
 }
 
 /* --- SCROLLBAR --- */
@@ -147,6 +155,11 @@ main {
 ::-webkit-scrollbar-thumb {
   background: var(--purple);
   border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  display: transparent;
+  background: var(--slate-900);
 }
 
 @media (max-width: 1000px) {
@@ -632,7 +645,6 @@ main {
   }
   .simweaver-content {
     width: 100%;
-    /* margin-top: 2rem; */
   }
 }
 
@@ -641,9 +653,13 @@ main {
 .framer-motion-parallax-component {
   display: flex;
   flex-direction: column;
-  overflow-y: auto;
+  /* position: absolute;
+  height: 100dvh;
+  width: 100dvw; */
+  /* height: 100dvh; */
+  /* overflow-y: auto; */
 
-  border: 1px solid var(--muted-text);
+  /* border: 1px solid var(--muted-text); */
 }
 
 .parallax-component {
@@ -664,19 +680,19 @@ main {
   align-items: center;
   justify-content: center;
 
-  /* new */
-  /* height: 100vh;
-  width: 100vw; */
-  /* border: 1px solid var(--muted-text); */
+  /* NEW */
+  /* height: 100dvh; */
 }
 
 .parallax-title {
   display: flex;
   flex-direction: column;
-  /* align-items: start; */
-  /* justify-content: center; */
 
   /* border: 1px solid var(--muted-text); */
+}
+
+.parallax-margin {
+  margin-top: 50dvh;
 }
 
 .parallax-content {

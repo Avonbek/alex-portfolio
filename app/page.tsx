@@ -10,10 +10,10 @@ export default function Home() {
 
   return (
     <main>
-      <div className={"background-gradient !bg-dot-black/[0.2]"}></div>
+      <div className={"background-gradient"}></div>
       <NavBar pRef={parallaxRef} />
-      {/* <FramerMotionParallax /> */}
-      <ParallaxContent pRef={parallaxRef} />
+      <FramerMotionParallax />
+      {/* <ParallaxContent pRef={parallaxRef} /> */}
     </main>
   );
 }
