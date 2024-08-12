@@ -17,6 +17,7 @@ export default function FramerMotionParallax({}) {
   });
 
   const { scrollY } = useScroll();
+
   const screenHeight = typeof window !== "undefined" ? window.innerHeight : 0;
   const yAbout = useTransform(
     scrollY,
@@ -33,26 +34,29 @@ export default function FramerMotionParallax({}) {
     [screenHeight * 4, screenHeight * 4.5],
     [0, screenHeight * 4.5 - screenHeight * 4]
   );
+
+  // Simweaver
   const ySimweaverTitle = useTransform(
     scrollY,
     [screenHeight * 5.5, screenHeight * 7.5],
-    [0, screenHeight * 7.5 - screenHeight * 5.5]
+    [0, screenHeight * 7.5 - screenHeight * 5.5],
+    { clamp: true }
   );
   const ySimweaverContentOne = useTransform(
     scrollY,
     [screenHeight * 5.5, screenHeight * 6],
     [0, screenHeight * 6 - screenHeight * 5.5]
   );
-  const ySimweaverContentTwo = useTransform(
-    scrollY,
-    [screenHeight * 7, screenHeight * 7.5],
-    [0, screenHeight * 7.5 - screenHeight * 7]
-  );
   // const ySimweaverContentTwo = useTransform(
   //   scrollY,
-  //   [screenHeight * 7, screenHeight * 7.5],
-  //   [0, screenHeight * 7.5 - screenHeight * 7]
+  //   [screenHeight * 7.5, screenHeight * 8],
+  //   [0, screenHeight * 8 - screenHeight * 7.5]
   // );
+  const ySimweaverContentTwo = useTransform(
+    scrollY,
+    [screenHeight * 8, screenHeight * 8.5],
+    [0, screenHeight * 8.5 - screenHeight * 8]
+  );
 
   useEffect(() => {
     const handleScroll = () => {
@@ -108,24 +112,26 @@ export default function FramerMotionParallax({}) {
         <ProjectsHeader visibility={visibility} variants={variants} />
       </motion.div>
 
+      {/* replace whole section when screen is small? */}
+
       {/* 5. Simweaver */}
-      <div className="flex items-start justify-center parallax-margin">
+      <div className="simweaver-container parallax-margin">
         <motion.div
           style={{
             y: ySimweaverTitle,
           }}
-          className="flex h-[100dvh] w-[50%] items-end justify-center"
+          className="simweaver-title"
         >
           <SimweaverTitle visibility={visibility} variants={variants} />
         </motion.div>
         {/* Simweaver Content Parent */}
-        <div className="flex flex-col w-[50%] items-center justify-center">
+        <div className="flex flex-col w-[100%] items-center justify-center">
           {/* 5.1 Simweaver Content One */}
           <motion.div
             style={{
               y: ySimweaverContentOne,
             }}
-            className="flex h-[100dvh] w-[50%] items-center justify-center"
+            className="simweaver-content"
           >
             <SimweaverContentOne visibility={visibility} variants={variants} />
           </motion.div>
@@ -134,7 +140,7 @@ export default function FramerMotionParallax({}) {
             style={{
               y: ySimweaverContentTwo,
             }}
-            className="flex h-[100dvh] w-[50%] items-center justify-center parallax-margin"
+            className="simweaver-content parallax-margin"
           >
             <SimweaverContentTwo visibility={visibility} variants={variants} />
           </motion.div>

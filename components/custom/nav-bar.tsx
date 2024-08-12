@@ -4,32 +4,28 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { pages } from "@/lib/utils";
 
-interface NavBarProps {
-  pRef: any;
-}
-
-const NavBar: React.FC<NavBarProps> = ({ pRef }) => {
+const NavBar: React.FC = ({}) => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
   const [hasAnimated, setHasAnimated] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentPosition = pRef.current.current;
-      if (currentPosition > scrollPosition) {
-        setIsVisible(false);
-      } else {
-        setIsVisible(true);
-      }
-      setScrollPosition(currentPosition);
-    };
-    const container = document.querySelector(".parallax-scroll");
-    if (!container) return;
-    container.addEventListener("scroll", handleScroll);
-    return () => {
-      container.removeEventListener("scroll", handleScroll);
-    };
-  }, [scrollPosition, pRef]);
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const currentPosition = pRef.current.current;
+  //     if (currentPosition > scrollPosition) {
+  //       setIsVisible(false);
+  //     } else {
+  //       setIsVisible(true);
+  //     }
+  //     setScrollPosition(currentPosition);
+  //   };
+  //   const container = document.querySelector(".parallax-scroll");
+  //   if (!container) return;
+  //   container.addEventListener("scroll", handleScroll);
+  //   return () => {
+  //     container.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, [scrollPosition, pRef]);
 
   useEffect(() => {
     setHasAnimated(true);
@@ -45,14 +41,20 @@ const NavBar: React.FC<NavBarProps> = ({ pRef }) => {
       }}
       className="nav"
     >
-      <button onClick={() => pRef.current.scrollTo(0)} className="nav-button">
+      <button
+      // onClick={() => pRef.current.scrollTo(0)} className="nav-button"
+      >
         Home
       </button>
-      <button onClick={() => pRef.current.scrollTo(1)} className="nav-button">
+      <div className="nav-divider"></div>
+      <button
+      // onClick={() => pRef.current.scrollTo(1)} className="nav-button"
+      >
         About
       </button>
+      <div className="nav-divider"></div>
       <button
-        onClick={() => pRef.current.scrollTo(pages.projects.start)}
+        // onClick={() => pRef.current.scrollTo(pages.projects.start)}
         className="nav-button"
       >
         Projects

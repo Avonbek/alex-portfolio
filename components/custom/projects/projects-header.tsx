@@ -20,14 +20,9 @@ export default function ProjectsHeader({
         className="title"
       >
         Projects
-        {/* <div className="underline"></div> */}
       </motion.h2>
 
-      {/* <div className="projects-header-grid"> */}
-      <BentoGrid
-        className="projects-header-grid"
-        // className="auto-rows-[20rem]"
-      >
+      <BentoGrid className="projects-header-grid">
         {bentoGridItems.map((item, i) => (
           <BentoGridItem
             key={i}
@@ -39,7 +34,6 @@ export default function ProjectsHeader({
           />
         ))}
       </BentoGrid>
-      {/* </div> */}
     </section>
   );
 }
