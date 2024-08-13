@@ -15,6 +15,9 @@
   --purple-900: #581c87;
   --purple: #3b0764;
 
+  --teal: #115e59;
+  --teal-dark: #134e4a;
+
   --slate-100: #f1f5f9;
   --slate-200: #e2e8f0;
   --slate-300: #cbd5e1;
@@ -252,26 +255,12 @@ main {
   width: 100%;
 }
 
-.desktop-mode {
-  display: flex;
-}
-
-.mobile-mode {
-  display: none;
-}
-
 @media (max-width: 1000px) {
   .section-title {
     width: 100%;
   }
   .section-content {
     width: 100%;
-  }
-  .desktop-mode {
-    display: none;
-  }
-  .mobile-mode {
-    display: flex;
   }
 }
 
@@ -689,6 +678,26 @@ main {
   border-radius: 10px;
 
   /* border: 1px solid var(--muted-text); */
+}
+
+.simweaver-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 50px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--muted-text);
+  background: var(--teal);
+  border-radius: 100px;
+  cursor: pointer;
+  transition: color 0.3s ease, color 0.3s ease, background 0.3s ease;
+}
+
+.simweaver-btn:hover {
+  color: var(--slate-300);
+  background: var(--teal-dark);
 }
 
 @media (max-width: 1000px) {

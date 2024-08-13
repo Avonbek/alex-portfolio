@@ -19,29 +19,29 @@ export default function NavBar({
   const [isVisible, setIsVisible] = useState(true);
   const [hasAnimated, setHasAnimated] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (scrollY.get() > scrollPosition) {
-        setIsVisible(false);
-      } else {
-        setIsVisible(true);
-      }
-      setScrollPosition(scrollY.get());
-    };
-    if (!window) return;
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [scrollPosition, scrollY.get()]);
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     if (scrollY.get() > scrollPosition) {
+  //       setIsVisible(false);
+  //     } else {
+  //       setIsVisible(true);
+  //     }
+  //     setScrollPosition(scrollY.get());
+  //   };
+  //   if (!window) return;
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, [scrollPosition, scrollY.get()]);
 
-  useEffect(() => {
-    setHasAnimated(true);
-  }, []);
+  // useEffect(() => {
+  //   setHasAnimated(true);
+  // }, []);
 
   const handleClick = (clickedRef: any) => {
     clickedRef.current?.scrollIntoView({});
-    setScrollPosition(scrollY.get());
+    // setScrollPosition(scrollY.get());
   };
 
   return (
