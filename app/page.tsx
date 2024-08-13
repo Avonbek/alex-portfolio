@@ -7,13 +7,19 @@ import { useScroll } from "framer-motion";
 import { useRef } from "react";
 
 export default function Home() {
-  const mainRef = useRef(null);
+  const homeRef = useRef(null);
+  const aboutRef = useRef(null);
+  const projectsRef = useRef(null);
 
   return (
-    <main ref={mainRef}>
+    <main>
       <div className={"background-gradient"}></div>
-      <NavBar />
-      <FramerMotionParallax />
+      <NavBar homeRef={homeRef} aboutRef={aboutRef} projectsRef={projectsRef} />
+      <FramerMotionParallax
+        homeRef={homeRef}
+        aboutRef={aboutRef}
+        projectsRef={projectsRef}
+      />
       {/* <ParallaxContent pRef={parallaxRef} /> */}
     </main>
   );

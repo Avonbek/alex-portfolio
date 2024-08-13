@@ -655,8 +655,11 @@ main {
 
 .simweaver-container {
   display: flex;
+  /* position: absolute; */
   align-items: start;
   justify-content: center;
+  height: fit-content;
+  width: 100dvw%;
 
   /* border: 1px solid var(--muted-text); */
 }
@@ -708,6 +711,7 @@ main {
 .framer-motion-parallax-component {
   display: flex;
   flex-direction: column;
+  position: relative;
   /* position: absolute;
   height: 100dvh;
   width: 100dvw; */

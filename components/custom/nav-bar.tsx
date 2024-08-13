@@ -1,35 +1,48 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import { pages } from "@/lib/utils";
+import { motion, MotionValue, useScroll } from "framer-motion";
 
-const NavBar: React.FC = ({}) => {
+type NavBarProps = {
+  homeRef: any;
+  aboutRef: any;
+  projectsRef: any;
+};
+
+export default function NavBar({
+  homeRef,
+  aboutRef,
+  projectsRef,
+}: NavBarProps) {
+  const { scrollY } = useScroll();
   const [scrollPosition, setScrollPosition] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
   const [hasAnimated, setHasAnimated] = useState(false);
 
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     const currentPosition = pRef.current.current;
-  //     if (currentPosition > scrollPosition) {
-  //       setIsVisible(false);
-  //     } else {
-  //       setIsVisible(true);
-  //     }
-  //     setScrollPosition(currentPosition);
-  //   };
-  //   const container = document.querySelector(".parallax-scroll");
-  //   if (!container) return;
-  //   container.addEventListener("scroll", handleScroll);
-  //   return () => {
-  //     container.removeEventListener("scroll", handleScroll);
-  //   };
-  // }, [scrollPosition, pRef]);
+  useEffect(() => {
+    const handleScroll = () => {
+      if (scrollY.get() > scrollPosition) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
+      setScrollPosition(scrollY.get());
+    };
+    if (!window) return;
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [scrollPosition, scrollY.get()]);
 
   useEffect(() => {
     setHasAnimated(true);
   }, []);
+
+  const handleClick = (clickedRef: any) => {
+    clickedRef.current?.scrollIntoView({});
+    setScrollPosition(scrollY.get());
+  };
 
   return (
     <motion.nav
@@ -41,26 +54,17 @@ const NavBar: React.FC = ({}) => {
       }}
       className="nav"
     >
-      <button
-      // onClick={() => pRef.current.scrollTo(0)} className="nav-button"
-      >
+      <button onClick={() => handleClick(homeRef)} className="nav-button">
         Home
       </button>
       <div className="nav-divider"></div>
-      <button
-      // onClick={() => pRef.current.scrollTo(1)} className="nav-button"
-      >
+      <button onClick={() => handleClick(aboutRef)} className="nav-button">
         About
       </button>
       <div className="nav-divider"></div>
-      <button
-        // onClick={() => pRef.current.scrollTo(pages.projects.start)}
-        className="nav-button"
-      >
+      <button onClick={() => handleClick(projectsRef)} className="nav-button">
         Projects
       </button>
     </motion.nav>
   );
-};
-
-export default NavBar;
+}
