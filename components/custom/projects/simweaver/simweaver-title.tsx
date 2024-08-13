@@ -40,14 +40,6 @@ export default function SimweaverTitle({ visibility, variants }: any) {
           /> */}
           {/* placeholder img */}
           {/* <Image
-            src={"/manor-gate.webp"}
-            alt="Simweaver Logo"
-            width={300}
-            height={300}
-            quality="100"
-            className="rounded-md"
-          /> */}
-          {/* <Image
             src={"/town-street.webp"}
             alt="Simweaver Logo"
             width={300}
@@ -57,7 +49,7 @@ export default function SimweaverTitle({ visibility, variants }: any) {
           /> */}
         </div>
         <div className="flex mt-auto gap-4">
-          <button className="simweaver-btn">Website</button>
+          <button className="simweaver-btn">Go to website</button>
           {/* <button className="simweaver-btn">Github</button> */}
         </div>
       </div>
@@ -71,14 +63,14 @@ const cardContent = [
       <Image
         src={"/artifact-depot.webp"}
         alt="Simweaver Logo"
-        width={200}
-        height={200}
+        width={300}
+        height={300}
         quality="100"
         className="rounded-md"
       />
     ),
-    name: "Charles Dickens",
-    title: "A Tale of Two Cities",
+    name: "Placeholder Title",
+    title: "Lorem Ipsum",
   },
   // {
   //   quote:
@@ -87,9 +79,18 @@ const cardContent = [
   //   title: "Hamlet",
   // },
   {
-    quote: "All that we see or seem is but a dream within a dream.",
-    name: "Edgar Allan Poe",
-    title: "A Dream Within a Dream",
+    quote: (
+      <Image
+        src={"/manor-gate.webp"}
+        alt="Simweaver Logo"
+        width={300}
+        height={300}
+        quality="100"
+        className="rounded-md"
+      />
+    ),
+    name: "Placeholder Title 2",
+    title: "Lorem Ipsum",
   },
   // {
   //   quote:
