@@ -1,9 +1,7 @@
 "use client";
 
-import FramerMotionParallax from "@/components/custom/framer-motion-parallax";
+import MainContent from "@/components/custom/main-content";
 import NavBar from "@/components/custom/nav-bar";
-import ParallaxContent from "@/components/custom/parallax-content";
-import { useScroll } from "framer-motion";
 import { useRef } from "react";
 
 export default function Home() {
@@ -15,12 +13,11 @@ export default function Home() {
     <main>
       <div className={"background-gradient"}></div>
       <NavBar homeRef={homeRef} aboutRef={aboutRef} projectsRef={projectsRef} />
-      <FramerMotionParallax
+      <MainContent
         homeRef={homeRef}
         aboutRef={aboutRef}
         projectsRef={projectsRef}
       />
-      {/* <ParallaxContent pRef={parallaxRef} /> */}
     </main>
   );
 }

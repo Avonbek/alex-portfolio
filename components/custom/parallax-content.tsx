@@ -6,7 +6,7 @@ import About from "./about/about";
 import AiExperience from "./ai-experience/ai-experience";
 import { useEffect, useState } from "react";
 import ProjectsHeader from "./projects/projects-header";
-import SimweaverTitle from "./projects/simweaver/simweaver-title";
+import SimweaverSection from "./projects/simweaver/simweaver-section";
 import SimweaverContentOne from "./projects/simweaver/simweaver-content-one";
 import { start } from "repl";
 import SimweaverContentTwo from "./projects/simweaver/simweaver-content-two";
@@ -136,7 +136,7 @@ export default function ParallaxContent({ pRef }: { pRef: any }) {
           speed={speed}
           className="parallax-title"
         >
-          <SimweaverTitle visibility={visibility} variants={variants} />
+          <SimweaverSection visibility={visibility} variants={variants} />
         </ParallaxLayer>
 
         {/* --- Simweaver Content One --- */}

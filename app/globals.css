@@ -269,6 +269,7 @@ main {
 .nav {
   display: flex;
   position: fixed;
+  /* position: fixed; */
   align-items: center;
   justify-content: space-evenly;
   font-size: 1.2rem;
@@ -282,7 +283,6 @@ main {
   padding: 0 1rem;
 
   background: rgba(255, 255, 255, 0.02);
-  /* background: rgba(0, 0, 0, 0.2); */
   backdrop-filter: blur(15px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 100px;
@@ -304,6 +304,34 @@ main {
   color: var(--slate-400);
 }
 
+@media (max-width: 640px) {
+  .nav {
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    max-width: 100%;
+    font-size: 1rem;
+  }
+}
+
+.nav-hamburger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--muted-text);
+  transition: color 0.3s ease, color 0.3s ease;
+
+  margin-left: -15px;
+}
+
+@media (max-width: 640px) {
+  .nav-hamburger {
+    display: flex;
+    margin-left: 0;
+  }
+}
+
 .nav-divider {
   display: flex;
   align-items: center;
@@ -312,15 +340,6 @@ main {
   height: 25%;
   background: var(--muted-text);
   opacity: 0.1;
-}
-
-@media (max-width: 1000px) {
-  .nav {
-    margin: 0;
-    padding: 0;
-    border-radius: 0;
-    max-width: 100%;
-  }
 }
 
 /* --- HERO --- */
@@ -616,6 +635,21 @@ main {
   cursor: pointer;
 }
 
+.project-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 79dvh;
+  max-height: 800px;
+  padding: 3rem;
+  border-radius: 10px;
+  @apply bg-black bg-opacity-50;
+
+  /* border: 1px solid var(--muted-text); */
+}
+
 @media (max-width: 1000px) {
   .projects-header {
     margin-top: 4rem;
@@ -625,35 +659,47 @@ main {
     height: auto;
     max-width: 100%;
   }
+}
+
+@media (max-width: 640px) {
   .projects-header-grid-item {
-    height: 350px;
-    width: 100%;
+    height: 300px;
+    width: 400px;
     max-height: auto;
-    max-width: 480px;
+    max-width: 100%;
   }
 }
 
-@media (max-width: 700px) {
-  .projects-header-grid-item {
-    height: 300px;
-    width: 100%;
+/* --- MOVING CARDS --- */
+
+.moving-card {
+  width: 350px;
+  position: relative;
+  border-radius: 1rem;
+  border: 1px solid #334155;
+  border-bottom: 0;
+  flex-shrink: 0;
+  padding: 1.5rem 2rem;
+
+  /* border: 1px solid var(--muted-text); */
+}
+
+@media (max-width: 1024px) {
+  .moving-card {
+    width: 250px;
+    padding: 1rem 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .moving-card {
+    width: 200px;
   }
 }
 
 /* --- SIMWEAVER --- */
 
 .simweaver-container {
-  display: flex;
-  /* position: absolute; */
-  align-items: start;
-  justify-content: center;
-  height: fit-content;
-  width: 100dvw%;
-
-  /* border: 1px solid var(--muted-text); */
-}
-
-.simweaver-title {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -664,6 +710,25 @@ main {
   border-radius: 10px;
 
   /* border: 1px solid var(--muted-text); */
+}
+
+.simweaver-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+}
+
+@media (max-height: 800px) {
+  .simweaver-title {
+    width: 300px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .simweaver-title {
+    width: 300px;
+  }
 }
 
 .simweaver-content {
@@ -705,14 +770,53 @@ main {
     flex-direction: column;
     align-items: center;
   }
-  .simweaver-title {
-    width: 100%;
-    height: 100dvh;
-    top: 0;
+}
+
+/* --- SPAWNART --- */
+
+.spawnart-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 320px;
+  /* margin-bottom: 2rem; */
+
+  /* border: 1px solid var(--muted-text); */
+}
+
+@media (max-height: 800px) {
+  .spawnart-title {
+    width: 300px;
   }
-  .simweaver-content {
-    width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .spawnart-title {
+    width: 300px;
   }
+}
+
+/* WIP */
+.spawnart-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 50px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--muted-text);
+  border-radius: 100px;
+  cursor: pointer;
+  transition: color 0.3s ease, color 0.3s ease, background 0.3s ease;
+
+  /* background: var(--teal); */
+  @apply bg-blue-800;
+}
+
+.spawnart-btn:hover {
+  color: var(--slate-300);
+  @apply bg-blue-900;
 }
 
 /* PARALLAX */
@@ -747,14 +851,19 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  /* NEW */
-  /* height: 100dvh; */
+  height: 100dvh;
 }
 
-.parallax-title {
+.parallax-section {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100dvh;
+
+  width: 100%;
+  text-align: center;
+  border-radius: 10px;
 
   /* border: 1px solid var(--muted-text); */
 }

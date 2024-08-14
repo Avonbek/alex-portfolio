@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { motion, MotionValue, useScroll } from "framer-motion";
+import { motion } from "framer-motion";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 type NavBarProps = {
   homeRef: any;
@@ -14,43 +14,17 @@ export default function NavBar({
   aboutRef,
   projectsRef,
 }: NavBarProps) {
-  const { scrollY } = useScroll();
-  const [scrollPosition, setScrollPosition] = useState(0);
-  const [isVisible, setIsVisible] = useState(true);
-  const [hasAnimated, setHasAnimated] = useState(false);
-
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     if (scrollY.get() > scrollPosition) {
-  //       setIsVisible(false);
-  //     } else {
-  //       setIsVisible(true);
-  //     }
-  //     setScrollPosition(scrollY.get());
-  //   };
-  //   if (!window) return;
-  //   window.addEventListener("scroll", handleScroll);
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-  // }, [scrollPosition, scrollY.get()]);
-
-  // useEffect(() => {
-  //   setHasAnimated(true);
-  // }, []);
-
   const handleClick = (clickedRef: any) => {
     clickedRef.current?.scrollIntoView({});
-    // setScrollPosition(scrollY.get());
   };
 
   return (
     <motion.nav
       initial={{ y: -30, opacity: 0 }}
-      animate={{ y: isVisible ? 0 : -50, opacity: isVisible ? 1 : 0 }}
+      animate={{ y: 0, opacity: 1 }}
       transition={{
         duration: 0.5,
-        delay: hasAnimated ? 0 : 0.6,
+        delay: 0.6,
       }}
       className="nav"
     >
@@ -65,6 +39,13 @@ export default function NavBar({
       <button onClick={() => handleClick(projectsRef)} className="nav-button">
         Projects
       </button>
+      {/* <div className="nav-divider"></div>
+      <button
+        onClick={() => console.log("handle contact btn click")}
+        className="nav-hamburger"
+      >
+        <GiHamburgerMenu />
+      </button> */}
     </motion.nav>
   );
 }
