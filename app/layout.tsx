@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-
-// possible additions:
-// react-hot-toast
+import { Toaster } from "react-hot-toast";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,13 +20,13 @@ export default function RootLayout({
       <head>
         <meta
           name="viewport"
-          content="height=device-height, 
-          width=device-width, initial-scale=1.0, 
-          minimum-scale=1.0, maximum-scale=1.0, 
-          user-scalable=no, target-densitydpi=device-dpi"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
         />
       </head>
-      <body className="hide-scrollbar">{children}</body>
+      <body className="hide-scrollbar">
+        {children}
+        <Toaster position="top-right" />
+      </body>
     </html>
   );
 }

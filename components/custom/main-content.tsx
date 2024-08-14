@@ -32,23 +32,33 @@ export default function MainContent({
     [screenHeight * 2.5, screenHeight * 3],
     [0, screenHeight * 3 - screenHeight * 2.5]
   );
-  const yProjects = useTransform(
+  const ySimweaverSection = useTransform(
     scrollY,
     [screenHeight * 4, screenHeight * 4.5],
     [0, screenHeight * 4.5 - screenHeight * 4]
   );
-
   // Simweaver
-  const ySimweaverSection = useTransform(
+  const ySpawnartSection = useTransform(
     scrollY,
     [screenHeight * 5.5, screenHeight * 6],
     [0, screenHeight * 6 - screenHeight * 5.5]
   );
-  const ySpawnartSection = useTransform(
-    scrollY,
-    [screenHeight * 7, screenHeight * 7.5],
-    [0, screenHeight * 7.5 - screenHeight * 7]
-  );
+  // const yProjects = useTransform(
+  //   scrollY,
+  //   [screenHeight * 4, screenHeight * 4.5],
+  //   [0, screenHeight * 4.5 - screenHeight * 4]
+  // );
+  // // Simweaver
+  // const ySimweaverSection = useTransform(
+  //   scrollY,
+  //   [screenHeight * 5.5, screenHeight * 6],
+  //   [0, screenHeight * 6 - screenHeight * 5.5]
+  // );
+  // const ySpawnartSection = useTransform(
+  //   scrollY,
+  //   [screenHeight * 7, screenHeight * 7.5],
+  //   [0, screenHeight * 7.5 - screenHeight * 7]
+  // );
 
   const [visibility, setVisibility] = useState({
     about: false,
@@ -102,7 +112,7 @@ export default function MainContent({
       </motion.div>
 
       {/* 4. Projects */}
-      <motion.div
+      {/* <motion.div
         ref={projectsRef}
         style={{
           y: yProjects,
@@ -110,10 +120,11 @@ export default function MainContent({
         className="parallax-section parallax-margin"
       >
         <ProjectsHeader visibility={visibility} variants={variants} />
-      </motion.div>
+      </motion.div> */}
 
       {/* 5. Simweaver Section */}
       <motion.div
+        ref={projectsRef}
         style={{
           y: ySimweaverSection,
         }}
