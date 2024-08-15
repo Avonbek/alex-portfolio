@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
+import { useEffect } from "react";
 
 type SkillBarProps = {
   visibility: any;
@@ -16,13 +17,14 @@ export default function SkillBar({
   return (
     <div className="skill-bar">
       <motion.div
+        // animate={"visible"}
         animate={visibility.about ? "visible" : "hiddenRight"}
         variants={{
           visible: { width: width },
           hiddenRight: { width: "130px" },
         }}
         initial="hiddenRight"
-        transition={{ duration: 1, delay: delay }}
+        transition={{ duration: 1, delay: delay, once: true }}
         className="skill-bar-fill"
       >
         <h3 className="skill-bar-name">{text}</h3>
