@@ -66,6 +66,7 @@ export default function MainContent({
     projects: false,
   });
 
+  // replace with useInView for better performance?
   useEffect(() => {
     const handleScroll = () => {
       if (scrollY.get() >= 800) {
