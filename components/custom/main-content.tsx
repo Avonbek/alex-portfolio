@@ -11,12 +11,14 @@ import SpawnartSection from "./projects/spawnart/spawnart-section";
 type FramerMotionParallaxProps = {
   homeRef: any;
   aboutRef: any;
+  experienceRef: any;
   projectsRef: any;
 };
 
 export default function MainContent({
   homeRef,
   aboutRef,
+  experienceRef,
   projectsRef,
 }: FramerMotionParallaxProps) {
   const { scrollY } = useScroll();
@@ -43,22 +45,6 @@ export default function MainContent({
     [screenHeight * 5.5, screenHeight * 6],
     [0, screenHeight * 6 - screenHeight * 5.5]
   );
-  // const yProjects = useTransform(
-  //   scrollY,
-  //   [screenHeight * 4, screenHeight * 4.5],
-  //   [0, screenHeight * 4.5 - screenHeight * 4]
-  // );
-  // // Simweaver
-  // const ySimweaverSection = useTransform(
-  //   scrollY,
-  //   [screenHeight * 5.5, screenHeight * 6],
-  //   [0, screenHeight * 6 - screenHeight * 5.5]
-  // );
-  // const ySpawnartSection = useTransform(
-  //   scrollY,
-  //   [screenHeight * 7, screenHeight * 7.5],
-  //   [0, screenHeight * 7.5 - screenHeight * 7]
-  // );
 
   const [visibility, setVisibility] = useState({
     about: false,
@@ -66,7 +52,7 @@ export default function MainContent({
     projects: false,
   });
 
-  // replace with useInView for better performance?
+  // TODO: replace with useInView for better performance?
   useEffect(() => {
     const handleScroll = () => {
       if (scrollY.get() >= 800) {
@@ -104,6 +90,7 @@ export default function MainContent({
 
       {/* 3. AI Experience */}
       <motion.div
+        ref={experienceRef}
         style={{
           y: yExperience,
         }}

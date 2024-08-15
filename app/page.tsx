@@ -7,7 +7,10 @@ import { useRef } from "react";
 export default function Home() {
   const homeRef = useRef(null);
   const aboutRef = useRef(null);
+  const experienceRef = useRef(null);
   const projectsRef = useRef(null);
+  const projectOneRef = useRef(null);
+  const projectTwoRef = useRef(null);
 
   return (
     <main>
@@ -16,6 +19,7 @@ export default function Home() {
       <MainContent
         homeRef={homeRef}
         aboutRef={aboutRef}
+        experienceRef={experienceRef}
         projectsRef={projectsRef}
       />
     </main>

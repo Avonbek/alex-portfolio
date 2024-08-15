@@ -28,7 +28,8 @@
     "react-spring": "^9.7.3",
     "react-use-measure": "^2.1.1",
     "tailwind-merge": "^2.4.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "zustand": "^4.5.5"
   },
   "devDependencies": {
     "@types/node": "^20",

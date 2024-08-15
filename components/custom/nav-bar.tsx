@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { Fragment, useEffect, useRef, useState } from "react";
+import { Fragment, useRef, useState } from "react";
 import toast from "react-hot-toast";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoClose } from "react-icons/io5";
@@ -17,8 +17,12 @@ export default function NavBar({
   aboutRef,
   projectsRef,
 }: NavBarProps) {
+  // zustand store
+  // local state
   const [isModalOpen, setIsModalOpen] = useState(false);
   const modalContentRef = useRef<HTMLDivElement>(null);
+
+  // functions
 
   const handleScrollTo = (clickedRef: any) => {
     clickedRef.current?.scrollIntoView({
@@ -47,6 +51,8 @@ export default function NavBar({
   const toggleModal = () => {
     setIsModalOpen((prev) => !prev);
   };
+
+  // --- RENDER ---
 
   return (
     <Fragment>
