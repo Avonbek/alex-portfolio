@@ -1,14 +1,14 @@
-import { motion, useTransform, useScroll } from "framer-motion";
+import { motion, useTransform, useScroll, useInView } from "framer-motion";
 import Hero from "@/components/custom/hero";
 import About from "./about/about";
 import AiExperience from "./ai-experience/ai-experience";
 import ProjectsHeader from "./projects/projects-header";
 import SimweaverSection from "./projects/simweaver/simweaver-section";
 import { useEffect, useState } from "react";
-import { framerPages, pages, variants } from "@/lib/utils";
+import { variants } from "@/lib/utils";
 import SpawnartSection from "./projects/spawnart/spawnart-section";
 
-type FramerMotionParallaxProps = {
+type MainContentProps = {
   homeRef: any;
   aboutRef: any;
   experienceRef: any;
@@ -20,7 +20,8 @@ export default function MainContent({
   aboutRef,
   experienceRef,
   projectsRef,
-}: FramerMotionParallaxProps) {
+}: MainContentProps) {
+  // --- PARALLAX EFFECTS ---
   const { scrollY } = useScroll();
   const screenHeight = typeof window !== "undefined" ? window.innerHeight : 0;
 
@@ -39,12 +40,18 @@ export default function MainContent({
     [screenHeight * 4, screenHeight * 4.5],
     [0, screenHeight * 4.5 - screenHeight * 4]
   );
-  // Simweaver
   const ySpawnartSection = useTransform(
     scrollY,
     [screenHeight * 5.5, screenHeight * 6],
     [0, screenHeight * 6 - screenHeight * 5.5]
   );
+
+  // --- VISIBILITY ---
+  const params = { once: true, amount: 0.8 };
+
+  const aboutInView = useInView(aboutRef, params);
+  const experienceInView = useInView(experienceRef, params);
+  const projectsInView = useInView(projectsRef, params);
 
   const [visibility, setVisibility] = useState({
     about: false,
@@ -52,27 +59,19 @@ export default function MainContent({
     projects: false,
   });
 
-  // TODO: replace with useInView for better performance?
   useEffect(() => {
-    const handleScroll = () => {
-      if (scrollY.get() >= 800) {
-        setVisibility((prev) => ({ ...prev, about: true }));
-      }
-      if (scrollY.get() >= 2100) {
-        setVisibility((prev) => ({ ...prev, aboutExperience: true }));
-      }
-      if (scrollY.get() >= 3100) {
-        setVisibility((prev) => ({ ...prev, projects: true }));
-      }
-    };
+    setVisibility({
+      about: aboutInView,
+      aboutExperience: experienceInView,
+      projects: projectsInView,
+    });
+  }, [aboutInView, experienceInView, projectsInView]);
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  // --- RENDER ---
 
   return (
     <div className={`framer-motion-parallax-component w-full`}>
-      {/* 1. Hero */}
+      {/* 1. Hero (NOTE: The Outer motion.div is for parallax sticky effect.) */}
       <motion.div ref={homeRef} className="parallax-hero">
         <Hero />
       </motion.div>
@@ -131,7 +130,8 @@ export default function MainContent({
         <SpawnartSection visibility={visibility} variants={variants} />
       </motion.div>
 
-      <div className="flex h-[100dvh] items-center justify-center parallax-margin"></div>
+      {/* blank pages */}
+      {/* <div className="flex h-[100dvh] items-center justify-center parallax-margin"></div> */}
     </div>
   );
 }

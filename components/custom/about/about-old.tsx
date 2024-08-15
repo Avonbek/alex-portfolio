@@ -9,7 +9,6 @@ import {
 
 import SkillBar from "./skill-bar";
 import { useState } from "react";
-import { SkillsTabs } from "./skills-tabs";
 
 const skills = [
   { text: "React", width: "90%" },
@@ -63,13 +62,7 @@ export default function About({ visibility, variants }: AboutProps) {
       <div className="about-skills">
         {/* <h2 className="title">My Skills</h2> */}
 
-        <SkillsTabs
-          visibility={visibility}
-          initialDelay={initialDelay}
-          delayIncrement={delayIncrement}
-        />
-
-        {/* <Tabs
+        <Tabs
           value={tab}
           onValueChange={onTabChange}
           className="flex flex-col w-full overflow-hidden"
@@ -82,6 +75,7 @@ export default function About({ visibility, variants }: AboutProps) {
             </TabsList>
           </div>
 
+          {/* General Skills Tab */}
           <AnimatePresence>
             {tab === "general" && (
               <TabsContent
@@ -102,7 +96,7 @@ export default function About({ visibility, variants }: AboutProps) {
               </TabsContent>
             )}
           </AnimatePresence>
-        </Tabs> */}
+        </Tabs>
       </div>
     </motion.section>
   );
