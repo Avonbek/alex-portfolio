@@ -30,7 +30,9 @@ export default function SimweaverSection({ visibility, variants }: any) {
           </div>
         </div>
         <div className="flex mt-auto gap-4">
-          <button className="simweaver-btn">Go to website</button>
+          <a href="https://simweaver.com/" target="_blank" rel="noreferrer">
+            <button className="simweaver-btn">Visit Website</button>
+          </a>
         </div>
       </div>
     </>
@@ -46,7 +48,11 @@ const cardContent = [
         width={0}
         height={0}
         sizes="100%"
-        style={{ width: "auto", height: "100%", borderRadius: "0.5rem" }}
+        style={{
+          width: "auto",
+          height: "100%",
+          borderRadius: "0.5rem",
+        }}
       />
     ),
     name: "Placeholder Title 1",

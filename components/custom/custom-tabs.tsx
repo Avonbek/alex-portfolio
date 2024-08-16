@@ -39,6 +39,7 @@ export const CustomTabs = ({
   const [hovering, setHovering] = useState(false);
 
   useLayoutEffect(() => {
+    console.log("useLayoutEffect");
     const newTabs = [...propTabs];
     setTabs(newTabs);
     setActive(newTabs[0]);
@@ -87,7 +88,7 @@ export const CustomTabs = ({
         active={active}
         key={active.value}
         hovering={hovering}
-        className={cn("mt-8", contentClassName)}
+        className={cn("mt-1", contentClassName)}
       />
     </>
   );
@@ -108,27 +109,28 @@ export const FadeInDiv = ({
     return tab.value === tabs[0].value;
   };
   return (
-    <div className="flex justify-center relative w-full h-full">
+    <div className="flex justify-center items-center relative w-full h-full">
       <AnimatePresence>
         {tabs.map((tab, idx) => (
           <motion.div
             key={tab.value}
             layoutId={tab.value}
             style={{
-              left: hovering ? idx * -20 : 0,
-              top: hovering ? idx * -20 : 0,
               zIndex: -idx,
               opacity: idx === 0 ? 1 : 0,
-              // opacity: idx < 3 ? 1 - idx * 0.2 : 0,
             }}
             exit={{ opacity: 0 }}
             animate={{
-              y: isActive(tab) ? [0, 40, 0] : 0,
+              y: isActive(tab) ? [-10, 0] : 0,
+              x: isActive(tab) ? [-10, 0] : 0,
+              opacity: isActive(tab) ? [0.4, 1] : 0,
             }}
             transition={{
               type: "spring",
-              duration: 0.4,
+              // mass: 1,
+              duration: 1,
             }}
+            // className={cn("flex w-[100%] h-full border", className)}
             className={cn("w-full h-full absolute top-0 left-0", className)}
           >
             {tab.content}

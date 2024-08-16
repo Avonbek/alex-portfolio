@@ -17,7 +17,6 @@ export default function SkillBar({
   return (
     <div className="skill-bar">
       <motion.div
-        // animate={"visible"}
         animate={visibility.about ? "visible" : "hiddenRight"}
         variants={{
           visible: { width: width },
@@ -27,7 +26,7 @@ export default function SkillBar({
         transition={{ duration: 1, delay: delay, once: true }}
         className="skill-bar-fill"
       >
-        <h3 className="skill-bar-name">{text}</h3>
+        <div className="skill-bar-name">{text}</div>
       </motion.div>
     </div>
   );

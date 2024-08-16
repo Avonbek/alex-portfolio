@@ -487,7 +487,7 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 66%;
+  height: 50%;
   width: 50%;
   max-width: 700px;
   /* gap: 1rem; */
@@ -533,7 +533,7 @@ main {
   justify-content: center;
   width: 50%;
   max-width: 700px;
-  height: 66%;
+  height: 50%;
 
   /* border: 1px solid var(--muted-text); */
 }
@@ -546,10 +546,17 @@ main {
 /* --- SKILL TABS --- */
 
 .skill-tab-list-background {
-  @apply flex flex-row w-full items-center justify-center [perspective:1000px] relative overflow-auto sm:overflow-visible text-xl text-[var(--muted-text)];
+  @apply flex flex-row w-full py-1 items-center justify-center [perspective:1000px] relative overflow-auto text-[var(--muted-text)];
+  @apply sm:overflow-visible lg:text-xl;
 
   /* border: 1px solid var(--muted-text); */
 }
+
+/* @media (max-width: 1000px) {
+  .skill-tab-list-background {
+    @apply text-md;
+  }
+} */
 
 .skill-tab-content-background {
   width: 100%;
@@ -557,7 +564,9 @@ main {
   position: relative;
   border-radius: 20px;
   @apply p-0 text-xl font-bold text-[var(--muted-text)] bg-transparent;
-  @apply md:text-4xl;
+  /* @apply md:text-4xl; */
+
+  /* border: 1px solid var(--muted-text); */
 }
 
 /* --- SKILL BARS --- */
@@ -575,6 +584,12 @@ main {
   /* border: 1px solid var(--muted-text); */
 }
 
+@media (max-width: 1000px) {
+  .skill-bar-parent {
+    margin-top: 0rem;
+  }
+}
+
 .skill-bar {
   display: flex;
   align-items: center;
@@ -584,8 +599,6 @@ main {
   background: var(--slate-700);
 
   @apply border border-slate-700;
-
-  /* border: 1px solid var(--slate-400); */
 }
 
 .skill-bar-fill {
@@ -602,14 +615,14 @@ main {
   align-items: center;
   justify-content: center;
   width: 130px;
-  padding: 0.3rem;
+  padding: 0.05rem;
   font-size: 1rem;
   font-weight: 700;
   border-radius: 5px;
   background: var(--purple-900);
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 768px) {
   .about {
     flex-direction: column;
   }

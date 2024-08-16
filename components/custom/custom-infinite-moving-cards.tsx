@@ -97,7 +97,7 @@ export const CustomInfiniteMovingCards = ({
             <blockquote>
               <div
                 aria-hidden="true"
-                className="user-select-none -z-1 pointer-events-none absolute -left-0.5 -top-0.5 h-[calc(100%_+_4px)] w-[calc(100%_+_4px)]"
+                className="user-select-none -z-1 pointer-events-none absolute -left-0.5 -top-0.5"
               ></div>
               <div className="flex relative z-20 text-sm leading-[1.6] text-gray-100 font-normal justify-center">
                 {item.quote}
