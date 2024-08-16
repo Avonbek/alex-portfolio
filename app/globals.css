@@ -592,34 +592,43 @@ main {
 
 .skill-bar {
   display: flex;
+  position: relative;
+  left: 0;
+  top: 0;
   align-items: center;
   justify-content: start;
   width: 80%;
   border-radius: 5px;
-  background: var(--slate-700);
+  background: rgba(255, 255, 255, 0.05);
 
-  @apply border border-slate-700;
+  /* @apply border border-slate-700; */
 }
 
 .skill-bar-fill {
   display: flex;
+  /* position: absolute; */
   align-items: center;
   justify-content: start;
   height: 100%;
+  /* opacity: 0.8; */
   border-radius: 5px;
-  background: var(--purple);
+  background: var(--purple-700);
+  z-index: 100;
 }
 
 .skill-bar-name {
   display: flex;
+  /* position: absolute;
+  left: 0;
+  top: 0; */
   align-items: center;
   justify-content: center;
   width: 130px;
-  padding: 0.05rem;
+  padding: 0.3rem;
   font-size: 1rem;
   font-weight: 700;
   border-radius: 5px;
-  background: var(--purple-900);
+  background: var(--purple-950);
 }
 
 @media (max-width: 768px) {
@@ -649,7 +658,7 @@ main {
     gap: 0.3rem;
   }
   .skill-bar-name {
-    width: 100px;
+    width: 110px;
     font-size: 0.8rem;
   }
 }
