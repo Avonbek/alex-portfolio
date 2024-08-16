@@ -26,12 +26,13 @@ export default function SimweaverSection({ visibility, variants }: any) {
               items={cardContent}
               direction="left"
               speed="slow"
+              pauseOnHover={false}
             />
           </div>
         </div>
         <div className="flex mt-auto gap-4">
           <a href="https://simweaver.com/" target="_blank" rel="noreferrer">
-            <button className="simweaver-btn">Visit Website</button>
+            <button className="colored-btn">Visit Website</button>
           </a>
         </div>
       </div>

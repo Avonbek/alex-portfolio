@@ -15,8 +15,16 @@
   --purple-900: #581c87;
   --purple: #3b0764;
 
+  --teal-100: #ccfbf1;
+  --teal-200: #99f6e4;
+  --teal-300: #5eead4;
+  --teal-400: #2dd4bf;
+  --teal-500: #14b8a6;
+  --teal-600: #0d9488;
+  --teal-700: #0f766e;
   --teal: #115e59;
   --teal-dark: #134e4a;
+  --teal-950: #042f2e;
 
   --gold: #ffd700;
   --coral: #ff6f61;
@@ -161,7 +169,7 @@ main {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--purple);
+  background: var(--slate-600);
   border-radius: 10px;
 }
 
@@ -187,6 +195,28 @@ main {
   }
 }
 
+/* --- BUTTONS --- */
+
+.colored-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 50px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--muted-text);
+  background: var(--teal);
+  border-radius: 100px;
+  cursor: pointer;
+  transition: color 0.3s ease, color 0.3s ease, background 0.3s ease;
+}
+
+.colored-btn:hover {
+  color: var(--slate-300);
+  background: var(--teal-dark);
+}
+
 /* --- BACKGROUND GRADIENT --- */
 
 .background-gradient {
@@ -196,7 +226,10 @@ main {
   width: 100%;
   height: 100%;
   z-index: -1;
-  background: linear-gradient(40deg, var(--purple), var(--black));
+  /* background: var(--slate-950); */
+  background: linear-gradient(40deg, var(--slate-900), var(--black));
+  /* background: linear-gradient(40deg, var(--purple), var(--black)); */
+  /* background: linear-gradient(40deg, var(--purple), var(--black)); */
   opacity: 1;
 }
 
@@ -517,11 +550,10 @@ main {
   max-width: 20rem;
   padding: 4px;
   margin-top: 0.5rem;
-  /* border-radius: 100px; */
 
   text-align: center;
-  line-height: 1.8rem;
-  font-size: 1.2rem;
+  line-height: 2rem;
+  font-size: 1.4rem;
 
   /* border: 1px solid var(--muted-text); */
 }
@@ -610,9 +642,10 @@ main {
   align-items: center;
   justify-content: start;
   height: 100%;
-  /* opacity: 0.8; */
+  opacity: 0.95;
   border-radius: 5px;
-  background: var(--purple-700);
+  background: var(--teal-500);
+  /* background: var(--purple-700); */
   z-index: 100;
 }
 
@@ -628,7 +661,8 @@ main {
   font-size: 1rem;
   font-weight: 700;
   border-radius: 5px;
-  background: var(--purple-950);
+  background: var(--teal-800);
+  /* background: var(--purple-950); */
 }
 
 @media (max-width: 768px) {
@@ -714,7 +748,10 @@ main {
 
 .ai-experience-icon-text {
   width: 280px;
+  height: 100px;
   line-height: 1.4rem;
+
+  /* border: 1px solid var(--muted-text); */
 }
 
 @media (max-width: 1000px) {
@@ -779,7 +816,7 @@ main {
   max-height: 800px;
   padding: 3rem;
   border-radius: 10px;
-  @apply bg-black bg-opacity-50;
+  @apply bg-black bg-opacity-0;
 
   /* border: 1px solid var(--muted-text); */
 }
@@ -879,26 +916,6 @@ main {
   /* border: 1px solid var(--muted-text); */
 }
 
-.simweaver-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 200px;
-  height: 50px;
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--muted-text);
-  background: var(--teal);
-  border-radius: 100px;
-  cursor: pointer;
-  transition: color 0.3s ease, color 0.3s ease, background 0.3s ease;
-}
-
-.simweaver-btn:hover {
-  color: var(--slate-300);
-  background: var(--teal-dark);
-}
-
 @media (max-width: 1000px) {
   .simweaver-container {
     flex-direction: column;
@@ -959,11 +976,6 @@ main {
   display: flex;
   flex-direction: column;
   position: relative;
-  /* position: absolute;
-  height: 100dvh;
-  width: 100dvw; */
-  /* height: 100dvh; */
-  /* overflow-y: auto; */
 
   /* border: 1px solid var(--muted-text); */
 }
@@ -980,13 +992,59 @@ main {
   /* scroll logic helper */
 }
 
+/* .parallax-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100dvh;
+} */
+
+/* --- NEW --- */
+
 .parallax-hero {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100dvh;
+  position: relative;
+  overflow: hidden;
 }
+
+.parallax-hero::before,
+.parallax-hero::after {
+  content: "";
+  position: absolute;
+  width: 50dvw;
+  height: 50dvh;
+  max-height: 50rem;
+  max-width: 50rem;
+  min-height: 30rem;
+  min-width: 30rem;
+  /* width: 40rem;
+  height: 40rem; */
+  border-radius: 50%;
+  opacity: 0.3;
+  filter: blur(150px);
+  z-index: -1;
+}
+
+.parallax-hero::before {
+  /* top: -5rem; */
+  /* left: -15rem; */
+
+  /* @apply bg-gradient-to-r from-violet-900 to-violet-950 opacity-50; */
+}
+
+/* .parallax-hero::after {
+  top: 5rem;
+  right: -20rem;
+
+  @apply bg-gradient-to-r from-violet-700 to-violet-800;
+} */
+
+/* --- */
 
 .parallax-section {
   display: flex;

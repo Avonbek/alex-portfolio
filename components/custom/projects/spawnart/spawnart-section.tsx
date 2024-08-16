@@ -26,12 +26,13 @@ export default function SpawnartSection({ visibility, variants }: any) {
               items={cardContent}
               direction="left"
               speed="slow"
+              pauseOnHover={false}
             />
           </div>
         </div>
         <div className="flex mt-auto">
           <a href="https://spawnart.ai/" target="_blank" rel="noreferrer">
-            <button className="spawnart-btn">Visit Website</button>
+            <button className="colored-btn">Visit Website</button>
           </a>
         </div>
       </div>

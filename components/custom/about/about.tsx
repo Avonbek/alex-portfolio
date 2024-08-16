@@ -26,11 +26,12 @@ export default function About({ visibility, variants }: AboutProps) {
           alt="Picture of the author and his cat Mable"
           width={270}
           height={270}
-          className="about-me-image"
+          className="about-me-image opacity-95"
         />
         <h2 className="about-me-title">About Me</h2>
         <h3 className="about-me-description">
-          My goal is to create software that is both beautiful and functional.
+          My mission is to craft elegant applications that add real value to
+          people's lives.
         </h3>
       </div>
 

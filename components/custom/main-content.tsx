@@ -35,15 +35,20 @@ export default function MainContent({
     [screenHeight * 2.5, screenHeight * 3],
     [0, screenHeight * 3 - screenHeight * 2.5]
   );
-  const ySimweaverSection = useTransform(
+  const yProjectHeader = useTransform(
     scrollY,
     [screenHeight * 4, screenHeight * 4.5],
     [0, screenHeight * 4.5 - screenHeight * 4]
   );
-  const ySpawnartSection = useTransform(
+  const ySimweaverSection = useTransform(
     scrollY,
     [screenHeight * 5.5, screenHeight * 6],
     [0, screenHeight * 6 - screenHeight * 5.5]
+  );
+  const ySpawnartSection = useTransform(
+    scrollY,
+    [screenHeight * 7, screenHeight * 7.5],
+    [0, screenHeight * 7.5 - screenHeight * 7]
   );
 
   // --- VISIBILITY ---
@@ -99,15 +104,15 @@ export default function MainContent({
       </motion.div>
 
       {/* 4. Projects */}
-      {/* <motion.div
+      <motion.div
         ref={projectsRef}
         style={{
-          y: yProjects,
+          y: yProjectHeader,
         }}
         className="parallax-section parallax-margin"
       >
         <ProjectsHeader visibility={visibility} variants={variants} />
-      </motion.div> */}
+      </motion.div>
 
       {/* 5. Simweaver Section */}
       <motion.div

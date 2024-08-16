@@ -22,17 +22,17 @@ export default function AiExperience({ visibility }: any) {
         <AiExperienceIcon
           icon={<TbListSearch />}
           title="RAG"
-          text="Whether you need a semantic search engine or an AI assistant, I've got you covered."
+          text="Worked on semantic search engines and database knowledge retrieval for AI assistants."
         />
         <AiExperienceIcon
           icon={<FiLink />}
           title="CoT"
-          text="Familiar with chain of thought architectures and tools such as LangChain, AutoGen, etc."
+          text="Familiar with chain of thought and agent-based architectures such as Langchain."
         />
         <AiExperienceIcon
           icon={<LuBrainCircuit />}
           title="Prompts"
-          text="Extensive experience designing AI prompts across a variety of different models."
+          text="Extensive experience working with AI prompts across a variety of different models."
         />
       </div>
     </motion.div>
