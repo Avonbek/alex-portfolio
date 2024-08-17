@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Fragment } from "react";
+import toast from "react-hot-toast";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { PiArrowFatLinesUpFill } from "react-icons/pi";
@@ -12,6 +13,11 @@ type ContactProps = {
 export default function Contact({ visibility, variants }: ContactProps) {
   const duration = 0.5;
   const delay = 0.5;
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText("nova3t@gmail.com");
+    toast.success("Copied Email: nova3t@gmail.com", { duration: 3000 });
+  };
 
   return (
     <Fragment>
@@ -52,32 +58,34 @@ export default function Contact({ visibility, variants }: ContactProps) {
         {/* Contact Buttons */}
         <div className="contact-buttons">
           <motion.a
-            href="https://github.com/yourusername"
-            className="contact-btn"
             initial={{ opacity: 0 }}
             animate={{ opacity: visibility.contact ? 1 : 0 }}
             transition={{ duration: duration, delay: delay }}
+            href="https://github.com/Avonbek"
+            target="_blank"
+            className="contact-btn"
           >
             <FaGithub size={30} />
           </motion.a>
           <motion.a
-            href="https://linkedin.com/in/yourusername"
-            className="contact-btn"
             initial={{ opacity: 0 }}
             animate={{ opacity: visibility.contact ? 1 : 0 }}
             transition={{ duration: duration, delay: delay * 1.5 }}
+            href="https://www.linkedin.com/in/alex-threet-968722300/"
+            target="_blank"
+            className="contact-btn"
           >
             <FaLinkedinIn size={30} />
           </motion.a>
-          <motion.a
-            href="mailto:your.email@example.com"
-            className="contact-btn"
+          <motion.button
             initial={{ opacity: 0 }}
             animate={{ opacity: visibility.contact ? 1 : 0 }}
             transition={{ duration: duration, delay: delay * 2 }}
+            onClick={() => handleCopyEmail()}
+            className="contact-btn"
           >
             <MdEmail size={30} />
-          </motion.a>
+          </motion.button>
         </div>
 
         {/* Return Home Button */}
@@ -85,6 +93,7 @@ export default function Contact({ visibility, variants }: ContactProps) {
           initial={{ opacity: 0 }}
           animate={{ opacity: visibility.contact ? 1 : 0 }}
           transition={{ duration: duration, delay: delay * 2.5 }}
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           className="return-home-btn"
         >
           <PiArrowFatLinesUpFill size={30} />

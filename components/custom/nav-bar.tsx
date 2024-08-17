@@ -2,20 +2,22 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { Fragment, useRef, useState } from "react";
-import toast from "react-hot-toast";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoClose } from "react-icons/io5";
+import { scrollTo } from "@/lib/utils";
 
 type NavBarProps = {
   homeRef: any;
   aboutRef: any;
   projectsRef: any;
+  contactRef: any;
 };
 
 export default function NavBar({
   homeRef,
   aboutRef,
   projectsRef,
+  contactRef,
 }: NavBarProps) {
   // zustand store
   // local state
@@ -24,18 +26,8 @@ export default function NavBar({
 
   // functions
 
-  const handleScrollTo = (clickedRef: any) => {
-    clickedRef.current?.scrollIntoView({
-      behavior: "smooth",
-      block: "end",
-      inline: "nearest",
-    });
-    setIsModalOpen(false);
-  };
-
-  const handleCopyEmail = () => {
-    navigator.clipboard.writeText("nova3t@gmail.com");
-    toast.success("Copied Email: nova3t@gmail.com", { duration: 3000 });
+  const handleScrollTo = (ref: any) => {
+    scrollTo(ref);
     setIsModalOpen(false);
   };
 
@@ -81,8 +73,11 @@ export default function NavBar({
           Projects
         </button>
         <div className="nav-divider"></div>
-        <button onClick={() => handleCopyEmail()} className="nav-button">
-          Email
+        <button
+          onClick={() => handleScrollTo(contactRef)}
+          className="nav-button"
+        >
+          Contact
         </button>
       </motion.nav>
       {/* SMALL MODE */}
@@ -147,8 +142,11 @@ export default function NavBar({
                 Projects
               </button>
               <div className="nav-divider"></div>
-              <button onClick={() => handleCopyEmail()} className="nav-button">
-                Email
+              <button
+                onClick={() => handleScrollTo(contactRef)}
+                className="nav-button"
+              >
+                Contact
               </button>
             </motion.div>
           </motion.div>

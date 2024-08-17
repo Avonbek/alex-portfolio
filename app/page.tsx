@@ -14,7 +14,12 @@ export default function Home() {
   return (
     <main>
       <div className={"background-gradient"}></div>
-      <NavBar homeRef={homeRef} aboutRef={aboutRef} projectsRef={projectsRef} />
+      <NavBar
+        homeRef={homeRef}
+        aboutRef={aboutRef}
+        projectsRef={projectsRef}
+        contactRef={contactRef}
+      />
       <MainContent
         homeRef={homeRef}
         aboutRef={aboutRef}

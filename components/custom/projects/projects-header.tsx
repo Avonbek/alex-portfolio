@@ -14,15 +14,21 @@ export default function ProjectsHeader({
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start end", "center center"],
+    offset: ["start end", "end start"],
   });
 
-  const scaleY = useTransform(scrollYProgress, [0, 1], ["0.8", "1"]);
-  const arrowY = useTransform(scrollYProgress, [0, 1], ["100px", "50px"]);
+  const scaleY = useTransform(scrollYProgress, [0, 1], ["0.8", "1.2"]);
+
+  // Vertical movement: from the center (0) to slightly above (-20vh)
+  const arrowY = useTransform(scrollYProgress, [0, 1], ["0vh", "-20vh"]);
+
+  // Horizontal movement: from the center (0vw) to the respective sides (50vw and -50vw)
+  const arrowXLeft = useTransform(scrollYProgress, [0, 1], ["0vw", "-50vw"]);
+  const arrowXRight = useTransform(scrollYProgress, [0, 1], ["0vw", "50vw"]);
 
   return (
     <section className="projects-header">
-      <div ref={ref} className="line-parent">
+      <div ref={ref} className="projects-parent">
         <motion.h2
           style={{ scale: scaleY }}
           animate={visibility.projects ? "visible" : "hiddenBottom"}
@@ -30,11 +36,26 @@ export default function ProjectsHeader({
           className="title"
         >
           Projects
+          <motion.div
+            animate={visibility.projects ? "visible" : "hiddenRight"}
+            initial="hiddenRight"
+            variants={variants}
+            transition={{ duration: 1, delay: 0.5 }}
+            className="underline border-2 !w-[100px] mt-2"
+          />
         </motion.h2>
 
-        <motion.div className="down-arrow-footer">
-          <HiArrowLongDown size={50} />
-        </motion.div>
+        {/* <div className="horizontal-line-parent">
+          <motion.div style={{ x: arrowXLeft, scale: scaleY }} className="flex">
+            <HiArrowLongDown size={50} />
+          </motion.div>
+          <motion.div
+            style={{ x: arrowXRight, scale: scaleY }}
+            className="flex"
+          >
+            <HiArrowLongDown size={50} />
+          </motion.div>
+        </div> */}
       </div>
     </section>
   );

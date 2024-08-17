@@ -873,16 +873,24 @@ main {
 
 /* lines */
 
-.line-parent {
+.projects-parent {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 5%;
+  height: 33%;
 
   /* border: 1px solid var(--muted-text); */
+}
+
+.horizontal-line-parent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 }
 
 .line {

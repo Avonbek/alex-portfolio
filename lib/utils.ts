@@ -15,3 +15,11 @@ export const variants = {
   collapsed: { width: 0 },
   expanded: { width: "100%", duration: 1 },
 };
+
+export const scrollTo = (clickedRef: any) => {
+  clickedRef.current?.scrollIntoView({
+    behavior: "smooth",
+    block: "end",
+    inline: "nearest",
+  });
+};
