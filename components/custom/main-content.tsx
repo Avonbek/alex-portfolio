@@ -90,6 +90,8 @@ export default function MainContent({
     });
   }, [aboutInView, experienceInView, projectsInView, contactInView]);
 
+  // THOUGHT: I feel like this might have something to do with our scroll size being weird
+
   // on resize vertical, set new screen height
   useLayoutEffect(() => {
     const handleResize = () => {
