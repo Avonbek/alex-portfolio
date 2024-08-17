@@ -36,26 +36,14 @@ export default function ProjectsHeader({
           className="title"
         >
           Projects
-          <motion.div
+          {/* <motion.div
             animate={visibility.projects ? "visible" : "hiddenRight"}
             initial="hiddenRight"
             variants={variants}
             transition={{ duration: 1, delay: 0.5 }}
             className="underline border-2 !w-[100px] mt-2"
-          />
+          /> */}
         </motion.h2>
-
-        {/* <div className="horizontal-line-parent">
-          <motion.div style={{ x: arrowXLeft, scale: scaleY }} className="flex">
-            <HiArrowLongDown size={50} />
-          </motion.div>
-          <motion.div
-            style={{ x: arrowXRight, scale: scaleY }}
-            className="flex"
-          >
-            <HiArrowLongDown size={50} />
-          </motion.div>
-        </div> */}
       </div>
     </section>
   );

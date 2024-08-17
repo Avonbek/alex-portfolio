@@ -5,6 +5,8 @@
 /* border: 1px solid var(--muted-text); */
 
 :root {
+  --bradius: 5px;
+
   /* my colors */
   --white: #fafafa;
   --black: #000000;
@@ -526,6 +528,8 @@ main {
   width: 100%;
   text-align: center;
   border-radius: 10px;
+
+  border: 1px solid var(--muted-text);
 }
 
 .parallax-margin {
@@ -803,7 +807,18 @@ main {
   justify-content: center;
   width: 100%;
   max-width: 1400px;
+  /* height: 100%; */
   gap: 4rem;
+}
+
+@media (max-width: 1000px) {
+  .about-ai-experience {
+    padding-top: 2rem;
+  }
+  .ai-experience-icon-parent {
+    flex-direction: column;
+    gap: 0rem;
+  }
 }
 
 /* vertical */
@@ -814,13 +829,20 @@ main {
   justify-content: center;
   width: 25%;
   gap: 0.7rem;
+
+  /* border: 1px solid var(--muted-text); */
 }
 
 .ai-experience-icon {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 80px;
+  font-size: 70px;
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  width: 90px;
+  height: 90px;
+  background: var(--teal-800);
 }
 
 .ai-experience-icon-title {
@@ -837,19 +859,17 @@ main {
 }
 
 @media (max-width: 1000px) {
-  .ai-experience-icon-parent {
-    flex-direction: column;
-    /* flex-wrap: wrap; */
-    gap: 2rem;
-  }
   .ai-experience-icon-container {
     font-size: 0.8rem;
+    max-height: 200px;
   }
   .ai-experience-icon-title {
     font-size: 1.3rem;
   }
   .ai-experience-icon {
-    font-size: 60px;
+    width: 60px;
+    height: 60px;
+    font-size: 40px;
   }
   .ai-experience-icon-text {
     width: 240px;
@@ -867,8 +887,7 @@ main {
   gap: 0rem;
   height: 100%;
   width: 100%;
-
-  /* border: 1px solid var(--muted-text); */
+  max-width: 100dvw;
 }
 
 /* lines */

@@ -4,7 +4,7 @@ import About from "./about/about";
 import AiExperience from "./ai-experience/ai-experience";
 import ProjectsHeader from "./projects/projects-header";
 import SimweaverSection from "./projects/simweaver/simweaver-section";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { variants } from "@/lib/utils";
 import SpawnartSection from "./projects/spawnart/spawnart-section";
 import Contact from "./contact";
@@ -78,6 +78,10 @@ export default function MainContent({
   });
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     setVisibility({
       about: aboutInView,
       aboutExperience: experienceInView,
@@ -87,12 +91,12 @@ export default function MainContent({
   }, [aboutInView, experienceInView, projectsInView, contactInView]);
 
   // on resize vertical, set new screen height
-  useEffect(() => {
+  useLayoutEffect(() => {
     const handleResize = () => {
-      if (typeof window !== "undefined") {
-        setScreenHeight(window.innerHeight);
-      }
+      setScreenHeight(window.innerHeight);
     };
+
+    handleResize(); // Set on first render
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
