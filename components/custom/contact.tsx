@@ -100,7 +100,7 @@ export default function Contact({ visibility, variants }: ContactProps) {
         </motion.button>
 
         {/* Footer */}
-        <motion.div
+        {/* <motion.div
           initial={{ y: 40, opacity: 0 }}
           animate={{
             y: visibility.contact ? 0 : 40,
@@ -110,7 +110,7 @@ export default function Contact({ visibility, variants }: ContactProps) {
           className="footer"
         >
           <p>Alex Threet &copy; 2024</p>
-        </motion.div>
+        </motion.div> */}
       </div>
     </Fragment>
   );
