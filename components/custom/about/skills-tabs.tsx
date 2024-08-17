@@ -1,6 +1,6 @@
 "use client";
 
-import { CustomTabs } from "@/components/custom/custom-tabs";
+import { CustomTabs } from "@/components/custom/about/custom-tabs";
 import SkillBar from "./skill-bar";
 
 const skills = [
@@ -50,7 +50,6 @@ export function SkillsTabs({
       value: "general",
       content: (
         <div className={`skill-tab-content-background`}>
-          {/* <div>Skills</div> */}
           <div className="skill-bar-parent">
             {skills.map((skill, index) => (
               <SkillBar
@@ -70,7 +69,6 @@ export function SkillsTabs({
       value: "libraries",
       content: (
         <div className={`skill-tab-content-background`}>
-          {/* <p>Libraries</p> */}
           <div className="skill-bar-parent">
             {libraries.map((library, index) => (
               <SkillBar
@@ -90,7 +88,6 @@ export function SkillsTabs({
       value: "other",
       content: (
         <div className={`skill-tab-content-background`}>
-          {/* <p>Other</p> */}
           <div className="skill-bar-parent">
             {miscellaneous.map((misc, index) => (
               <SkillBar

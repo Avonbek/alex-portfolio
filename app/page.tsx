@@ -9,8 +9,7 @@ export default function Home() {
   const aboutRef = useRef(null);
   const experienceRef = useRef(null);
   const projectsRef = useRef(null);
-  // const projectOneRef = useRef(null);
-  // const projectTwoRef = useRef(null);
+  const contactRef = useRef(null);
 
   return (
     <main>
@@ -21,6 +20,7 @@ export default function Home() {
         aboutRef={aboutRef}
         experienceRef={experienceRef}
         projectsRef={projectsRef}
+        contactRef={contactRef}
       />
     </main>
   );

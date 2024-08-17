@@ -4,15 +4,17 @@ import About from "./about/about";
 import AiExperience from "./ai-experience/ai-experience";
 import ProjectsHeader from "./projects/projects-header";
 import SimweaverSection from "./projects/simweaver/simweaver-section";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { variants } from "@/lib/utils";
 import SpawnartSection from "./projects/spawnart/spawnart-section";
+import Contact from "./contact";
 
 type MainContentProps = {
   homeRef: any;
   aboutRef: any;
   experienceRef: any;
   projectsRef: any;
+  contactRef: any;
 };
 
 export default function MainContent({
@@ -20,10 +22,13 @@ export default function MainContent({
   aboutRef,
   experienceRef,
   projectsRef,
+  contactRef,
 }: MainContentProps) {
   // --- PARALLAX EFFECTS ---
   const { scrollY } = useScroll();
-  const screenHeight = typeof window !== "undefined" ? window.innerHeight : 0;
+  const [screenHeight, setScreenHeight] = useState(
+    typeof window !== "undefined" ? window.innerHeight : 0
+  );
 
   const yAbout = useTransform(
     scrollY,
@@ -35,10 +40,11 @@ export default function MainContent({
     [screenHeight * 2.5, screenHeight * 3],
     [0, screenHeight * 3 - screenHeight * 2.5]
   );
+
   const yProjectHeader = useTransform(
     scrollY,
-    [screenHeight * 4, screenHeight * 4.5],
-    [0, screenHeight * 4.5 - screenHeight * 4]
+    [screenHeight * 4, screenHeight * 5],
+    [0, (screenHeight * 4.5 - screenHeight * 4) / 2]
   );
   const ySimweaverSection = useTransform(
     scrollY,
@@ -50,18 +56,25 @@ export default function MainContent({
     [screenHeight * 7, screenHeight * 7.5],
     [0, screenHeight * 7.5 - screenHeight * 7]
   );
+  const yContact = useTransform(
+    scrollY,
+    [screenHeight * 8.5, screenHeight * 9],
+    [0, screenHeight * 9 - screenHeight * 8.5]
+  );
 
   // --- VISIBILITY ---
   const params = { once: true, amount: 0.8 };
 
   const aboutInView = useInView(aboutRef, params);
   const experienceInView = useInView(experienceRef, params);
-  const projectsInView = useInView(projectsRef, params);
+  const projectsInView = useInView(projectsRef, { ...params, amount: 0.5 });
+  const contactInView = useInView(contactRef, params);
 
   const [visibility, setVisibility] = useState({
     about: false,
     aboutExperience: false,
     projects: false,
+    contact: false,
   });
 
   useEffect(() => {
@@ -69,13 +82,25 @@ export default function MainContent({
       about: aboutInView,
       aboutExperience: experienceInView,
       projects: projectsInView,
+      contact: contactInView,
     });
-  }, [aboutInView, experienceInView, projectsInView]);
+  }, [aboutInView, experienceInView, projectsInView, contactInView]);
+
+  // on resize vertical, set new screen height
+  useEffect(() => {
+    const handleResize = () => {
+      if (typeof window !== "undefined") {
+        setScreenHeight(window.innerHeight);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   // --- RENDER ---
 
   return (
-    <div className={`framer-motion-parallax-component w-full`}>
+    <div className={`main-content`}>
       {/* 1. Hero (NOTE: The Outer motion.div is for parallax sticky effect.) */}
       <motion.div ref={homeRef} className="parallax-hero">
         <Hero />
@@ -87,6 +112,7 @@ export default function MainContent({
         style={{
           y: yAbout,
         }}
+        // transition={scrollTransition}
         className="parallax-section"
       >
         <About visibility={visibility} variants={variants} />
@@ -98,6 +124,7 @@ export default function MainContent({
         style={{
           y: yExperience,
         }}
+        // transition={scrollTransition}
         className="parallax-section parallax-margin"
       >
         <AiExperience visibility={visibility} />
@@ -116,7 +143,6 @@ export default function MainContent({
 
       {/* 5. Simweaver Section */}
       <motion.div
-        ref={projectsRef}
         style={{
           y: ySimweaverSection,
         }}
@@ -133,6 +159,17 @@ export default function MainContent({
         className="parallax-section parallax-margin"
       >
         <SpawnartSection visibility={visibility} variants={variants} />
+      </motion.div>
+
+      {/* 7. Contact */}
+      <motion.div
+        ref={contactRef}
+        style={{
+          y: yContact,
+        }}
+        className="parallax-section parallax-margin"
+      >
+        <Contact visibility={visibility} variants={variants} />
       </motion.div>
 
       {/* blank pages */}

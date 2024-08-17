@@ -1,7 +1,6 @@
-import { motion } from "framer-motion";
-import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
-import { bentoGridItems } from "./projects-header-data";
-import { cn } from "@/lib/utils";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useEffect, useRef } from "react";
+import { HiArrowLongDown } from "react-icons/hi2";
 
 type ProjectsHeaderProps = {
   visibility: any;
@@ -12,28 +11,31 @@ export default function ProjectsHeader({
   visibility,
   variants,
 }: ProjectsHeaderProps) {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "center center"],
+  });
+
+  const scaleY = useTransform(scrollYProgress, [0, 1], ["0.8", "1"]);
+  const arrowY = useTransform(scrollYProgress, [0, 1], ["100px", "50px"]);
+
   return (
     <section className="projects-header">
-      <motion.h2
-        animate={visibility.projects ? "visible" : "hiddenBottom"}
-        variants={variants}
-        className="title"
-      >
-        Projects
-      </motion.h2>
+      <div ref={ref} className="line-parent">
+        <motion.h2
+          style={{ scale: scaleY }}
+          animate={visibility.projects ? "visible" : "hiddenBottom"}
+          variants={variants}
+          className="title"
+        >
+          Projects
+        </motion.h2>
 
-      <BentoGrid className="projects-header-grid">
-        {bentoGridItems.map((item, i) => (
-          <BentoGridItem
-            key={i}
-            title={item.title}
-            description={item.description}
-            header={item.header}
-            className={cn("projects-header-grid-item", item.className)}
-            icon={item.icon}
-          />
-        ))}
-      </BentoGrid>
+        <motion.div className="down-arrow-footer">
+          <HiArrowLongDown size={50} />
+        </motion.div>
+      </div>
     </section>
   );
 }

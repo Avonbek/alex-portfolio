@@ -5,60 +5,6 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export const framerPages = {
-  about: {
-    start: 1,
-    end: 1.2,
-  },
-  aboutExperience: {
-    start: 4,
-    end: 4.4,
-  },
-  projects: {
-    start: 3.8,
-    end: 4.3,
-  },
-  simweaver: {
-    start: 5.2,
-    end: 9,
-  },
-  simweaverContentOne: {
-    start: 5.2,
-    end: 5.7,
-  },
-  simweaverContentTwo: {
-    start: 6.6,
-    end: 7.1,
-  },
-};
-
-export const pages = {
-  about: {
-    start: 1,
-    end: 1.4,
-  },
-  aboutExperience: {
-    start: 2.5,
-    end: 2.9,
-  },
-  projects: {
-    start: 3.8,
-    end: 4.3,
-  },
-  simweaver: {
-    start: 5.2,
-    end: 9,
-  },
-  simweaverContentOne: {
-    start: 5.2,
-    end: 5.7,
-  },
-  simweaverContentTwo: {
-    start: 6.6,
-    end: 7.1,
-  },
-};
-
 export const variants = {
   visible: { opacity: 1, x: 0, transition: { duration: 0.7 } },
   visibleSlow: { opacity: 1, x: 0, transition: { duration: 1.3 } },
