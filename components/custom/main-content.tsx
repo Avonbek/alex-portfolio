@@ -24,44 +24,6 @@ export default function MainContent({
   projectsRef,
   contactRef,
 }: MainContentProps) {
-  // --- PARALLAX EFFECTS ---
-  const { scrollY } = useScroll();
-  const [screenHeight, setScreenHeight] = useState(
-    typeof window !== "undefined" ? window.innerHeight : 0
-  );
-
-  const yAbout = useTransform(
-    scrollY,
-    [screenHeight * 1, screenHeight * 1.5],
-    [0, screenHeight * 1.5 - screenHeight * 1]
-  );
-  const yExperience = useTransform(
-    scrollY,
-    [screenHeight * 2.5, screenHeight * 3],
-    [0, screenHeight * 3 - screenHeight * 2.5]
-  );
-
-  const yProjectHeader = useTransform(
-    scrollY,
-    [screenHeight * 4, screenHeight * 5],
-    [0, (screenHeight * 4.5 - screenHeight * 4) / 2]
-  );
-  const ySimweaverSection = useTransform(
-    scrollY,
-    [screenHeight * 5.5, screenHeight * 6],
-    [0, screenHeight * 6 - screenHeight * 5.5]
-  );
-  const ySpawnartSection = useTransform(
-    scrollY,
-    [screenHeight * 7, screenHeight * 7.5],
-    [0, screenHeight * 7.5 - screenHeight * 7]
-  );
-  const yContact = useTransform(
-    scrollY,
-    [screenHeight * 8.5, screenHeight * 9],
-    [0, screenHeight * 9 - screenHeight * 8.5]
-  );
-
   // --- VISIBILITY ---
   const params = { once: true, amount: 0.8 };
 
@@ -78,10 +40,6 @@ export default function MainContent({
   });
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
-  useEffect(() => {
     setVisibility({
       about: aboutInView,
       aboutExperience: experienceInView,
@@ -90,18 +48,90 @@ export default function MainContent({
     });
   }, [aboutInView, experienceInView, projectsInView, contactInView]);
 
-  // THOUGHT: I feel like this might have something to do with our scroll size being weird
+  // --- SCROLL TO TOP ON PAGE LOAD ---
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
-  // on resize vertical, set new screen height
+  useEffect(() => {
+    // Set viewport scale to 1
+    const viewport = document.querySelector("meta[name=viewport]");
+    if (viewport) {
+      viewport.setAttribute(
+        "content",
+        "width=device-width, initial-scale=1.0, maximum-scale=1.0"
+      );
+    }
+  }, []);
+
+  // --- PARALLAX EFFECTS ---
+  const { scrollY } = useScroll();
+
+  // Calculate vh using visualViewport if available
+  const [vh, setVh] = useState(0);
+
   useLayoutEffect(() => {
     const handleResize = () => {
-      setScreenHeight(window.innerHeight);
+      if (window.visualViewport) {
+        console.log("visualViewport", window.visualViewport);
+        const adjustedHeight =
+          window.visualViewport.height * window.visualViewport.scale; // Adjust for scale
+        console.log("adjustedHeight", adjustedHeight);
+        setVh(adjustedHeight);
+      } else {
+        setVh(Math.round(window.innerHeight));
+      }
     };
 
     handleResize(); // Set on first render
+
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener("resize", handleResize);
+      window.visualViewport.addEventListener("scroll", handleResize);
+    }
+
     window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+
+    return () => {
+      if (window.visualViewport) {
+        window.visualViewport.removeEventListener("resize", handleResize);
+        window.visualViewport.removeEventListener("scroll", handleResize);
+      }
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
+
+  const yAbout = useTransform(
+    scrollY,
+    [vh * 1, vh * 1.5],
+    [0, vh * 1.5 - vh * 1]
+  );
+  const yExperience = useTransform(
+    scrollY,
+    [vh * 2.5, vh * 3],
+    [0, vh * 3 - vh * 2.5]
+  );
+
+  const yProjectHeader = useTransform(
+    scrollY,
+    [vh * 4, vh * 5],
+    [0, (vh * 4.5 - vh * 4) / 2]
+  );
+  const ySimweaverSection = useTransform(
+    scrollY,
+    [vh * 5.5, vh * 6],
+    [0, vh * 6 - vh * 5.5]
+  );
+  const ySpawnartSection = useTransform(
+    scrollY,
+    [vh * 7, vh * 7.5],
+    [0, vh * 7.5 - vh * 7]
+  );
+  const yContact = useTransform(
+    scrollY,
+    [vh * 8.5, vh * 9],
+    [0, vh * 9 - vh * 8.5]
+  );
 
   // --- RENDER ---
 
@@ -118,7 +148,6 @@ export default function MainContent({
         style={{
           y: yAbout,
         }}
-        // transition={scrollTransition}
         className="parallax-section"
       >
         <About visibility={visibility} variants={variants} />
@@ -130,7 +159,6 @@ export default function MainContent({
         style={{
           y: yExperience,
         }}
-        // transition={scrollTransition}
         className="parallax-section parallax-margin"
       >
         <AiExperience visibility={visibility} />
