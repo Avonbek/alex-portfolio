@@ -148,6 +148,7 @@ export default function NavBar({
               >
                 Contact
               </button>
+              <div className="nav-divider"></div>
             </motion.div>
           </motion.div>
         )}

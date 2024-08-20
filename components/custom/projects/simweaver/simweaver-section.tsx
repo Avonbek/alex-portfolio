@@ -21,7 +21,7 @@ export default function SimweaverSection({ visibility, variants }: any) {
         </h2>
         {/* maybe this could be an image carousel? Or we could open with a video? */}
         <div className="flex justify-center my-8 gap-4 w-full">
-          <div className="text-start rounded-md flex flex-col antialiased bg-transparent dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden py-3">
+          <div className="text-start rounded-md flex flex-col antialiased bg-transparent dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden pt-3">
             <CustomInfiniteMovingCards
               items={cardContent}
               direction="left"
@@ -44,7 +44,36 @@ const cardContent = [
   {
     quote: (
       <Image
-        src={"/manor-gate.webp"}
+        src={"/simweaver-screenshots/map-2.png"}
+        alt="Simweaver Logo"
+        width={0}
+        height={0}
+        sizes="100%"
+        quality={100}
+        style={{ width: "auto", height: "100%", borderRadius: "0.5rem" }}
+      />
+    ),
+    name: "Build Worlds",
+    title: "Weave worlds together using the custom map editor.",
+  },
+  {
+    quote: (
+      <Image
+        src={"/simweaver-screenshots/exposition.png"}
+        alt="Simweaver Logo"
+        width={0}
+        height={0}
+        sizes="100%"
+        style={{ width: "auto", height: "100%", borderRadius: "0.5rem" }}
+      />
+    ),
+    name: "Tell Stories",
+    title: "Combine images, videos and text to enrich your narrative.",
+  },
+  {
+    quote: (
+      <Image
+        src={"/simweaver-screenshots/dialog.png"}
         alt="Simweaver Logo"
         width={0}
         height={0}
@@ -56,35 +85,23 @@ const cardContent = [
         }}
       />
     ),
-    name: "Placeholder Title 1",
-    title: "Lorem Ipsum",
+    name: "Talk to Characters",
+    title: "All characters are powered by AI, allowing dynamic interactions.",
   },
   {
     quote: (
       <Image
-        src={"/artifact-depot.webp"}
+        src={"/simweaver-screenshots/editing-object.png"}
         alt="Simweaver Logo"
         width={0}
         height={0}
         sizes="100%"
+        quality={100}
         style={{ width: "auto", height: "100%", borderRadius: "0.5rem" }}
+        priority
       />
     ),
-    name: "Placeholder Title 2",
-    title: "Lorem Ipsum",
-  },
-  {
-    quote: (
-      <Image
-        src={"/town-street.webp"}
-        alt="Simweaver Logo"
-        width={0}
-        height={0}
-        sizes="100%"
-        style={{ width: "auto", height: "100%", borderRadius: "0.5rem" }}
-      />
-    ),
-    name: "Placeholder Title 3",
-    title: "Lorem Ipsum",
+    name: "Customize Everything",
+    title: "All characters, locations and objects are fully customizable.",
   },
 ];

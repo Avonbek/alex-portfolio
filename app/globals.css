@@ -421,7 +421,7 @@ main {
 }
 
 .modal-content {
-  background: var(--purple);
+  background: var(--midnight-green);
   border-radius: 8px;
   padding: 20px 10px;
   width: 90%;
@@ -627,6 +627,7 @@ main {
   justify-content: center;
   max-width: 20rem;
   padding: 4px;
+  padding-bottom: 0;
   margin-top: 0.5rem;
 
   text-align: center;
@@ -657,17 +658,9 @@ main {
 /* --- SKILL TABS --- */
 
 .skill-tab-list-background {
-  @apply flex flex-row w-full py-1 items-center justify-center [perspective:1000px] relative overflow-auto text-[var(--muted-text)];
+  @apply flex flex-row w-full pb-1 items-center justify-center [perspective:1000px] relative overflow-auto text-[var(--muted-text)];
   @apply sm:overflow-visible lg:text-xl;
-
-  /* border: 1px solid var(--muted-text); */
 }
-
-/* @media (max-width: 1000px) {
-  .skill-tab-list-background {
-    @apply text-md;
-  }
-} */
 
 .skill-tab-content-background {
   width: 100%;
@@ -675,9 +668,6 @@ main {
   position: relative;
   border-radius: 20px;
   @apply p-0 text-xl font-bold text-[var(--muted-text)] bg-transparent;
-  /* @apply md:text-4xl; */
-
-  /* border: 1px solid var(--muted-text); */
 }
 
 /* --- SKILL BARS --- */
@@ -765,7 +755,7 @@ main {
     width: 22rem;
   }
   .about-skills {
-    height: 45%;
+    height: 50%;
     width: 100%;
   }
   .about-skills-title {
@@ -941,9 +931,8 @@ main {
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 79dvh;
-  max-height: 800px;
   padding: 3rem;
+  padding-top: 8rem;
   border-radius: 10px;
   @apply bg-black bg-opacity-0;
 }
@@ -956,6 +945,10 @@ main {
     flex-direction: column;
     height: auto;
     max-width: 100%;
+  }
+  .project-section {
+    padding: 1rem;
+    padding-top: 1rem;
   }
 }
 
@@ -971,7 +964,7 @@ main {
 /* --- MOVING CARDS --- */
 
 .moving-card {
-  width: 350px;
+  width: 480px;
   position: relative;
   border-radius: 1rem;
   border: 1px solid #334155;

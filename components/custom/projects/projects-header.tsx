@@ -14,17 +14,10 @@ export default function ProjectsHeader({
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start end", "end start"],
+    offset: ["start end", "center center"],
   });
 
-  const scaleY = useTransform(scrollYProgress, [0, 1], ["0.8", "1.2"]);
-
-  // Vertical movement: from the center (0) to slightly above (-20vh)
-  const arrowY = useTransform(scrollYProgress, [0, 1], ["0vh", "-20vh"]);
-
-  // Horizontal movement: from the center (0vw) to the respective sides (50vw and -50vw)
-  const arrowXLeft = useTransform(scrollYProgress, [0, 1], ["0vw", "-50vw"]);
-  const arrowXRight = useTransform(scrollYProgress, [0, 1], ["0vw", "50vw"]);
+  const scaleY = useTransform(scrollYProgress, [0, 1], ["1", "1.5"]);
 
   return (
     <section className="projects-header">
@@ -36,14 +29,21 @@ export default function ProjectsHeader({
           className="title"
         >
           Projects
-          {/* <motion.div
-            animate={visibility.projects ? "visible" : "hiddenRight"}
-            initial="hiddenRight"
+          <motion.div
+            animate={visibility.projects ? "expanded" : "collapsed"}
             variants={variants}
             transition={{ duration: 1, delay: 0.5 }}
             className="underline border-2 !w-[100px] mt-2"
-          /> */}
+          />
         </motion.h2>
+        <motion.div
+          animate={visibility.projects ? "visible" : "hiddenBottom"}
+          variants={variants}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          className="mt-12"
+        >
+          <HiArrowLongDown size={60} />
+        </motion.div>
       </div>
     </section>
   );

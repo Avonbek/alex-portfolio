@@ -48,11 +48,6 @@ export default function MainContent({
     });
   }, [aboutInView, experienceInView, projectsInView, contactInView]);
 
-  // --- SCROLL TO TOP ON PAGE LOAD ---
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   useEffect(() => {
     // Set viewport scale to 1
     const viewport = document.querySelector("meta[name=viewport]");
@@ -73,10 +68,8 @@ export default function MainContent({
   useLayoutEffect(() => {
     const handleResize = () => {
       if (window.visualViewport) {
-        console.log("visualViewport", window.visualViewport);
         const adjustedHeight =
           window.visualViewport.height * window.visualViewport.scale; // Adjust for scale
-        console.log("adjustedHeight", adjustedHeight);
         setVh(adjustedHeight);
       } else {
         setVh(Math.round(window.innerHeight));
