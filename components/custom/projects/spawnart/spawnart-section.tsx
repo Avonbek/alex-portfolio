@@ -24,7 +24,7 @@ export default function SpawnartSection({ visibility, variants }: any) {
           <div className="text-start rounded-md flex flex-col antialiased bg-transparent dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
             <CustomInfiniteMovingCards
               items={cardContent}
-              direction="right"
+              direction="left"
               speed="slow"
               pauseOnHover={false}
             />

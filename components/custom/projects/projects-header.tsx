@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { HiArrowLongDown } from "react-icons/hi2";
 
 type ProjectsHeaderProps = {
@@ -17,7 +17,7 @@ export default function ProjectsHeader({
     offset: ["start end", "center center"],
   });
 
-  const scaleY = useTransform(scrollYProgress, [0, 1], ["1", "1.5"]);
+  const scaleY = useTransform(scrollYProgress, [0, 1], ["1", "1.3"]);
 
   return (
     <section className="projects-header">
@@ -37,7 +37,7 @@ export default function ProjectsHeader({
           />
         </motion.h2>
         <motion.div
-          animate={visibility.projects ? "visible" : "hiddenBottom"}
+          animate={visibility.projects ? "visible" : "hidden"}
           variants={variants}
           transition={{ duration: 0.5, delay: 0.5 }}
           className="mt-12"
