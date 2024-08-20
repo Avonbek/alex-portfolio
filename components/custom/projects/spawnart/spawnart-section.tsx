@@ -44,7 +44,7 @@ const cardContent = [
   {
     quote: (
       <Image
-        src={"/manor-gate.webp"}
+        src={"/spawnart-screenshots/genetics.webp"}
         alt="Simweaver Logo"
         width={0}
         height={0}
@@ -52,13 +52,13 @@ const cardContent = [
         style={{ width: "auto", height: "100%", borderRadius: "0.5rem" }}
       />
     ),
-    name: "Placeholder Title 1",
-    title: "Lorem Ipsum",
+    name: "Create Genetic Art",
+    title: "Generate prompts via genetic algorithms.",
   },
   {
     quote: (
       <Image
-        src={"/artifact-depot.webp"}
+        src={"/spawnart-screenshots/local-generation.webp"}
         alt="Simweaver Logo"
         width={0}
         height={0}
@@ -66,13 +66,13 @@ const cardContent = [
         style={{ width: "auto", height: "100%", borderRadius: "0.5rem" }}
       />
     ),
-    name: "Placeholder Title 2",
-    title: "Lorem Ipsum",
+    name: "Generate Locally",
+    title: "Use your own hardware to generate images anytime, anywhere.",
   },
   {
     quote: (
       <Image
-        src={"/town-street.webp"}
+        src={"/spawnart-screenshots/resource-pooling.webp"}
         alt="Simweaver Logo"
         width={0}
         height={0}
@@ -80,7 +80,50 @@ const cardContent = [
         style={{ width: "auto", height: "100%", borderRadius: "0.5rem" }}
       />
     ),
-    name: "Placeholder Title 3",
-    title: "Lorem Ipsum",
+    name: "Pool Resources",
+    title: "Combine multiple GPUs to speed up the generation process.",
+  },
+  {
+    quote: (
+      <Image
+        src={"/spawnart-screenshots/ratings.png"}
+        alt="Simweaver Logo"
+        width={0}
+        height={0}
+        sizes="100%"
+        style={{ width: "auto", height: "100%", borderRadius: "0.5rem" }}
+      />
+    ),
+    name: "Organize Content",
+    title:
+      "Utilize folders, tags and ratings to help keep track of your images.",
+  },
+  // {
+  //   quote: (
+  //     <Image
+  //       src={"/spawnart-screenshots/ratings.png"}
+  //       alt="Simweaver Logo"
+  //       width={0}
+  //       height={0}
+  //       sizes="100%"
+  //       style={{ width: "auto", height: "100%", borderRadius: "0.5rem" }}
+  //     />
+  //   ),
+  //   name: "Advanced Search",
+  //   title: "Find images by description, or by similarity to another image.",
+  // },
+  {
+    quote: (
+      <Image
+        src={"/spawnart-screenshots/download-model.webp"}
+        alt="Simweaver Logo"
+        width={0}
+        height={0}
+        sizes="100%"
+        style={{ width: "auto", height: "100%", borderRadius: "0.5rem" }}
+      />
+    ),
+    name: "Use Custom Models",
+    title: "Download models and loras directly to your interface.",
   },
 ];
