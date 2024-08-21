@@ -1,7 +1,4 @@
-export type SectionProps = {
-  visibility: {
-    aboutSkills: boolean;
-    aboutExperience: boolean;
-    projects: boolean;
-  };
+export type message = {
+  text: string;
+  isUser: boolean;
 };

@@ -470,11 +470,10 @@ main {
   /* border: 1px solid var(--muted-text); */
 }
 
-.ai-assistant-chat {
+.ai-assistant-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: center; */
   max-width: 80dvw;
   border-radius: 10px;
   background: var(--gray-900);
@@ -490,7 +489,7 @@ main {
   font-size: 1.2rem;
   font-weight: 700;
   border-radius: 10px 10px 0 0;
-  background: var(--teal-950);
+  background: var(--teal-dark);
 }
 
 .ai-assistant-chat-body {
@@ -500,6 +499,16 @@ main {
   width: 100%;
   padding: 1rem;
   gap: 1rem;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.ai-assistant-message-body {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  /* border: 1px solid var(--muted-text); */
 }
 
 .ai-assistant-chat-bubble {
@@ -507,7 +516,15 @@ main {
   width: fit-content;
   padding: 0.5rem;
   border-radius: 10px;
-  background: var(--teal-800);
+  background: var(--gray-800);
+}
+
+.ai-assistant-icon {
+  background: var(--teal-900);
+  width: 50px;
+  height: 45px;
+  padding: 8px;
+  border-radius: 10px;
 }
 
 .ai-assistant-btn {
@@ -519,12 +536,10 @@ main {
   font-size: 1.2rem;
   font-weight: 700;
   color: var(--muted-text);
-  background: linear-gradient(40deg, var(--teal-700), var(--teal-950));
-  border: 1px solid var(--slate-500);
+  background: linear-gradient(40deg, var(--teal), var(--teal-950));
+  border: 1px solid var(--slate-600);
   border-radius: 100px;
   cursor: pointer;
-  /* transition: color 0.3s ease, color 0.3s ease, background 0.3s ease,
-    background 0.3s ease; */
 }
 
 /* --- MAIN-CONTENT --- */
