@@ -106,24 +106,24 @@ export default function MainContent({
   );
   const yProjectHeader = useTransform(
     scrollY,
-    [vh * 4, vh * 4.5],
-    [0, (vh * 4.5 - vh * 4) / 2]
+    [vh * 4, vh * 4.25],
+    [0, (vh * 4.25 - vh * 4) / 2]
   );
   const ySimweaverSection = useTransform(
     scrollY,
-    [vh * 5.5, vh * 6],
-    [0, vh * 6 - vh * 5.5]
+    [vh * 5, vh * 5.5],
+    [0, vh * 5.5 - vh * 5]
   );
   const ySpawnartSection = useTransform(
     scrollY,
-    [vh * 7, vh * 7.5],
-    [0, vh * 7.5 - vh * 7]
+    [vh * 6.5, vh * 7],
+    [0, vh * 7 - vh * 6.5]
   );
-  const yContact = useTransform(
-    scrollY,
-    [vh * 8.5, vh * 9],
-    [0, vh * 9 - vh * 8.5]
-  );
+  // const yContact = useTransform(
+  //   scrollY,
+  //   [vh * 8.5, vh * 9],
+  //   [0, vh * 9 - vh * 8.5]
+  // );
 
   // --- RENDER ---
 
@@ -172,7 +172,7 @@ export default function MainContent({
         style={{
           y: ySimweaverSection,
         }}
-        className="parallax-section parallax-margin"
+        className="parallax-section"
       >
         <SimweaverSection visibility={visibility} variants={variants} />
       </motion.div>
@@ -188,13 +188,7 @@ export default function MainContent({
       </motion.div>
 
       {/* 7. Contact */}
-      <motion.div
-        ref={contactRef}
-        style={{
-          y: yContact,
-        }}
-        className="parallax-section parallax-margin"
-      >
+      <motion.div ref={contactRef} className="parallax-section parallax-margin">
         <Contact visibility={visibility} variants={variants} />
       </motion.div>
 
