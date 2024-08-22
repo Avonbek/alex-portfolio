@@ -21,7 +21,7 @@ export default function ChatMessage({ message }: { message: Message }) {
         animate="visible"
         className="ai-assistant-message-body justify-end"
       >
-        <div className="ai-assistant-chat-bubble !bg-[var(--teal-dark)]">
+        <div className="ai-assistant-chat-bubble !bg-[var(--teal)]">
           {message.content}
         </div>
       </motion.div>
@@ -39,7 +39,6 @@ export default function ChatMessage({ message }: { message: Message }) {
         <RiRobot2Fill size={25} className="ai-assistant-icon" />
         <div
           className="ai-assistant-chat-bubble"
-          // dangerouslySetInnerHTML={{ __html: message.html }}
           dangerouslySetInnerHTML={{ __html: sanitize(message.html) }}
         />
       </motion.div>

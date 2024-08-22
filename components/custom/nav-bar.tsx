@@ -48,7 +48,7 @@ export default function NavBar({
 
   return (
     <Fragment>
-      {/* WIDE MODE */}
+      {/* --- WIDE MODE --- */}
       <motion.nav
         initial={{ y: -30, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -80,7 +80,8 @@ export default function NavBar({
           Contact
         </button>
       </motion.nav>
-      {/* SMALL MODE */}
+
+      {/* --- SMALL MODE --- */}
       <motion.nav
         initial={{ y: -30, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -90,7 +91,6 @@ export default function NavBar({
         }}
         className="nav-small"
       >
-        <div className="nav-divider"></div>
         <button onClick={toggleModal} className="nav-hamburger">
           <GiHamburgerMenu size={25} />
         </button>

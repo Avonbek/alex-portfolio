@@ -39,7 +39,6 @@ export const CustomTabs = ({
   const [hovering, setHovering] = useState(false);
 
   useLayoutEffect(() => {
-    console.log("useLayoutEffect");
     const newTabs = [...propTabs];
     setTabs(newTabs);
     setActive(newTabs[0]);
