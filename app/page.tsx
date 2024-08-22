@@ -11,6 +11,8 @@ export default function Home() {
   const aboutRef = useRef(null);
   const experienceRef = useRef(null);
   const projectsRef = useRef(null);
+  const simweaverRef = useRef(null);
+  const spawnartRef = useRef(null);
   const contactRef = useRef(null);
 
   return (
@@ -27,6 +29,8 @@ export default function Home() {
         aboutRef={aboutRef}
         experienceRef={experienceRef}
         projectsRef={projectsRef}
+        simweaverRef={simweaverRef}
+        spawnartRef={spawnartRef}
         contactRef={contactRef}
       />
       <AiAssistant />

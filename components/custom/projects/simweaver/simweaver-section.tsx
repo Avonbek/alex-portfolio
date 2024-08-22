@@ -7,21 +7,37 @@ export default function SimweaverSection({ visibility, variants }: any) {
   return (
     <>
       <div className="project-section">
-        <div className="simweaver-title">
+        <motion.div
+          animate={visibility.simweaver ? "visible" : "hiddenLeft"}
+          initial="hiddenLeft"
+          variants={variants}
+          className="simweaver-title"
+        >
           <Image
             src={"/logos/Simweaver_Logo_Horizontal.svg"}
             alt="Simweaver Logo"
+            loading="eager"
             width={0}
             height={0}
             sizes="100%"
             style={{ width: "auto", height: "100%", borderRadius: "0.5rem" }}
           />
-        </div>
-        <h2 className="hero-subtitle max-w-[600px] mt-4">
+        </motion.div>
+        <motion.h2
+          animate={visibility.simweaver ? "visible" : "hiddenRight"}
+          initial="hiddenRight"
+          variants={variants}
+          className="hero-subtitle max-w-[600px] mt-4"
+        >
           Create games powered by AI.
-        </h2>
+        </motion.h2>
         {/* maybe this could be an image carousel? Or we could open with a video? */}
-        <div className="flex justify-center my-8 gap-4 w-full">
+        <motion.div
+          animate={visibility.simweaver ? "visibleSlow" : "hidden"}
+          initial="hidden"
+          variants={variants}
+          className="flex justify-center my-8 gap-4 w-full"
+        >
           <div className="text-start rounded-md flex flex-col antialiased bg-transparent dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden pt-3">
             <CustomInfiniteMovingCards
               items={cardContent}
@@ -30,12 +46,17 @@ export default function SimweaverSection({ visibility, variants }: any) {
               pauseOnHover={true}
             />
           </div>
-        </div>
-        <div className="flex mt-auto gap-4">
+        </motion.div>
+        <motion.div
+          animate={visibility.simweaver ? "visibleSlow" : "hidden"}
+          initial="hidden"
+          variants={variants}
+          className="flex mt-auto gap-4"
+        >
           <a href="https://simweaver.com/" target="_blank" rel="noreferrer">
             <button className="colored-btn">Visit Website</button>
           </a>
-        </div>
+        </motion.div>
       </div>
     </>
   );

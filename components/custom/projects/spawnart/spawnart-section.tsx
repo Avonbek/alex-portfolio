@@ -1,26 +1,43 @@
 import Image from "next/image";
 import { CustomInfiniteMovingCards } from "../custom-infinite-moving-cards";
+import { motion } from "framer-motion";
 
 export default function SpawnartSection({ visibility, variants }: any) {
   // replace with logo
   return (
     <>
       <div className="project-section">
-        <div className="spawnart-title">
+        <motion.div
+          animate={visibility.spawnart ? "visible" : "hiddenLeft"}
+          initial="hiddenLeft"
+          variants={variants}
+          className="spawnart-title"
+        >
           <Image
             src={"/logos/Spawn_Logo_full_white_SVG.svg"}
-            alt="Simweaver Logo"
+            alt="Spawnart Logo"
+            loading="eager"
             width={0}
             height={0}
             sizes="100%"
             style={{ width: "auto", height: "100%", borderRadius: "0rem" }}
           />
-        </div>
-        <h2 className="hero-subtitle max-w-[600px] mt-6">
+        </motion.div>
+        <motion.h2
+          animate={visibility.spawnart ? "visible" : "hiddenRight"}
+          initial="hiddenRight"
+          variants={variants}
+          className="hero-subtitle max-w-[600px] mt-6"
+        >
           Generate images from text locally.
-        </h2>
+        </motion.h2>
         {/* maybe this could be an image carousel? Or we could open with a video? */}
-        <div className="flex justify-center my-8 gap-4 w-full">
+        <motion.div
+          animate={visibility.spawnart ? "visibleSlow" : "hidden"}
+          initial="hidden"
+          variants={variants}
+          className="flex justify-center my-8 gap-4 w-full"
+        >
           <div className="text-start rounded-md flex flex-col antialiased bg-transparent dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
             <CustomInfiniteMovingCards
               items={cardContent}
@@ -29,12 +46,17 @@ export default function SpawnartSection({ visibility, variants }: any) {
               pauseOnHover={true}
             />
           </div>
-        </div>
-        <div className="flex mt-auto">
+        </motion.div>
+        <motion.div
+          animate={visibility.spawnart ? "visibleSlow" : "hidden"}
+          initial="hidden"
+          variants={variants}
+          className="flex mt-auto"
+        >
           <a href="https://spawnart.ai/" target="_blank" rel="noreferrer">
             <button className="colored-btn">Visit Website</button>
           </a>
-        </div>
+        </motion.div>
       </div>
     </>
   );
@@ -45,7 +67,7 @@ const cardContent = [
     quote: (
       <Image
         src={"/spawnart-screenshots/genetics.webp"}
-        alt="Simweaver Logo"
+        alt="Spawnart genetics"
         loading="eager"
         width={0}
         height={0}
@@ -60,7 +82,7 @@ const cardContent = [
     quote: (
       <Image
         src={"/spawnart-screenshots/local-generation.webp"}
-        alt="Simweaver Logo"
+        alt="Spawnart local generation"
         loading="eager"
         width={0}
         height={0}
@@ -75,7 +97,7 @@ const cardContent = [
     quote: (
       <Image
         src={"/spawnart-screenshots/resource-pooling.webp"}
-        alt="Simweaver Logo"
+        alt="Spawnart resource pooling"
         loading="eager"
         width={0}
         height={0}
@@ -90,7 +112,7 @@ const cardContent = [
     quote: (
       <Image
         src={"/spawnart-screenshots/ratings.png"}
-        alt="Simweaver Logo"
+        alt="Spawnart ratings"
         loading="eager"
         width={0}
         height={0}
@@ -106,7 +128,7 @@ const cardContent = [
     quote: (
       <Image
         src={"/spawnart-screenshots/download-model.webp"}
-        alt="Simweaver Logo"
+        alt="Spawnart download model"
         loading="eager"
         width={0}
         height={0}

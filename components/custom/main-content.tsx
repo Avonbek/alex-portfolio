@@ -14,6 +14,8 @@ type MainContentProps = {
   aboutRef: any;
   experienceRef: any;
   projectsRef: any;
+  simweaverRef: any;
+  spawnartRef: any;
   contactRef: any;
 };
 
@@ -22,20 +24,26 @@ export default function MainContent({
   aboutRef,
   experienceRef,
   projectsRef,
+  simweaverRef,
+  spawnartRef,
   contactRef,
 }: MainContentProps) {
   // --- VISIBILITY ---
-  const params = { once: true, amount: 0.8 };
+  const params = { once: true, amount: 0.7 };
 
   const aboutInView = useInView(aboutRef, params);
   const experienceInView = useInView(experienceRef, params);
   const projectsInView = useInView(projectsRef, { ...params, amount: 0.5 });
+  const simweaverInView = useInView(simweaverRef, { ...params, amount: 0.3 });
+  const spawnartInView = useInView(spawnartRef, { ...params, amount: 0.3 });
   const contactInView = useInView(contactRef, params);
 
   const [visibility, setVisibility] = useState({
     about: false,
     aboutExperience: false,
     projects: false,
+    simweaver: false,
+    spawnart: false,
     contact: false,
   });
 
@@ -44,9 +52,18 @@ export default function MainContent({
       about: aboutInView,
       aboutExperience: experienceInView,
       projects: projectsInView,
+      simweaver: simweaverInView,
+      spawnart: spawnartInView,
       contact: contactInView,
     });
-  }, [aboutInView, experienceInView, projectsInView, contactInView]);
+  }, [
+    aboutInView,
+    experienceInView,
+    projectsInView,
+    simweaverInView,
+    spawnartInView,
+    contactInView,
+  ]);
 
   useEffect(() => {
     // Set viewport scale to 1
@@ -164,6 +181,7 @@ export default function MainContent({
 
       {/* 5. Simweaver Section */}
       <motion.div
+        ref={simweaverRef}
         style={{
           y: ySimweaverSection,
         }}
@@ -174,6 +192,7 @@ export default function MainContent({
 
       {/* 6. Spawnart Section */}
       <motion.div
+        ref={spawnartRef}
         style={{
           y: ySpawnartSection,
         }}
