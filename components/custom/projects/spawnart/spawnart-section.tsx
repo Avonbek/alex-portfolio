@@ -13,7 +13,7 @@ export default function SpawnartSection({ visibility, variants }: any) {
             width={0}
             height={0}
             sizes="100%"
-            style={{ width: "auto", height: "100%", borderRadius: "0.5rem" }}
+            style={{ width: "auto", height: "100%", borderRadius: "0rem" }}
           />
         </div>
         <h2 className="hero-subtitle max-w-[600px] mt-6">
@@ -26,7 +26,7 @@ export default function SpawnartSection({ visibility, variants }: any) {
               items={cardContent}
               direction="left"
               speed="slow"
-              pauseOnHover={false}
+              pauseOnHover={true}
             />
           </div>
         </div>
@@ -49,7 +49,7 @@ const cardContent = [
         width={0}
         height={0}
         sizes="100%"
-        style={{ width: "auto", height: "100%", borderRadius: "0.5rem" }}
+        style={{ width: "100%", height: "100%", borderRadius: "0.5rem" }}
       />
     ),
     name: "Create Genetic Art",
@@ -63,7 +63,7 @@ const cardContent = [
         width={0}
         height={0}
         sizes="100%"
-        style={{ width: "auto", height: "100%", borderRadius: "0.5rem" }}
+        style={{ width: "100%", height: "100%", borderRadius: "0.5rem" }}
       />
     ),
     name: "Generate Locally",
@@ -77,7 +77,7 @@ const cardContent = [
         width={0}
         height={0}
         sizes="100%"
-        style={{ width: "auto", height: "100%", borderRadius: "0.5rem" }}
+        style={{ width: "100%", height: "100%", borderRadius: "0.5rem" }}
       />
     ),
     name: "Pool Resources",
@@ -91,7 +91,7 @@ const cardContent = [
         width={0}
         height={0}
         sizes="100%"
-        style={{ width: "auto", height: "100%", borderRadius: "0.5rem" }}
+        style={{ width: "100%", height: "100%", borderRadius: "0.5rem" }}
       />
     ),
     name: "Organize Content",

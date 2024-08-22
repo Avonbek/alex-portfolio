@@ -26,7 +26,7 @@ export default function SimweaverSection({ visibility, variants }: any) {
               items={cardContent}
               direction="left"
               speed="slow"
-              pauseOnHover={false}
+              pauseOnHover={true}
             />
           </div>
         </div>
@@ -50,7 +50,7 @@ const cardContent = [
         height={0}
         sizes="100%"
         quality={100}
-        style={{ width: "auto", height: "100%", borderRadius: "0.5rem" }}
+        style={{ width: "100%", height: "100%", borderRadius: "0.5rem" }}
       />
     ),
     name: "Build Worlds",
@@ -64,7 +64,7 @@ const cardContent = [
         width={0}
         height={0}
         sizes="100%"
-        style={{ width: "auto", height: "100%", borderRadius: "0.5rem" }}
+        style={{ width: "100%", height: "100%", borderRadius: "0.5rem" }}
       />
     ),
     name: "Tell Stories",
@@ -79,7 +79,7 @@ const cardContent = [
         height={0}
         sizes="100%"
         style={{
-          width: "auto",
+          width: "100%",
           height: "100%",
           borderRadius: "0.5rem",
         }}
@@ -97,7 +97,7 @@ const cardContent = [
         height={0}
         sizes="100%"
         quality={100}
-        style={{ width: "auto", height: "100%", borderRadius: "0.5rem" }}
+        style={{ width: "100%", height: "100%", borderRadius: "0.5rem" }}
         priority
       />
     ),

@@ -63,7 +63,8 @@ export default function AssistantToggleButton({
             exit={{ opacity: 0 }}
             transition={{ duration: 0.1 }}
           >
-            <div className="flex items-center justify-center">AI Assistant</div>
+            <div className="ai-assistant-btn-text-wide">AI Assistant</div>
+            <div className="ai-assistant-btn-text-small">AI</div>
           </motion.div>
         )}
       </AnimatePresence>
