@@ -1125,26 +1125,14 @@ textarea:focus {
   padding: 1.5rem 1.2rem;
 }
 
-@media (max-height: 1024px) {
+@media (max-height: 1024px), (max-width: 1024px) {
   .moving-card {
     width: 300px;
     padding: 1rem 1rem;
   }
 }
 
-@media (max-width: 1024px) {
-  .moving-card {
-    width: 280px;
-    padding: 1rem 1rem;
-  }
-}
-
-@media (max-height: 768px) {
-  .moving-card {
-    width: 250px;
-  }
-}
-@media (max-width: 768px) {
+@media (max-height: 768px), (max-width: 768px) {
   .moving-card {
     width: 250px;
   }
@@ -1170,13 +1158,7 @@ textarea:focus {
   width: 400px;
 }
 
-@media (max-height: 800px) {
-  .simweaver-title {
-    width: 300px;
-  }
-}
-
-@media (max-width: 1024px) {
+@media (max-height: 800px), (max-width: 1024px) {
   .simweaver-title {
     width: 300px;
   }
@@ -1210,13 +1192,7 @@ textarea:focus {
   width: 320px;
 }
 
-@media (max-height: 800px) {
-  .spawnart-title {
-    width: 270px;
-  }
-}
-
-@media (max-width: 1024px) {
+@media (max-height: 800px), (max-width: 1024px) {
   .spawnart-title {
     width: 270px;
   }
