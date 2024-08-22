@@ -399,6 +399,8 @@ textarea:focus {
   height: 100%;
   color: var(--muted-text);
   transition: color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+  z-index: 1000;
 }
 
 .nav-hamburger:hover {
@@ -473,7 +475,8 @@ textarea:focus {
   top: 0;
   right: 0;
   gap: 1rem;
-  z-index: 1000;
+  z-index: 500;
+  pointer-events: none;
 }
 
 @media (max-width: 800px) {
@@ -502,6 +505,7 @@ textarea:focus {
   backdrop-filter: blur(10px);
   border: 1px solid rgba(0, 128, 128, 0.6);
   border-radius: 100px;
+  pointer-events: auto;
   cursor: pointer;
 }
 

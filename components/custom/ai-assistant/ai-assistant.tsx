@@ -83,7 +83,7 @@ export default function AiAssistant({}) {
 
   return (
     // ai assistant container (includes chat and toggle button)
-    <div className="ai-assistant">
+    <div onClick={(e) => console.log("test")} className="ai-assistant">
       {/* assistant toggle button */}
       <AssistantToggleButton
         isOpen={aiAssistantOpen}
