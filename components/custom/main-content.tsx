@@ -119,11 +119,6 @@ export default function MainContent({
     [vh * 6.5, vh * 7],
     [0, vh * 7 - vh * 6.5]
   );
-  // const yContact = useTransform(
-  //   scrollY,
-  //   [vh * 8.5, vh * 9],
-  //   [0, vh * 9 - vh * 8.5]
-  // );
 
   // --- RENDER ---
 

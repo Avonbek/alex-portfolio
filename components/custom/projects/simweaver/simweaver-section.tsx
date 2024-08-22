@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { CustomInfiniteMovingCards } from "../custom-infinite-moving-cards";
 
 export default function SimweaverSection({ visibility, variants }: any) {

@@ -642,8 +642,6 @@ textarea:focus {
   max-width: 50rem;
   min-height: 30rem;
   min-width: 30rem;
-  /* width: 40rem;
-  height: 40rem; */
   border-radius: 50%;
   opacity: 0.3;
   filter: blur(150px);
@@ -671,14 +669,11 @@ textarea:focus {
   align-items: center;
   justify-content: center;
   height: 100dvh;
-
   width: 100%;
   text-align: center;
   border-radius: 10px;
 
   overflow: hidden;
-
-  /* border: 1px solid var(--muted-text); */
 }
 
 .parallax-margin {
