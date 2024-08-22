@@ -28,8 +28,12 @@ const libraries = [
 
 const miscellaneous = [
   { text: "SolidJS", width: "90%" },
+  { text: "UI/UX Design", width: "90%" },
   { text: "Firebase", width: "75%" },
   { text: "Supabase", width: "75%" },
+  { text: "MongoDB", width: "75%" },
+  { text: "Vercel", width: "55%" },
+  { text: "Unity", width: "55%" },
   { text: "Batch Scripting", width: "55%" },
 ];
 

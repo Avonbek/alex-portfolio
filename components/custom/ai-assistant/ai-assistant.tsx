@@ -1,25 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
-import { message } from "@/lib/types";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { Message } from "@/lib/types";
 import ChatMessage from "./chat-message";
 import toast from "react-hot-toast";
 import AssistantToggleButton from "./assistant-toggle-button";
 import ThinkingAnimation from "./thinking-animation";
-import { usePreventBodyScroll } from "@/lib/hooks/use-prevent-body-scrol";
-
-// PLAN:
-// Start work on calling AI model
-
-// TODO: import this and set up route or server action with streaming text response
-// new ChatGroq({
-//   apiKey: theGroqApiKey,
-//   model: selectedModel,
-//   temperature,
-// });
-
-// Write context for AI model
 
 const suggestions = [
   "Who is Alex?",
@@ -29,56 +16,29 @@ const suggestions = [
 
 export default function AiAssistant({}) {
   // --- STATE ---
+  const textAreaRef = useRef<HTMLTextAreaElement>(null);
   const [aiAssistantOpen, setAiAssistantOpen] = useState(false);
   const [isThinking, setIsThinking] = useState(false);
   const [userText, setUserText] = useState("");
 
-  // messages
-  const [messages, setMessages] = useState<message[]>([
+  const [messages, setMessages] = useState<Message[]>([
     {
-      text: "Hello! I am Alex's portfolio assistant. How can I help you today?",
-      isUser: false,
+      type: "assistant",
+      content:
+        "Hello! I am Alex's portfolio assistant. How can I help you today?",
+      html: `
+        <p><strong>Hello!</strong> I am Alex's portfolio assistant. How can I help you today?</p>
+      `,
     },
   ]);
 
-  // --- FUNCTIONS ---
-
-  function handleSendMessage(text: string) {
-    if (!text) return;
-    if (isThinking) {
-      toast.loading("Please wait for the AI to respond.", {
-        style: {
-          background: "var(--teal-dark)",
-          color: "var(--slate-100)",
-        },
-        duration: 2000,
-      });
-      return;
-    }
-    setMessages([...messages, { text, isUser: true }]);
-    setUserText("");
-    setIsThinking(true);
-    // callAIModel(text);
-    setTimeout(() => {
-      setIsThinking(false);
-      setMessages((prev) => [
-        ...prev,
-        { text: "Test AI response", isUser: false },
-      ]);
-    }, 2000);
-  }
-
-  function handleScrollToBottom() {
-    const chatBody = document.querySelector(".ai-assistant-chat-body");
-    if (chatBody) {
-      chatBody.scrollTo({
-        top: chatBody.scrollHeight,
-        behavior: "smooth",
-      });
-    }
-  }
-
   // --- EFFECTS ---
+
+  useEffect(() => {
+    if (aiAssistantOpen) {
+      textAreaRef.current?.focus();
+    }
+  }, [aiAssistantOpen]);
 
   useEffect(() => {
     handleScrollToBottom();
@@ -94,20 +54,107 @@ export default function AiAssistant({}) {
     };
   }, []);
 
+  // --- HANDLERS ---
+
+  const handleSendMessage = useCallback(
+    async (userMessage: string) => {
+      const newMessages = [
+        ...messages,
+        { type: "user", content: userMessage },
+      ] as Message[];
+      setMessages(newMessages);
+      setUserText("");
+
+      const controller = new AbortController();
+
+      try {
+        setIsThinking(true);
+        const response = await fetch("/api/chat", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ messages: newMessages }),
+          signal: controller.signal,
+        });
+        setIsThinking(false);
+
+        if (!response.ok) {
+          throw new Error(response.statusText);
+        }
+
+        const reader = response.body?.getReader();
+        const decoder = new TextDecoder();
+        let htmlContent = "";
+
+        if (!reader) {
+          throw new Error("Failed to get response body reader");
+        }
+
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+
+          const chunk = decoder.decode(value);
+          console.log("chunk", chunk);
+          htmlContent += chunk;
+
+          setMessages((prev) => {
+            const lastMessage = prev[prev.length - 1];
+            if (lastMessage.type === "assistant") {
+              return [
+                ...prev.slice(0, -1),
+                {
+                  type: "assistant",
+                  content: lastMessage.content + chunk,
+                  html: htmlContent,
+                },
+              ];
+            }
+            return [
+              ...prev,
+              { type: "assistant", content: chunk, html: htmlContent },
+            ];
+          });
+        }
+      } catch (error) {
+        console.error("Error during message streaming:", error);
+      } finally {
+        setIsThinking(false);
+      }
+    },
+    [messages]
+  );
+
+  function handleScrollToBottom() {
+    const chatBody = document.querySelector(".ai-assistant-chat-body");
+    if (chatBody) {
+      chatBody.scrollTo({
+        top: chatBody.scrollHeight,
+        behavior: "smooth",
+      });
+    }
+  }
+
   // --- RENDER ---
 
   return (
     // ai assistant container (includes chat and toggle button)
     <div className="ai-assistant">
+      {/* assistant toggle button */}
+      <AssistantToggleButton
+        isOpen={aiAssistantOpen}
+        onClick={() => setAiAssistantOpen(!aiAssistantOpen)}
+      />
       {/* AI assistant container */}
       <motion.div
         initial={false}
         animate={{
-          y: aiAssistantOpen ? 0 : 70,
+          y: aiAssistantOpen ? 0 : -70,
           scale: aiAssistantOpen ? 1 : 0,
           opacity: aiAssistantOpen ? 1 : 0,
-          height: aiAssistantOpen ? "70dvh" : 0,
-          width: aiAssistantOpen ? "50dvh" : 0,
+          height: aiAssistantOpen ? "80dvh" : 0,
+          width: aiAssistantOpen ? "60dvh" : 0,
         }}
         transition={{ duration: 0.3 }}
         className="ai-assistant-container"
@@ -141,6 +188,7 @@ export default function AiAssistant({}) {
           </div>
           {/* textarea */}
           <textarea
+            ref={textAreaRef}
             placeholder="Ask me anything..."
             rows={1}
             value={userText}
@@ -160,11 +208,6 @@ export default function AiAssistant({}) {
           />
         </div>
       </motion.div>
-      {/* assistant toggle button */}
-      <AssistantToggleButton
-        isOpen={aiAssistantOpen}
-        onClick={() => setAiAssistantOpen(!aiAssistantOpen)}
-      />
     </div>
   );
 }

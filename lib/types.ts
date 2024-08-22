@@ -1,4 +1,5 @@
-export type message = {
-  text: string;
-  isUser: boolean;
+export type Message = {
+  type: "user" | "assistant" | "system";
+  content: string;
+  html?: any;
 };

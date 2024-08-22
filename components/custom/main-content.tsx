@@ -104,10 +104,9 @@ export default function MainContent({
     [vh * 2.5, vh * 3],
     [0, vh * 3 - vh * 2.5]
   );
-
   const yProjectHeader = useTransform(
     scrollY,
-    [vh * 4, vh * 5],
+    [vh * 4, vh * 4.5],
     [0, (vh * 4.5 - vh * 4) / 2]
   );
   const ySimweaverSection = useTransform(

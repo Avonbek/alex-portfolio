@@ -462,13 +462,48 @@ main {
   flex-direction: column;
   align-items: end;
   position: fixed;
-  bottom: 0;
+  top: 0;
   right: 0;
   padding: 1rem;
   gap: 1rem;
-
-  /* border: 1px solid var(--muted-text); */
 }
+
+.ai-assistant-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 140px;
+  height: 70px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+  background: linear-gradient(
+    40deg,
+    rgba(0, 128, 128, 0.2),
+    rgba(0, 128, 128, 0.4)
+  );
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 128, 128, 0.6);
+  border-radius: 100px;
+  cursor: pointer;
+  box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.2),
+    0 4px 10px rgba(0, 128, 128, 0.5);
+}
+
+/* .ai-assistant-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 140px;
+  height: 70px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--muted-text);
+  background: linear-gradient(40deg, var(--teal), var(--teal-950));
+  border: 1px solid var(--slate-600);
+  border-radius: 100px;
+  cursor: pointer;
+} */
 
 .ai-assistant-container {
   display: flex;
@@ -505,7 +540,7 @@ main {
 
 .ai-assistant-message-body {
   display: flex;
-  align-items: center;
+  align-items: start;
   gap: 1rem;
 
   /* border: 1px solid var(--muted-text); */
@@ -513,6 +548,7 @@ main {
 
 .ai-assistant-chat-bubble {
   display: flex;
+  flex-direction: column;
   width: fit-content;
   padding: 0.5rem;
   border-radius: 10px;
@@ -525,21 +561,6 @@ main {
   height: 45px;
   padding: 8px;
   border-radius: 10px;
-}
-
-.ai-assistant-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 60px;
-  height: 60px;
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--muted-text);
-  background: linear-gradient(40deg, var(--teal), var(--teal-950));
-  border: 1px solid var(--slate-600);
-  border-radius: 100px;
-  cursor: pointer;
 }
 
 /* --- MAIN-CONTENT --- */

@@ -20,7 +20,13 @@ export default function ThinkingAnimation() {
           repeatType: "mirror",
         }}
       >
-        <ChatMessage message={{ text: "Thinking...", isUser: false }} />
+        <ChatMessage
+          message={{
+            type: "assistant",
+            content: "Thinking...",
+            html: `<p>Thinking...</p>`,
+          }}
+        />
       </motion.div>
     </motion.div>
   );
