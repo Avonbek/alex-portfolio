@@ -54,7 +54,6 @@ export const handleSendMessage = async (
       if (done) break;
 
       const chunk = decoder.decode(value);
-      console.log("chunk", chunk);
       htmlContent += chunk;
 
       setMessages((prev) => {

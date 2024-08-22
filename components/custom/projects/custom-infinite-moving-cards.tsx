@@ -89,8 +89,11 @@ export const CustomInfiniteMovingCards = ({
           <li
             className="moving-card"
             style={{
+              boxShadow: "0 0 5px rgba(0, 128, 128, 0.5)",
+              border: "1px solid rgba(0, 128, 128, 0.6)",
+              backdropFilter: "blur(10px)",
               background:
-                "linear-gradient(180deg, var(--slate-800), var(--slate-900)",
+                "linear-gradient(40deg, rgba(0, 128, 128, 0.1), rgba(0, 128, 128, 0.2)",
             }}
             key={item.name}
           >
@@ -104,10 +107,10 @@ export const CustomInfiniteMovingCards = ({
               </div>
               <div className="relative z-20 mt-6 flex flex-row items-center">
                 <span className="flex flex-col gap-1">
-                  <span className="text-md leading-[1.6] text-gray-400 font-semibold">
+                  <span className="text-md leading-[1.6] text-gray-300 font-semibold">
                     {item.name}
                   </span>
-                  <span className=" text-sm leading-[1.6] text-gray-400 font-normal">
+                  <span className=" text-sm leading-[1.6] text-gray-300 font-normal">
                     {item.title}
                   </span>
                 </span>

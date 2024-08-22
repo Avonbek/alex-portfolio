@@ -46,6 +46,7 @@ const cardContent = [
       <Image
         src={"/spawnart-screenshots/genetics.webp"}
         alt="Simweaver Logo"
+        loading="eager"
         width={0}
         height={0}
         sizes="100%"
@@ -60,6 +61,7 @@ const cardContent = [
       <Image
         src={"/spawnart-screenshots/local-generation.webp"}
         alt="Simweaver Logo"
+        loading="eager"
         width={0}
         height={0}
         sizes="100%"
@@ -74,6 +76,7 @@ const cardContent = [
       <Image
         src={"/spawnart-screenshots/resource-pooling.webp"}
         alt="Simweaver Logo"
+        loading="eager"
         width={0}
         height={0}
         sizes="100%"
@@ -88,6 +91,7 @@ const cardContent = [
       <Image
         src={"/spawnart-screenshots/ratings.png"}
         alt="Simweaver Logo"
+        loading="eager"
         width={0}
         height={0}
         sizes="100%"
@@ -98,25 +102,12 @@ const cardContent = [
     title:
       "Utilize folders, tags and ratings to help keep track of your images.",
   },
-  // {
-  //   quote: (
-  //     <Image
-  //       src={"/spawnart-screenshots/ratings.png"}
-  //       alt="Simweaver Logo"
-  //       width={0}
-  //       height={0}
-  //       sizes="100%"
-  //       style={{ width: "auto", height: "100%", borderRadius: "0.5rem" }}
-  //     />
-  //   ),
-  //   name: "Advanced Search",
-  //   title: "Find images by description, or by similarity to another image.",
-  // },
   {
     quote: (
       <Image
         src={"/spawnart-screenshots/download-model.webp"}
         alt="Simweaver Logo"
+        loading="eager"
         width={0}
         height={0}
         sizes="100%"
