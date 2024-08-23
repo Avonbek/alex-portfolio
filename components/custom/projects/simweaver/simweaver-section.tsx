@@ -66,7 +66,7 @@ const cardContent = [
   {
     quote: (
       <Image
-        src={"/simweaver-screenshots/map-2.png"}
+        src={"/simweaver-screenshots/map-light.png"}
         alt="Simweaver Logo"
         loading="eager"
         width={0}
@@ -82,7 +82,7 @@ const cardContent = [
   {
     quote: (
       <Image
-        src={"/simweaver-screenshots/exposition.png"}
+        src={"/simweaver-screenshots/exposition-light.png"}
         alt="Simweaver Logo"
         loading="eager"
         width={0}
@@ -97,7 +97,7 @@ const cardContent = [
   {
     quote: (
       <Image
-        src={"/simweaver-screenshots/dialog.png"}
+        src={"/simweaver-screenshots/dialog-light.png"}
         alt="Simweaver Logo"
         loading="eager"
         width={0}
@@ -116,7 +116,7 @@ const cardContent = [
   {
     quote: (
       <Image
-        src={"/simweaver-screenshots/editing-object.png"}
+        src={"/simweaver-screenshots/object-editor-light.png"}
         alt="Simweaver Logo"
         loading="eager"
         width={0}
