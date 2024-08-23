@@ -6,8 +6,16 @@ import { Toaster } from "react-hot-toast";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Alex Threet",
+  title: "Alex Threet Portfolio",
   description: "Full stack developer, AI engineer and designer",
+  openGraph: {
+    title: "Alex Threet Portfolio",
+    description: "Full stack developer, AI engineer and designer",
+    url: "https://alexthreet.dev",
+    siteName: "Alex Threet Portfolio",
+    locale: "en_US",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
