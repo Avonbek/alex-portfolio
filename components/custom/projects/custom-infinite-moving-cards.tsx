@@ -52,6 +52,7 @@ export const CustomInfiniteMovingCards = ({
           containerRef.current.style.setProperty(
             "--animation-duration",
             "140s"
+            // "140s"
           );
         }
       }

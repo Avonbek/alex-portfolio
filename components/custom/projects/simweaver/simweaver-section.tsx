@@ -67,7 +67,7 @@ const cardContent = [
     quote: (
       <Image
         src={"/simweaver-screenshots/map-light.png"}
-        alt="Simweaver Logo"
+        alt="Simweaver Map"
         loading="eager"
         width={0}
         height={0}
@@ -83,7 +83,7 @@ const cardContent = [
     quote: (
       <Image
         src={"/simweaver-screenshots/exposition-light.png"}
-        alt="Simweaver Logo"
+        alt="Simweaver Exposition"
         loading="eager"
         width={0}
         height={0}
@@ -98,7 +98,7 @@ const cardContent = [
     quote: (
       <Image
         src={"/simweaver-screenshots/dialog-light.png"}
-        alt="Simweaver Logo"
+        alt="Simweaver Dialog"
         loading="eager"
         width={0}
         height={0}
@@ -116,8 +116,27 @@ const cardContent = [
   {
     quote: (
       <Image
+        src={"/simweaver-screenshots/trade-ui-light.png"}
+        alt="Simweaver Trade"
+        loading="eager"
+        width={0}
+        height={0}
+        sizes="100%"
+        style={{
+          width: "100%",
+          height: "100%",
+          borderRadius: "0.5rem",
+        }}
+      />
+    ),
+    name: "Add Complex Interactions",
+    title: "Simweaver is more than just a chatbot, it's a full game engine.",
+  },
+  {
+    quote: (
+      <Image
         src={"/simweaver-screenshots/object-editor-light.png"}
-        alt="Simweaver Logo"
+        alt="Simweaver Editor"
         loading="eager"
         width={0}
         height={0}
