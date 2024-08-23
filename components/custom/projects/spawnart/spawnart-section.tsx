@@ -17,8 +17,8 @@ export default function SpawnartSection({ visibility, variants }: any) {
             src={"/logos/Spawn_Logo_full_white_SVG.svg"}
             alt="Spawnart Logo"
             loading="eager"
-            width={0}
-            height={0}
+            width={1}
+            height={1}
             sizes="100%"
             style={{ width: "auto", height: "100%", borderRadius: "0rem" }}
           />
