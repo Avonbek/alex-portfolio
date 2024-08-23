@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { CustomInfiniteMovingCards } from "../custom-infinite-moving-cards";
 import { motion } from "framer-motion";
+import SpawnLogo from "/public/logos/Spawn_Logo_full_white_SVG.svg";
 
 export default function SpawnartSection({ visibility, variants }: any) {
   // replace with logo
@@ -14,7 +15,7 @@ export default function SpawnartSection({ visibility, variants }: any) {
           className="spawnart-title"
         >
           <Image
-            src={"/logos/Spawn_Logo_full_white_SVG.svg"}
+            src={SpawnLogo}
             alt="Spawnart Logo"
             loading="eager"
             width={1}
