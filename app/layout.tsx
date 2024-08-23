@@ -6,8 +6,43 @@ import { Toaster } from "react-hot-toast";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Alex Threet",
+  title: "Alex Threet Portfolio",
   description: "Full stack developer, AI engineer and designer",
+  viewport: {
+    width: "device-width",
+    height: "device-height",
+    initialScale: 1,
+    maximumScale: 1,
+  },
+  openGraph: {
+    title: "Alex Threet Portfolio",
+    description: "Full stack developer, AI engineer and designer",
+    url: "https://alexthreet.dev",
+    siteName: "Alex Threet Portfolio",
+    locale: "en_US",
+    type: "website",
+  },
+  icons: {
+    icon: [
+      {
+        rel: "icon",
+        type: "image/png",
+        sizes: "32x32",
+        url: "/favicon-32x32.png",
+      },
+      {
+        rel: "icon",
+        type: "image/png",
+        sizes: "16x16",
+        url: "/favicon-16x16.png",
+      },
+    ],
+    apple: {
+      rel: "apple-touch-icon",
+      sizes: "180x180",
+      url: "/apple-touch-icon.png",
+    },
+  },
 };
 
 export default function RootLayout({
@@ -17,12 +52,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
+      {/* <head>
         <meta
           name="viewport"
           content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0"
         />
-      </head>
+      </head> */}
       <body>
         {children}
         <Toaster position="top-right" />
