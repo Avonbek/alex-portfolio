@@ -66,6 +66,42 @@ const cardContent = [
   {
     quote: (
       <Image
+        src={"/simweaver-screenshots/trade-ui-light.png"}
+        alt="Simweaver Trade"
+        loading="eager"
+        width={0}
+        height={0}
+        sizes="100%"
+        style={{
+          width: "100%",
+          height: "100%",
+          borderRadius: "0.5rem",
+        }}
+      />
+    ),
+    name: "Trade Items",
+    title: "Simweaver is more than just a chatbot, it's a full game engine.",
+  },
+  {
+    quote: (
+      <Image
+        src={"/simweaver-screenshots/object-editor-light.png"}
+        alt="Simweaver Editor"
+        loading="eager"
+        width={0}
+        height={0}
+        sizes="100%"
+        quality={100}
+        style={{ width: "100%", height: "100%", borderRadius: "0.5rem" }}
+        priority
+      />
+    ),
+    name: "Customize Everything",
+    title: "All characters, locations and objects are fully customizable.",
+  },
+  {
+    quote: (
+      <Image
         src={"/simweaver-screenshots/map-light.png"}
         alt="Simweaver Map"
         loading="eager"
@@ -149,41 +185,5 @@ const cardContent = [
     ),
     name: "Talk to Characters",
     title: "All characters are powered by AI, allowing dynamic interactions.",
-  },
-  {
-    quote: (
-      <Image
-        src={"/simweaver-screenshots/trade-ui-light.png"}
-        alt="Simweaver Trade"
-        loading="eager"
-        width={0}
-        height={0}
-        sizes="100%"
-        style={{
-          width: "100%",
-          height: "100%",
-          borderRadius: "0.5rem",
-        }}
-      />
-    ),
-    name: "Trade Items",
-    title: "Simweaver is more than just a chatbot, it's a full game engine.",
-  },
-  {
-    quote: (
-      <Image
-        src={"/simweaver-screenshots/object-editor-light.png"}
-        alt="Simweaver Editor"
-        loading="eager"
-        width={0}
-        height={0}
-        sizes="100%"
-        quality={100}
-        style={{ width: "100%", height: "100%", borderRadius: "0.5rem" }}
-        priority
-      />
-    ),
-    name: "Customize Everything",
-    title: "All characters, locations and objects are fully customizable.",
   },
 ];
