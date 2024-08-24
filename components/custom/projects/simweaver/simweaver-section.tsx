@@ -77,7 +77,7 @@ const cardContent = [
       />
     ),
     name: "Build Worlds",
-    title: "Weave worlds together using the custom map editor.",
+    title: "Weave worlds together using a graph-based map editor.",
   },
   {
     quote: (
@@ -93,6 +93,43 @@ const cardContent = [
     ),
     name: "Tell Stories",
     title: "Combine images, videos and text to enrich your narrative.",
+  },
+  {
+    quote: (
+      <div
+        className="video-container"
+        style={{
+          position: "relative",
+          width: "100%",
+          paddingTop: "100%",
+          overflow: "hidden",
+          borderRadius: "0.5rem",
+        }}
+      >
+        <video
+          src={"/simweaver-videos/defunct-laboratory-vid.mp4"}
+          muted
+          playsInline
+          controls={false}
+          autoPlay={true}
+          loop
+          className="video"
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            width: "auto",
+            height: "100%",
+            transform: "translate(-50%, -50%)",
+            objectFit: "cover",
+          }}
+        >
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    ),
+    name: "Combine With Video",
+    title: "Add videos to your worlds to create highly immersive experiences.",
   },
   {
     quote: (
@@ -129,7 +166,7 @@ const cardContent = [
         }}
       />
     ),
-    name: "Add Complex Interactions",
+    name: "Trade Items",
     title: "Simweaver is more than just a chatbot, it's a full game engine.",
   },
   {
