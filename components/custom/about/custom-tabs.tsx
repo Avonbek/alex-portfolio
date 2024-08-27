@@ -42,7 +42,7 @@ export const CustomTabs = ({
     const newTabs = [...propTabs];
     setTabs(newTabs);
     setActive(newTabs[0]);
-  }, [visibility.about]);
+  }, [visibility.about, propTabs]);
 
   return (
     <>

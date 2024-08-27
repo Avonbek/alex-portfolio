@@ -31,7 +31,7 @@ export default function About({ visibility, variants }: AboutProps) {
         <h2 className="about-me-title">About Me</h2>
         <h3 className="about-me-description">
           My mission is to craft elegant applications that add real value to
-          people's lives.
+          people&apos;s lives.
         </h3>
       </div>
 

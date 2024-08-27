@@ -66,8 +66,44 @@ const cardContent = [
   {
     quote: (
       <Image
+        src={"/simweaver-screenshots/trade-ui-light.png"}
+        alt="Simweaver Trade"
+        loading="eager"
+        width={0}
+        height={0}
+        sizes="100%"
+        style={{
+          width: "100%",
+          height: "100%",
+          borderRadius: "0.5rem",
+        }}
+      />
+    ),
+    name: "Trade Items",
+    title: "Simweaver is more than just a chatbot, it's a full game engine.",
+  },
+  {
+    quote: (
+      <Image
+        src={"/simweaver-screenshots/object-editor-light.png"}
+        alt="Simweaver Editor"
+        loading="eager"
+        width={0}
+        height={0}
+        sizes="100%"
+        quality={100}
+        style={{ width: "100%", height: "100%", borderRadius: "0.5rem" }}
+        priority
+      />
+    ),
+    name: "Customize Everything",
+    title: "All characters, locations and objects are fully customizable.",
+  },
+  {
+    quote: (
+      <Image
         src={"/simweaver-screenshots/map-light.png"}
-        alt="Simweaver Logo"
+        alt="Simweaver Map"
         loading="eager"
         width={0}
         height={0}
@@ -77,13 +113,13 @@ const cardContent = [
       />
     ),
     name: "Build Worlds",
-    title: "Weave worlds together using the custom map editor.",
+    title: "Weave worlds together using a graph-based map editor.",
   },
   {
     quote: (
       <Image
         src={"/simweaver-screenshots/exposition-light.png"}
-        alt="Simweaver Logo"
+        alt="Simweaver Exposition"
         loading="eager"
         width={0}
         height={0}
@@ -96,9 +132,46 @@ const cardContent = [
   },
   {
     quote: (
+      <div
+        className="video-container"
+        style={{
+          position: "relative",
+          width: "100%",
+          paddingTop: "100%",
+          overflow: "hidden",
+          borderRadius: "0.5rem",
+        }}
+      >
+        <video
+          src={"/simweaver-videos/defunct-laboratory-vid.mp4"}
+          muted
+          playsInline
+          controls={false}
+          autoPlay={true}
+          loop
+          className="video"
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            width: "auto",
+            height: "100%",
+            transform: "translate(-50%, -50%)",
+            objectFit: "cover",
+          }}
+        >
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    ),
+    name: "Combine With Video",
+    title: "Add videos to your worlds to create highly immersive experiences.",
+  },
+  {
+    quote: (
       <Image
         src={"/simweaver-screenshots/dialog-light.png"}
-        alt="Simweaver Logo"
+        alt="Simweaver Dialog"
         loading="eager"
         width={0}
         height={0}
@@ -112,22 +185,5 @@ const cardContent = [
     ),
     name: "Talk to Characters",
     title: "All characters are powered by AI, allowing dynamic interactions.",
-  },
-  {
-    quote: (
-      <Image
-        src={"/simweaver-screenshots/object-editor-light.png"}
-        alt="Simweaver Logo"
-        loading="eager"
-        width={0}
-        height={0}
-        sizes="100%"
-        quality={100}
-        style={{ width: "100%", height: "100%", borderRadius: "0.5rem" }}
-        priority
-      />
-    ),
-    name: "Customize Everything",
-    title: "All characters, locations and objects are fully customizable.",
   },
 ];
