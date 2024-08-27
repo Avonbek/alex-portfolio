@@ -391,7 +391,7 @@ textarea:focus {
   color: var(--muted-text);
   transition: color 0.3s ease, color 0.3s ease;
   cursor: pointer;
-  z-index: 1000;
+  z-index: 1001;
 }
 
 .nav-hamburger:hover {
@@ -466,8 +466,8 @@ textarea:focus {
   top: 0;
   right: 0;
   gap: 1rem;
-  z-index: 500;
-  pointer-events: none;
+  z-index: 1000;
+  /* pointer-events: none */
 }
 
 @media (max-width: 800px) {
@@ -498,6 +498,7 @@ textarea:focus {
   border-radius: 100px;
   pointer-events: auto;
   cursor: pointer;
+  z-index: 1001;
 }
 
 .ai-assistant-btn-text-wide {
