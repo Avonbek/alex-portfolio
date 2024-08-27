@@ -8,12 +8,6 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Alex Threet Portfolio",
   description: "Full stack developer, AI engineer and designer",
-  viewport: {
-    width: "device-width",
-    height: "device-height",
-    initialScale: 1,
-    maximumScale: 1,
-  },
   openGraph: {
     title: "Alex Threet Portfolio",
     description: "Full stack developer, AI engineer and designer",
@@ -43,6 +37,13 @@ export const metadata: Metadata = {
       url: "/apple-touch-icon.png",
     },
   },
+};
+
+export const viewport = {
+  width: "device-width",
+  height: "device-height",
+  initialScale: 1,
+  maximumScale: 1,
 };
 
 export default function RootLayout({
