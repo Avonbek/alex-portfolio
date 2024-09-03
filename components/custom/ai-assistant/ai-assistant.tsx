@@ -125,7 +125,7 @@ export default function AiAssistant({}) {
                   whileHover={{ backgroundColor: "var(--teal-800)" }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => handleSendMessageCallback(suggestion)}
-                  className="flex items-center justify-center p-2 rounded-lg bg-teal-900 text-[var(--muted-text)] text-sm"
+                  className="ai-assistant-suggestion-btn"
                 >
                   {suggestion}
                 </motion.button>

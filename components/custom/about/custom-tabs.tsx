@@ -60,7 +60,7 @@ export const CustomTabs = ({
             }}
             onMouseEnter={() => setHovering(true)}
             onMouseLeave={() => setHovering(false)}
-            className={cn("relative px-4 py-2 rounded-full", tabClassName)}
+            className={cn("skill-tab-btn", tabClassName)}
             style={{
               transformStyle: "preserve-3d",
             }}
