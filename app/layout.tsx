@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "react-hot-toast";
-import { GoogleAnalytics } from "@next/third-parties/google";
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -58,7 +58,8 @@ export default function RootLayout({
         {children}
         <Toaster position="top-right" />
       </body>
-      <GoogleAnalytics gaId="G-6J5YNYCVGD" />
+      <GoogleTagManager gtmId="GTM-W42WXDT4" />
+      {/* <GoogleAnalytics gaId="G-6J5YNYCVGD" /> */}
     </html>
   );
 }

@@ -1,6 +1,7 @@
 import { AnimatePresence, motion, animate } from "framer-motion";
 import { ChevronDown } from "lucide-react";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
+// import {} from "ga-gtag";
 
 interface AssistantToggleButtonProps {
   isOpen: boolean;
@@ -12,8 +13,12 @@ export default function AssistantToggleButton({
   onClick,
 }: AssistantToggleButtonProps) {
   const buttonRef = useRef<HTMLButtonElement>(null);
+
+  // --- RENDER ---
+
   return (
     <motion.button
+      id="ai-assistant-btn"
       ref={buttonRef}
       initial={{ scale: 0 }}
       animate={{
