@@ -54,6 +54,7 @@ export const CustomTabs = ({
       >
         {propTabs.map((tab, idx) => (
           <button
+            id="skill-tab-btn"
             key={tab.title}
             onClick={() => {
               moveSelectedTabToTop(idx);

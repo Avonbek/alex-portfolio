@@ -54,7 +54,9 @@ export default function SimweaverSection({ visibility, variants }: any) {
           className="flex mt-auto gap-4"
         >
           <a href="https://simweaver.com/" target="_blank" rel="noreferrer">
-            <button className="colored-btn">Visit Website</button>
+            <button id="visit-simweaver-btn" className="colored-btn">
+              Visit Website
+            </button>
           </a>
         </motion.div>
       </div>

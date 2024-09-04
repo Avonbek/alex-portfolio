@@ -58,6 +58,7 @@ export default function Contact({ visibility, variants }: ContactProps) {
         {/* Contact Buttons */}
         <div className="contact-buttons">
           <motion.a
+            id="contact-github-btn"
             initial={{ opacity: 0 }}
             animate={{ opacity: visibility.contact ? 1 : 0 }}
             transition={{ duration: duration, delay: delay }}
@@ -68,6 +69,7 @@ export default function Contact({ visibility, variants }: ContactProps) {
             <FaGithub size={30} />
           </motion.a>
           <motion.a
+            id="contact-linkedin-btn"
             initial={{ opacity: 0 }}
             animate={{ opacity: visibility.contact ? 1 : 0 }}
             transition={{ duration: duration, delay: delay * 1.5 }}
@@ -78,6 +80,7 @@ export default function Contact({ visibility, variants }: ContactProps) {
             <FaLinkedinIn size={30} />
           </motion.a>
           <motion.button
+            id="contact-email-btn"
             initial={{ opacity: 0 }}
             animate={{ opacity: visibility.contact ? 1 : 0 }}
             transition={{ duration: duration, delay: delay * 2 }}

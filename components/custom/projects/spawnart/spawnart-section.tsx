@@ -55,7 +55,9 @@ export default function SpawnartSection({ visibility, variants }: any) {
           className="flex mt-auto"
         >
           <a href="https://spawnart.ai/" target="_blank" rel="noreferrer">
-            <button className="colored-btn">Visit Website</button>
+            <button id="visit-spawnart-btn" className="colored-btn">
+              Visit Website
+            </button>
           </a>
         </motion.div>
       </div>

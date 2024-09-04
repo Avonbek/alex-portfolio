@@ -58,19 +58,35 @@ export default function NavBar({
         }}
         className="nav"
       >
-        <button onClick={() => handleScrollTo(homeRef)} className="nav-btn">
+        <button
+          id="nav-home-btn"
+          onClick={() => handleScrollTo(homeRef)}
+          className="nav-btn"
+        >
           Home
         </button>
         <div className="nav-divider"></div>
-        <button onClick={() => handleScrollTo(aboutRef)} className="nav-btn">
+        <button
+          id="nav-about-btn"
+          onClick={() => handleScrollTo(aboutRef)}
+          className="nav-btn"
+        >
           About
         </button>
         <div className="nav-divider"></div>
-        <button onClick={() => handleScrollTo(projectsRef)} className="nav-btn">
+        <button
+          id="nav-projects-btn"
+          onClick={() => handleScrollTo(projectsRef)}
+          className="nav-btn"
+        >
           Projects
         </button>
         <div className="nav-divider"></div>
-        <button onClick={() => handleScrollTo(contactRef)} className="nav-btn">
+        <button
+          id="nav-contact-btn"
+          onClick={() => handleScrollTo(contactRef)}
+          className="nav-btn"
+        >
           Contact
         </button>
       </motion.nav>
@@ -116,6 +132,7 @@ export default function NavBar({
                 <IoClose size={25} />
               </button>
               <button
+                id="modal-home-btn"
                 onClick={() => handleScrollTo(homeRef)}
                 className="nav-btn"
               >
@@ -123,6 +140,7 @@ export default function NavBar({
               </button>
               <div className="nav-divider"></div>
               <button
+                id="modal-about-btn"
                 onClick={() => handleScrollTo(aboutRef)}
                 className="nav-btn"
               >
@@ -130,6 +148,7 @@ export default function NavBar({
               </button>
               <div className="nav-divider"></div>
               <button
+                id="modal-projects-btn"
                 onClick={() => handleScrollTo(projectsRef)}
                 className="nav-btn"
               >
@@ -137,6 +156,7 @@ export default function NavBar({
               </button>
               <div className="nav-divider"></div>
               <button
+                id="modal-contact-btn"
                 onClick={() => handleScrollTo(contactRef)}
                 className="nav-btn"
               >
