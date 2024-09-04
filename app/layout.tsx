@@ -2,16 +2,18 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "react-hot-toast";
-import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
+import { GoogleTagManager } from "@next/third-parties/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Alex Threet Portfolio",
-  description: "Full stack developer, AI engineer and designer",
+  title: "Alex Threet - Full Stack - AI Engineer - Designer",
+  description:
+    "I'm Alex Threet, a full stack developer, AI engineer and co-founder of Friendly AI.",
   openGraph: {
-    title: "Alex Threet Portfolio",
-    description: "Full stack developer, AI engineer and designer",
+    title: "Alex Threet - Full Stack - AI Engineer - Designer",
+    description:
+      "I'm Alex Threet, a full stack developer, AI engineer and co-founder of Friendly AI.",
     url: "https://alexthreet.dev",
     siteName: "Alex Threet Portfolio",
     locale: "en_US",
@@ -59,7 +61,6 @@ export default function RootLayout({
         <Toaster position="top-right" />
       </body>
       <GoogleTagManager gtmId="GTM-W42WXDT4" />
-      {/* <GoogleAnalytics gaId="G-6J5YNYCVGD" /> */}
     </html>
   );
 }
