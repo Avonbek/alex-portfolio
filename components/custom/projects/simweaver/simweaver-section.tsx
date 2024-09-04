@@ -31,14 +31,13 @@ export default function SimweaverSection({ visibility, variants }: any) {
         >
           Create games powered by AI.
         </motion.h2>
-        {/* maybe this could be an image carousel? Or we could open with a video? */}
         <motion.div
           animate={visibility.simweaver ? "visibleSlow" : "hidden"}
           initial="hidden"
           variants={variants}
           className="flex justify-center my-8 gap-4 w-full"
         >
-          <div className="text-start rounded-md flex flex-col antialiased bg-transparent dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden pt-3">
+          <div className="moving-card-parent">
             <CustomInfiniteMovingCards
               items={cardContent}
               direction="left"

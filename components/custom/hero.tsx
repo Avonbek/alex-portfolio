@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 import { Fragment } from "react";
 import { HiArrowLongDown } from "react-icons/hi2";
+import { CustomInfiniteMovingCards } from "./projects/custom-infinite-moving-cards";
+import { HeroInfiniteMovingCards } from "./projects/hero-infinite-moving-cards";
 
 export default function Hero() {
   const duration = 0.5;
@@ -57,10 +59,27 @@ export default function Hero() {
         initial={{ y: 40, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: duration, delay: delay * 2 }}
-        className="down-arrow-footer"
+        className="moving-card-parent-hero"
+        // className="hero-footer"
       >
-        <HiArrowLongDown size={50} />
+        <HeroInfiniteMovingCards
+          items={cardContent}
+          direction="left"
+          speed="normal"
+          pauseOnHover={true}
+        />
       </motion.div>
     </Fragment>
   );
 }
+
+const cardContent = [
+  "React",
+  "Next.js",
+  "Node.js",
+  "Typescript",
+  "Python",
+  "C#",
+  "SQL",
+  "Git",
+];

@@ -39,7 +39,7 @@ export default function SpawnartSection({ visibility, variants }: any) {
           variants={variants}
           className="flex justify-center my-8 gap-4 w-full"
         >
-          <div className="text-start rounded-md flex flex-col antialiased bg-transparent dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
+          <div className="moving-card-parent">
             <CustomInfiniteMovingCards
               items={cardContent}
               direction="left"
