@@ -1,5 +1,5 @@
 import { motion, useTransform, useScroll, useInView } from "framer-motion";
-import Hero from "@/components/custom/hero";
+import Hero from "@/components/custom/hero/hero";
 import About from "./about/about";
 import AiExperience from "./ai-experience/ai-experience";
 import ProjectsHeader from "./projects/projects-header";
@@ -8,6 +8,9 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { variants } from "@/lib/utils";
 import SpawnartSection from "./projects/spawnart/spawnart-section";
 import Contact from "./contact";
+import { Canvas } from "@react-three/fiber";
+import { NodeGrid } from "./hero/node-grid";
+import { RotatingSphere } from "./hero/rotating-sphere";
 
 type MainContentProps = {
   homeRef: any;
@@ -142,7 +145,7 @@ export default function MainContent({
   return (
     <div className={`main-content`}>
       {/* 1. Hero (NOTE: The Outer motion.div is for parallax sticky effect.) */}
-      <motion.div ref={homeRef} className="parallax-hero">
+      <motion.div ref={homeRef} className="parallax-hero relative">
         <Hero />
       </motion.div>
 

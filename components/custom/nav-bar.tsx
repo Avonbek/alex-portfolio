@@ -5,6 +5,7 @@ import { Fragment, useRef, useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoClose } from "react-icons/io5";
 import { scrollTo } from "@/lib/utils";
+import Image from "next/image";
 
 type NavBarProps = {
   homeRef: any;
@@ -58,37 +59,47 @@ export default function NavBar({
         }}
         className="nav"
       >
-        <button
-          id="nav-home-btn"
+        <Image
+          src={"/logos/at-logo.png"}
+          alt="Simweaver Dialog"
+          loading="eager"
+          width={50}
+          height={50}
+          sizes="100%"
           onClick={() => handleScrollTo(homeRef)}
-          className="nav-btn"
-        >
-          Home
-        </button>
-        <div className="nav-divider"></div>
-        <button
-          id="nav-about-btn"
-          onClick={() => handleScrollTo(aboutRef)}
-          className="nav-btn"
-        >
-          About
-        </button>
-        <div className="nav-divider"></div>
-        <button
-          id="nav-projects-btn"
-          onClick={() => handleScrollTo(projectsRef)}
-          className="nav-btn"
-        >
-          Projects
-        </button>
-        <div className="nav-divider"></div>
-        <button
-          id="nav-contact-btn"
-          onClick={() => handleScrollTo(contactRef)}
-          className="nav-btn"
-        >
-          Contact
-        </button>
+          className="ml-4 cursor-pointer"
+        />
+        <div className="nav-button-parent">
+          {/* <button
+            id="nav-home-btn"
+            onClick={() => handleScrollTo(homeRef)}
+            className="nav-btn"
+          >
+            Home
+          </button> */}
+          <button
+            id="nav-about-btn"
+            onClick={() => handleScrollTo(aboutRef)}
+            className="nav-btn"
+          >
+            About
+          </button>
+          <button
+            id="nav-projects-btn"
+            onClick={() => handleScrollTo(projectsRef)}
+            className="nav-btn"
+          >
+            Projects
+          </button>
+          <button
+            id="nav-contact-btn"
+            onClick={() => handleScrollTo(contactRef)}
+            className="nav-btn"
+          >
+            Contact
+          </button>
+          {/* <div className="w-[450px]"></div> */}
+        </div>
       </motion.nav>
 
       {/* --- SMALL MODE --- */}

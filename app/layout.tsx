@@ -7,11 +7,11 @@ import { GoogleTagManager } from "@next/third-parties/google";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Alex Threet - Full Stack - AI Engineer - Designer",
+  title: "Alex Threet - Full Stack Developer - AI Engineer - Designer",
   description:
     "I'm Alex Threet, a full stack developer, AI engineer and co-founder of Friendly AI.",
   openGraph: {
-    title: "Alex Threet - Full Stack - AI Engineer - Designer",
+    title: "Alex Threet - Full Stack Developer - AI Engineer - Designer",
     description:
       "I'm Alex Threet, a full stack developer, AI engineer and co-founder of Friendly AI.",
     url: "https://alexthreet.dev",

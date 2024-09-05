@@ -20,11 +20,11 @@ export default function AssistantToggleButton({
     <motion.button
       id="ai-assistant-btn"
       ref={buttonRef}
-      initial={{ scale: 0 }}
+      initial={{ y: -100 }}
       animate={{
-        scale: 1,
+        y: 0,
         boxShadow: "0 0 5px rgba(0, 128, 128, 0.5)",
-        transition: { duration: 0.3, delay: 0.5 },
+        transition: { duration: 0.5, delay: 0.5 },
       }}
       whileHover={{
         boxShadow: [

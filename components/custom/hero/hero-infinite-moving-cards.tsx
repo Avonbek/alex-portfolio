@@ -91,7 +91,7 @@ export const HeroInfiniteMovingCards = ({
       >
         {items.map((text, idx) => (
           <li
-            className="moving-card-hero"
+            className="hero-moving-card"
             style={{
               // boxShadow: "0 0 5px rgba(0, 128, 128, 0.5)",
               // border: "1px solid rgba(0, 128, 128, 0.6)",
