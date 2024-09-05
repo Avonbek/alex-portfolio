@@ -6,11 +6,13 @@ import { useEffect, useRef } from "react";
 interface AssistantToggleButtonProps {
   isOpen: boolean;
   onClick: () => void;
+  loaded: boolean;
 }
 
 export default function AssistantToggleButton({
   isOpen,
   onClick,
+  loaded,
 }: AssistantToggleButtonProps) {
   const buttonRef = useRef<HTMLButtonElement>(null);
 
@@ -21,11 +23,15 @@ export default function AssistantToggleButton({
       id="ai-assistant-btn"
       ref={buttonRef}
       initial={{ y: -100 }}
-      animate={{
-        y: 0,
-        boxShadow: "0 0 5px rgba(0, 128, 128, 0.5)",
-        transition: { duration: 0.5, delay: 0.5 },
-      }}
+      animate={
+        loaded
+          ? {
+              y: 0,
+              boxShadow: "0 0 5px rgba(0, 128, 128, 0.5)",
+              transition: { duration: 0.5, delay: 0.5 },
+            }
+          : {}
+      }
       whileHover={{
         boxShadow: [
           "0 0 5px rgba(0, 255, 255, 0.5)",

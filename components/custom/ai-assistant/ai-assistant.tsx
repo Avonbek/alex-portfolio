@@ -14,7 +14,11 @@ const suggestions = [
   "Tell me about Alex's projects.",
 ];
 
-export default function AiAssistant({}) {
+type AiAssistantProps = {
+  loaded: boolean;
+};
+
+export default function AiAssistant({ loaded }: AiAssistantProps) {
   // --- STATE ---
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
   const [aiAssistantOpen, setAiAssistantOpen] = useState(false);
@@ -88,6 +92,7 @@ export default function AiAssistant({}) {
       <AssistantToggleButton
         isOpen={aiAssistantOpen}
         onClick={() => setAiAssistantOpen(!aiAssistantOpen)}
+        loaded={loaded}
       />
       {/* AI assistant container */}
       <div className="flex w-full h-full justify-center">

@@ -1,41 +1,59 @@
 "use client";
 
+import { Fragment, FC, Suspense, useState } from "react";
 import { motion } from "framer-motion";
-import { Fragment } from "react";
 import { HeroInfiniteMovingCards } from "./hero-infinite-moving-cards";
-import { Canvas } from "@react-three/fiber";
-import { RotatingSphere } from "./rotating-sphere";
+import dynamic from "next/dynamic";
 
-export default function Hero() {
+const Scene = dynamic(() => import("@/components/custom/scene/scene"), {
+  ssr: false,
+  // loading: () => <div>Loading Scene...</div>,
+});
+
+type HeroProps = {
+  loaded: boolean;
+  setLoaded: any;
+};
+
+export default function Hero({ loaded, setLoaded }: HeroProps) {
   const duration = 0.5;
   const delay = 0.5;
+
+  // --- RENDER ---
+
   return (
     <Fragment>
-      {/* First Last Name */}
-      <div className="hero">
-        <div className="hero-content-parent">
-          <motion.div
-            initial={{ x: -50, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: duration }}
-            className="hero-text-parent"
-          >
-            <h1 className="hero-title">Alex Threet</h1>
-            <h2 className="hero-subtitle">Full Stack Developer</h2>
-            <h3 className="hero-description">
-              I build reactive, scalable, and maintainable web applications from
-              the ground up.
-            </h3>
-          </motion.div>
+      <Suspense fallback={null}>
+        {/* First Last Name */}
+        <div className="hero">
+          <div className="hero-content-parent">
+            <motion.div
+              initial={{ x: -50, opacity: 0 }}
+              animate={loaded ? { x: 0, opacity: 1 } : {}}
+              // animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: duration }}
+              className="hero-text-parent"
+            >
+              <h1 className="hero-title">Alex Threet</h1>
+              <h2 className="hero-subtitle">Full Stack Developer</h2>
+              <h3 className="hero-description">
+                I build reactive, scalable, and maintainable web applications
+                from the ground up.
+              </h3>
+            </motion.div>
 
-          <Canvas className="hero-3d-canvas">
-            <ambientLight />
-            <RotatingSphere />
-          </Canvas>
+            {/* 3D Sphere */}
+
+            <Scene onLoaded={() => setLoaded(true)} />
+          </div>
         </div>
-      </div>
+      </Suspense>
+    </Fragment>
+  );
+}
 
-      <motion.div
+{
+  /* <motion.div
         initial={{ x: 40, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: duration, delay: delay }}
@@ -47,18 +65,16 @@ export default function Hero() {
           speed="normal"
           pauseOnHover={true}
         />
-      </motion.div>
-    </Fragment>
-  );
+      </motion.div> */
 }
 
-const cardContent = [
-  "React",
-  "Next.js",
-  "Node.js",
-  "Typescript",
-  "Python",
-  "C#",
-  "SQL",
-  "Git",
-];
+// const cardContent = [
+//   "React",
+//   "Next.js",
+//   "Node.js",
+//   "Typescript",
+//   "Python",
+//   "C#",
+//   "SQL",
+//   "Git",
+// ];

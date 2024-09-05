@@ -3,9 +3,11 @@
 import AiAssistant from "@/components/custom/ai-assistant/ai-assistant";
 import MainContent from "@/components/custom/main-content";
 import NavBar from "@/components/custom/nav-bar";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 export default function Home() {
+  // loaded
+  const [loaded, setLoaded] = useState(false);
   // refs
   const homeRef = useRef(null);
   const aboutRef = useRef(null);
@@ -23,6 +25,7 @@ export default function Home() {
         aboutRef={aboutRef}
         projectsRef={projectsRef}
         contactRef={contactRef}
+        loaded={loaded}
       />
       <MainContent
         homeRef={homeRef}
@@ -32,8 +35,10 @@ export default function Home() {
         simweaverRef={simweaverRef}
         spawnartRef={spawnartRef}
         contactRef={contactRef}
+        loaded={loaded}
+        setLoaded={setLoaded}
       />
-      <AiAssistant />
+      <AiAssistant loaded={loaded} />
     </main>
   );
 }

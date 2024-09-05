@@ -1,16 +1,13 @@
+import { useEffect, useLayoutEffect, useState } from "react";
 import { motion, useTransform, useScroll, useInView } from "framer-motion";
+import { variants } from "@/lib/utils";
 import Hero from "@/components/custom/hero/hero";
 import About from "./about/about";
 import AiExperience from "./ai-experience/ai-experience";
 import ProjectsHeader from "./projects/projects-header";
 import SimweaverSection from "./projects/simweaver/simweaver-section";
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
-import { variants } from "@/lib/utils";
 import SpawnartSection from "./projects/spawnart/spawnart-section";
 import Contact from "./contact";
-import { Canvas } from "@react-three/fiber";
-import { NodeGrid } from "./hero/node-grid";
-import { RotatingSphere } from "./hero/rotating-sphere";
 
 type MainContentProps = {
   homeRef: any;
@@ -20,6 +17,8 @@ type MainContentProps = {
   simweaverRef: any;
   spawnartRef: any;
   contactRef: any;
+  loaded: boolean;
+  setLoaded: any;
 };
 
 export default function MainContent({
@@ -30,6 +29,8 @@ export default function MainContent({
   simweaverRef,
   spawnartRef,
   contactRef,
+  loaded,
+  setLoaded,
 }: MainContentProps) {
   // --- VISIBILITY ---
   const params = { once: true, amount: 0.7 };
@@ -146,7 +147,7 @@ export default function MainContent({
     <div className={`main-content`}>
       {/* 1. Hero (NOTE: The Outer motion.div is for parallax sticky effect.) */}
       <motion.div ref={homeRef} className="parallax-hero relative">
-        <Hero />
+        <Hero loaded={loaded} setLoaded={setLoaded} />
       </motion.div>
 
       {/* 2. About */}

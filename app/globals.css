@@ -742,21 +742,6 @@ textarea:focus {
   }
 }
 
-/* hero 3d canvas */
-
-.hero-3d-canvas {
-  /* position: absolute; */
-  /* top: 0; */
-  /* left: 0; */
-  width: 100%;
-  /* aspect-ratio: 1 / 2; */
-  /* max-height: 200%; */
-  z-index: 1;
-  pointer-events: none;
-
-  /* border: 1px solid var(--muted-text); */
-}
-
 /* hero footer */
 
 .hero-footer {

@@ -12,6 +12,7 @@ type NavBarProps = {
   aboutRef: any;
   projectsRef: any;
   contactRef: any;
+  loaded: boolean;
 };
 
 export default function NavBar({
@@ -19,8 +20,8 @@ export default function NavBar({
   aboutRef,
   projectsRef,
   contactRef,
+  loaded,
 }: NavBarProps) {
-  // zustand store
   // local state
   const [isModalOpen, setIsModalOpen] = useState(false);
   const modalContentRef = useRef<HTMLDivElement>(null);
@@ -52,7 +53,7 @@ export default function NavBar({
       {/* --- WIDE MODE --- */}
       <motion.nav
         initial={{ y: -30, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
+        animate={loaded ? { y: 0, opacity: 1 } : {}}
         transition={{
           duration: 0.5,
           delay: 0.6,
@@ -105,7 +106,7 @@ export default function NavBar({
       {/* --- SMALL MODE --- */}
       <motion.nav
         initial={{ y: -30, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
+        animate={loaded ? { y: 0, opacity: 1 } : {}}
         transition={{
           duration: 0.5,
           delay: 0.6,

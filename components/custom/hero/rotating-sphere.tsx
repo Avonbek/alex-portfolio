@@ -1,14 +1,34 @@
+"use client";
+
 import { useRef, useEffect, useState } from "react";
-import { useFrame, useThree } from "@react-three/fiber";
+import {
+  useFrame,
+  useThree,
+  extend,
+  Object3DNode,
+  MaterialNode,
+} from "@react-three/fiber";
+import { EffectComposer, Bloom, LensFlare } from "@react-three/postprocessing";
+import { BlendFunction } from "postprocessing";
 import * as THREE from "three";
-import { EffectComposer, Bloom } from "@react-three/postprocessing";
+
+import { useControls } from "leva";
+import { MeshLineGeometry, MeshLineMaterial } from "meshline";
+import { Text } from "@react-three/drei";
+
+extend({ MeshLineGeometry, MeshLineMaterial });
+
+declare module "@react-three/fiber" {
+  interface ThreeElements {
+    meshLineGeometry: Object3DNode<MeshLineGeometry, typeof MeshLineGeometry>;
+    meshLineMaterial: MaterialNode<MeshLineMaterial, typeof MeshLineMaterial>;
+  }
+}
 
 // Main RotatingSphere component
 const labels = ["AI Experience", "About Me", "Projects", "Contact"];
 
 export function RotatingSphere() {
-  const groupRef = useRef<THREE.Group>(null);
-
   // Calculate positions for each label around a sphere using spherical coordinates
   const positions = labels.map((_, i) => {
     const phi = Math.acos(-1 + (2 * i) / labels.length);
@@ -21,7 +41,10 @@ export function RotatingSphere() {
     return [x, y, z] as [number, number, number];
   });
 
-  // Slow rotation for the group
+  // Rotate the group in every frame
+  const groupRef = useRef<THREE.Group>(null);
+  const { viewport } = useThree();
+
   useFrame(() => {
     if (groupRef.current) {
       groupRef.current.rotation.y += 0.0005;
@@ -30,11 +53,7 @@ export function RotatingSphere() {
   });
 
   return (
-    <group ref={groupRef}>
-      {/* Lighting */}
-      <ambientLight intensity={0.5} color="#112f39" />
-      <directionalLight position={[5, 5, 5]} intensity={0.6} castShadow />
-
+    <group ref={groupRef} scale={viewport.width / 6}>
       {/* Central Core Sphere with enhanced material */}
       <mesh position={[0, 0, 0]} castShadow>
         <sphereGeometry args={[0.2, 64, 64]} />
@@ -54,28 +73,35 @@ export function RotatingSphere() {
       {positions.map((pos, index) => (
         <group key={index}>
           <Line start={[0, 0, 0]} end={pos} />
-          <BillboardBox position={pos} args={[1, 0.5, 0.1]} color={"#fafafa"} />
+          <BillboardBox
+            index={index}
+            position={pos}
+            args={[1, 0.5, 0.1]}
+            color={"#fafafa"}
+          />
         </group>
       ))}
 
       {/* Post-processing for glow */}
-      <EffectComposer>
+      {/* <EffectComposer>
         <Bloom
-          luminanceThreshold={0.3}
-          luminanceSmoothing={0.9}
-          intensity={0.7}
+          luminanceThreshold={0.7}
+          luminanceSmoothing={1}
+          intensity={0.02}
         />
-      </EffectComposer>
+      </EffectComposer> */}
     </group>
   );
 }
 
 // Updated BillboardBox with semi-transparent glass-like effect and glow
 function BillboardBox({
+  index,
   position,
   args,
   color,
 }: {
+  index: number;
   position: [number, number, number];
   args: [number, number, number];
   color: string;
@@ -91,23 +117,23 @@ function BillboardBox({
   });
 
   return (
-    <mesh ref={ref} position={position} castShadow receiveShadow>
+    <mesh ref={ref} position={position} castShadow receiveShadow scale={0.3}>
       {/* Slight rounded box geometry */}
-      <boxGeometry args={args} />
+      {/* <boxGeometry args={args} /> */}
 
       {/* Semi-transparent material for glass-like appearance */}
-      <meshPhysicalMaterial
+      {/* <meshPhysicalMaterial
         color={color}
-        transparent
-        opacity={0.7} // More transparency for subtle look
         roughness={0.2}
-        metalness={0.7}
+        metalness={0.5}
         reflectivity={0.8}
-        clearcoat={0.8}
-        clearcoatRoughness={0.1}
-        emissive={"#00b3b3"}
-        emissiveIntensity={0.3} // Subtle inner glow
-      />
+        clearcoat={1}
+        clearcoatRoughness={0.15}
+      /> */}
+      <Text anchorX="center" anchorY="middle">
+        {" "}
+        {labels[index]}{" "}
+      </Text>
     </mesh>
   );
 }
