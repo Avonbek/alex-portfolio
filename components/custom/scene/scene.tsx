@@ -7,8 +7,9 @@ import {
   Text3D,
   useProgress,
   PerspectiveCamera,
+  Lightformer,
 } from "@react-three/drei";
-import { RotatingSphere } from "../hero/rotating-sphere";
+import { RotatingSphere } from "./rotating-sphere";
 import { useEffect } from "react";
 
 type SceneProps = {
@@ -27,10 +28,39 @@ export default function Scene({ onLoaded }: SceneProps) {
   return (
     <Canvas dpr={[1, 2]} camera={{ position: [0, 0, 35] }}>
       <fog attach="fog" args={["#202025", 0, 80]} />
-      <directionalLight position={[0, 3, 2]} intensity={Math.PI} castShadow />
-      <Environment preset="city" />
-
       <RotatingSphere />
+
+      <Environment preset="city">
+        {/* <directionalLight position={[0, 3, 2]} intensity={5} castShadow /> */}
+        <Lightformer
+          intensity={3}
+          color="white"
+          position={[0, -2, -1]}
+          rotation={[0, 0, Math.PI / 3]}
+          scale={[100, 0.1, 1]}
+        />
+        {/* <Lightformer
+          intensity={3}
+          color="white"
+          position={[-1, -1, 1]}
+          rotation={[0, 0, Math.PI / 3]}
+          scale={[100, 0.1, 1]}
+        /> */}
+        {/* <Lightformer
+          intensity={3}
+          color="white"
+          position={[1, 1, 1]}
+          rotation={[0, 0, Math.PI / 3]}
+          scale={[100, 0.1, 1]}
+        /> */}
+        {/* <Lightformer
+          intensity={10}
+          color="white"
+          position={[-10, 0, 14]}
+          rotation={[0, Math.PI / 2, Math.PI / 3]}
+          scale={[100, 10, 1]}
+        /> */}
+      </Environment>
     </Canvas>
   );
 }

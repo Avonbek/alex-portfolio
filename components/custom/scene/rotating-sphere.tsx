@@ -8,13 +8,12 @@ import {
   Object3DNode,
   MaterialNode,
 } from "@react-three/fiber";
-import { EffectComposer, Bloom, LensFlare } from "@react-three/postprocessing";
-import { BlendFunction } from "postprocessing";
+// import { EffectComposer, Bloom, LensFlare } from "@react-three/postprocessing";
+// import { BlendFunction } from "postprocessing";
 import * as THREE from "three";
-
-import { useControls } from "leva";
+// import { useControls } from "leva";
 import { MeshLineGeometry, MeshLineMaterial } from "meshline";
-import { Text } from "@react-three/drei";
+import { Billboard, Text } from "@react-three/drei";
 
 extend({ MeshLineGeometry, MeshLineMaterial });
 
@@ -56,7 +55,7 @@ export function RotatingSphere() {
     <group ref={groupRef} scale={viewport.width / 6}>
       {/* Central Core Sphere with enhanced material */}
       <mesh position={[0, 0, 0]} castShadow>
-        <sphereGeometry args={[0.2, 64, 64]} />
+        <sphereGeometry args={[0.15, 64, 64]} />
         <meshPhysicalMaterial
           color={"#134e4a"}
           metalness={0.9}
@@ -64,8 +63,8 @@ export function RotatingSphere() {
           clearcoat={0.9}
           clearcoatRoughness={0.05}
           reflectivity={0.9}
-          emissive={"#14b8a6"}
-          envMapIntensity={1}
+          // emissive={"#14b8a6"}
+          // envMapIntensity={1}
         />
       </mesh>
 
@@ -81,15 +80,6 @@ export function RotatingSphere() {
           />
         </group>
       ))}
-
-      {/* Post-processing for glow */}
-      {/* <EffectComposer>
-        <Bloom
-          luminanceThreshold={0.7}
-          luminanceSmoothing={1}
-          intensity={0.02}
-        />
-      </EffectComposer> */}
     </group>
   );
 }
@@ -106,39 +96,58 @@ function BillboardBox({
   args: [number, number, number];
   color: string;
 }) {
-  const ref = useRef<THREE.Mesh>(null);
-  const { camera } = useThree();
+  const ref = useRef<any>(null);
 
-  // Face the camera in every frame
+  const [hovered, setHovered] = useState(false);
+  const handleHover = () => setHovered(true);
+  const handleOut = () => setHovered(false);
+
+  useEffect(() => {
+    if (hovered) {
+      document.body.style.cursor = "pointer";
+    }
+    return () => {
+      document.body.style.cursor = "auto";
+    };
+  }, [hovered]);
   useFrame(() => {
     if (ref.current) {
-      ref.current.lookAt(camera.position);
+      const newColor = hovered
+        ? new THREE.Color("#134e4a")
+        : new THREE.Color("#ffffff");
+      ref.current.material.color.lerp(newColor, 0.3);
     }
   });
 
   return (
-    <mesh ref={ref} position={position} castShadow receiveShadow scale={0.3}>
-      {/* Slight rounded box geometry */}
-      {/* <boxGeometry args={args} /> */}
-
-      {/* Semi-transparent material for glass-like appearance */}
-      {/* <meshPhysicalMaterial
-        color={color}
-        roughness={0.2}
-        metalness={0.5}
-        reflectivity={0.8}
-        clearcoat={1}
-        clearcoatRoughness={0.15}
-      /> */}
-      <Text anchorX="center" anchorY="middle">
+    <Billboard position={position} scale={0.3}>
+      <Text
+        ref={ref}
+        onPointerOver={handleHover}
+        onPointerOut={handleOut}
+        onClick={() => console.log(`${labels[index]} clicked`)}
+        anchorX="center"
+        anchorY="middle"
+        // castShadow
+        // receiveShadow
+      >
         {" "}
         {labels[index]}{" "}
+        <meshPhysicalMaterial
+          color={color}
+          emissive={"#14b8a6"}
+          emissiveIntensity={1}
+          reflectivity={0.9}
+          roughness={0.1}
+          metalness={0.3}
+          clearcoat={0.3}
+          clearcoatRoughness={0.05}
+        />
       </Text>
-    </mesh>
+    </Billboard>
   );
 }
 
-// Line Component: Creates a line between two points
 function Line({
   start,
   end,
@@ -150,7 +159,25 @@ function Line({
   const [geometry, setGeometry] = useState<THREE.BufferGeometry | null>(null);
 
   useEffect(() => {
-    const vertices = [start, end].map((point) => new THREE.Vector3(...point));
+    // Helper function to calculate a shortened endpoint
+    const interpolatePoint = (
+      start: [number, number, number],
+      end: [number, number, number],
+      factor: number
+    ) => {
+      return [
+        start[0] + (end[0] - start[0]) * factor,
+        start[1] + (end[1] - start[1]) * factor,
+        start[2] + (end[2] - start[2]) * factor,
+      ];
+    };
+
+    // Set the factor to shorten the line by 10% (0.9)
+    const shortenedEnd = interpolatePoint(start, end, 0.9);
+
+    const vertices = [start, shortenedEnd].map(
+      (point) => new THREE.Vector3(...point)
+    );
     const geometry = new THREE.BufferGeometry().setFromPoints(vertices);
     setGeometry(geometry);
   }, [start, end]);
@@ -164,7 +191,38 @@ function Line({
   return (
     <line ref={ref}>
       {geometry && <bufferGeometry />}
-      <lineBasicMaterial color="teal" />
+      <lineBasicMaterial color="teal" transparent opacity={0.7} />
     </line>
   );
 }
+
+// Line Component: Creates a line between two points
+// function Line({
+//   start,
+//   end,
+// }: {
+//   start: [number, number, number];
+//   end: [number, number, number];
+// }) {
+//   const ref = useRef<any>();
+//   const [geometry, setGeometry] = useState<THREE.BufferGeometry | null>(null);
+
+//   useEffect(() => {
+//     const vertices = [start, end].map((point) => new THREE.Vector3(...point));
+//     const geometry = new THREE.BufferGeometry().setFromPoints(vertices);
+//     setGeometry(geometry);
+//   }, [start, end]);
+
+//   useFrame(() => {
+//     if (ref.current && ref.current.geometry && geometry) {
+//       ref.current.geometry = geometry;
+//     }
+//   });
+
+//   return (
+//     <line ref={ref}>
+//       {geometry && <bufferGeometry />}
+//       <lineBasicMaterial color="teal" transparent opacity={0.7} />
+//     </line>
+//   );
+// }
