@@ -34,7 +34,7 @@ export default function Hero() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: duration, delay: delay }}
           >
-            Full Stack Developer
+            Founder @ Threetree
           </motion.div>
           <motion.div
             initial={{ y: 40, opacity: 0 }}
