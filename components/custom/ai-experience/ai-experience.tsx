@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-import { TbListSearch } from "react-icons/tb";
-import { LuBrainCircuit } from "react-icons/lu";
-import { FiLink } from "react-icons/fi";
+import { TbRobot } from "react-icons/tb";
+import { HiOutlineLightningBolt } from "react-icons/hi";
+import { FiLayers } from "react-icons/fi";
 import AiExperienceIcon from "./ai-experience-icon";
 
 export default function AiExperience({ visibility }: any) {
@@ -15,24 +15,23 @@ export default function AiExperience({ visibility }: any) {
       transition={{ tension: 200, friction: 50, duration: 0.5 }}
       className="about-ai-experience"
     >
-      <h2 className="title">Experience in AI</h2>
-      {/* parent div */}
+      <h2 className="title">Threetree</h2>
+      <p className="experience-subtitle">Founder & CEO — AI Automation Solutions</p>
       <div className="ai-experience-icon-parent">
-        {/* icon section */}
         <AiExperienceIcon
-          icon={<TbListSearch />}
-          title="RAG"
-          text="Worked on semantic search engines and database knowledge retrieval for AI assistants."
+          icon={<TbRobot />}
+          title="AI Assistants"
+          text="Building intelligent AI assistants that help businesses streamline operations and serve customers."
         />
         <AiExperienceIcon
-          icon={<FiLink />}
-          title="CoT"
-          text="Familiar with chain of thought and agent-based architectures such as Langchain."
+          icon={<HiOutlineLightningBolt />}
+          title="Automation"
+          text="Designing automated workflows powered by AI to eliminate repetitive tasks and boost efficiency."
         />
         <AiExperienceIcon
-          icon={<LuBrainCircuit />}
-          title="Prompts"
-          text="Extensive experience working with AI prompts across a variety of different models."
+          icon={<FiLayers />}
+          title="Integration"
+          text="Seamlessly integrating AI solutions into existing systems and tech stacks."
         />
       </div>
     </motion.div>
